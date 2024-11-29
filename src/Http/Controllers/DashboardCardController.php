@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\DashboardRequest;
+use Laravel\Components\Http\Requests\DashboardRequest;
 
 class DashboardCardController extends Controller
 {
     /**
      * List the cards for the dashboard.
      *
-     * @param  \Laravel\Nova\Http\Requests\DashboardRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DashboardRequest  $request
      * @param  string  $dashboard
      * @return \Illuminate\Http\JsonResponse
      */

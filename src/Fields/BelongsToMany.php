@@ -1,20 +1,20 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Laravel\Nova\Contracts\Deletable as DeletableContract;
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Contracts\ListableField;
-use Laravel\Nova\Contracts\PivotableField;
-use Laravel\Nova\Contracts\QueryBuilder;
-use Laravel\Nova\Contracts\RelatableField;
-use Laravel\Nova\Fields\Filters\EloquentFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Panel;
-use Laravel\Nova\Rules\RelatableAttachment;
-use Laravel\Nova\TrashedStatus;
+use Laravel\Components\Contracts\Deletable as DeletableContract;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Contracts\ListableField;
+use Laravel\Components\Contracts\PivotableField;
+use Laravel\Components\Contracts\QueryBuilder;
+use Laravel\Components\Contracts\RelatableField;
+use Laravel\Components\Fields\Filters\EloquentFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Panel;
+use Laravel\Components\Rules\RelatableAttachment;
+use Laravel\Components\TrashedStatus;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, string|null $resource = null)
@@ -41,7 +41,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * The class name of the related resource.
      *
-     * @var class-string<\Laravel\Nova\Resource>
+     * @var class-string<\Laravel\Components\Resource>
      */
     public $resourceClass;
 
@@ -62,14 +62,14 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * The callback that should be used to resolve the pivot fields.
      *
-     * @var callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Nova\Fields\Field>
+     * @var callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Components\Fields\Field>
      */
     public $fieldsCallback;
 
     /**
      * The callback that should be used to resolve the pivot actions.
      *
-     * @var callable(\Laravel\Nova\Http\Requests\NovaRequest):array<int, \Laravel\Nova\Actions\Action>
+     * @var callable(\Laravel\Components\Http\Requests\NovaRequest):array<int, \Laravel\Components\Actions\Action>
      */
     public $actionsCallback;
 
@@ -92,7 +92,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  class-string<\Laravel\Nova\Resource>|null  $resource
+     * @param  class-string<\Laravel\Components\Resource>|null  $resource
      * @return void
      */
     public function __construct($name, $attribute = null, $resource = null)
@@ -165,7 +165,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Get the validation rules for this field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function getRules(NovaRequest $request)
@@ -182,7 +182,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Get the creation rules for this field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function getCreationRules(NovaRequest $request)
@@ -195,9 +195,9 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Build an attachable query for the field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  bool  $withTrashed
-     * @return \Laravel\Nova\Contracts\QueryBuilder
+     * @return \Laravel\Components\Contracts\QueryBuilder
      */
     public function buildAttachableQuery(NovaRequest $request, $withTrashed = false)
     {
@@ -220,7 +220,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Get the attachable query method name.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return array
      */
@@ -234,7 +234,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Get the attachable query method name.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return string|null
      */
@@ -250,7 +250,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Format the given attachable resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return array
      */
@@ -267,7 +267,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Specify the callback to be executed to retrieve the pivot fields.
      *
-     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Nova\Fields\Field>  $callback
+     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Components\Fields\Field>  $callback
      * @return $this
      */
     public function fields($callback)
@@ -280,7 +280,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Specify the callback to be executed to retrieve the pivot actions.
      *
-     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest):array<int, \Laravel\Nova\Actions\Action>  $callback
+     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest):array<int, \Laravel\Components\Actions\Action>  $callback
      * @return $this
      */
     public function actions($callback)
@@ -331,8 +331,8 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Nova\Fields\Filters\Filter|null
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Components\Fields\Filters\Filter|null
      */
     protected function makeFilter(NovaRequest $request)
     {
@@ -349,7 +349,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Define filterable attribute.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return string
      */
     protected function filterableAttribute(NovaRequest $request)
@@ -364,7 +364,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Define the default filterable callback.
      *
-     * @return callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):void
+     * @return callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):void
      */
     protected function defaultFilterableCallback()
     {
@@ -408,7 +408,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
     /**
      * Make current field behaves as panel.
      *
-     * @return \Laravel\Nova\Panel
+     * @return \Laravel\Components\Panel
      */
     public function asPanel()
     {

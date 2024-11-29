@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova\Http\Middleware;
+namespace Laravel\Components\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Inertia\Middleware;
-use Laravel\Nova\Http\Resources\UserResource;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Resources\UserResource;
+use Laravel\Components\Nova;
 
 class HandleInertiaRequests extends Middleware
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Closure;
 use Exception;
 use Illuminate\Support\Facades\Storage;
-use Laravel\Nova\Contracts\Deletable as DeletableContract;
-use Laravel\Nova\Contracts\Downloadable as DownloadableContract;
-use Laravel\Nova\Contracts\Storable as StorableContract;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\Deletable as DeletableContract;
+use Laravel\Components\Contracts\Downloadable as DownloadableContract;
+use Laravel\Components\Contracts\Storable as StorableContract;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, callable|null $storageCallback = null)
@@ -47,7 +47,7 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
     /**
      * The callback that should be executed to store the file.
      *
-     * @var callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed
+     * @var callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed
      */
     public $storageCallback;
 
@@ -70,7 +70,7 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
      * @return void
      */
     public function __construct($name, $attribute = null, $storageCallback = null)
@@ -143,7 +143,7 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
     /**
      * Prepare the storage callback.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
      * @return void
      */
     protected function prepareStorageCallback($storageCallback)
@@ -224,9 +224,9 @@ class VaporFile extends Field implements StorableContract, DeletableContract, Do
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @param  string  $attribute
      * @return mixed
      */

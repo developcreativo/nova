@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Fields\Filters\TextFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Fields\Filters\TextFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class Text extends Field implements FilterableField
 {
@@ -26,7 +26,7 @@ class Text extends Field implements FilterableField
     /**
      * Make the field filter.
      *
-     * @return \Laravel\Nova\Fields\Filters\Filter
+     * @return \Laravel\Components\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {

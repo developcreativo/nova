@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 trait WithBadge
 {
     /**
      * The badge content for the menu item.
      *
-     * @var (\Closure():(\Laravel\Nova\Badge|string))|(callable():(\Laravel\Nova\Badge|string))|\Laravel\Nova\Badge|string|null
+     * @var (\Closure():(\Laravel\Components\Badge|string))|(callable():(\Laravel\Components\Badge|string))|\Laravel\Components\Badge|string|null
      */
     public $badgeCallback;
 
@@ -28,7 +28,7 @@ trait WithBadge
     /**
      * Set the content to be used for the item's badge.
      *
-     * @param  (\Closure():(\Laravel\Nova\Badge|string))|(callable():(\Laravel\Nova\Badge|string))|\Laravel\Nova\Badge|string  $badgeCallback
+     * @param  (\Closure():(\Laravel\Components\Badge|string))|(callable():(\Laravel\Components\Badge|string))|\Laravel\Components\Badge|string  $badgeCallback
      * @param  string|null  $type
      * @return $this
      */
@@ -52,7 +52,7 @@ trait WithBadge
     /**
      * Set the content to be used for the item's badge if the condition matches.
      *
-     * @param  (\Closure():(\Laravel\Nova\Badge|string))|(callable():(\Laravel\Nova\Badge|string))|\Laravel\Nova\Badge|string  $badgeCallback
+     * @param  (\Closure():(\Laravel\Components\Badge|string))|(callable():(\Laravel\Components\Badge|string))|\Laravel\Components\Badge|string  $badgeCallback
      * @param  string|null  $type
      * @param  (\Closure():(bool))|bool  $condition
      * @return $this
@@ -69,13 +69,13 @@ trait WithBadge
     /**
      * Resolve the badge for the item.
      *
-     * @return \Laravel\Nova\Badge|null
+     * @return \Laravel\Components\Badge|null
      */
     public function resolveBadge()
     {
         if (value($this->badgeCondition)) {
             if (is_callable($this->badgeCallback)) {
-                /** @var \Laravel\Nova\Badge|string|null $result */
+                /** @var \Laravel\Components\Badge|string|null $result */
                 $result = call_user_func($this->badgeCallback);
 
                 if (is_null($result)) {

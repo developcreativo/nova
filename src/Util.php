@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use BackedEnum;
 use Illuminate\Http\Request;

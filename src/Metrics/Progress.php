@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use Illuminate\Database\Eloquent\Builder;
 
@@ -18,12 +18,12 @@ abstract class Progress extends Metric
     /**
      * Return a progress result showing the growth of an count aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  callable(\Illuminate\Database\Eloquent\Builder):void  $progress
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  int|float|null  $target
-     * @return \Laravel\Nova\Metrics\ProgressResult
+     * @return \Laravel\Components\Metrics\ProgressResult
      */
     public function count($request, $model, callable $progress, $column = null, $target = null)
     {
@@ -33,12 +33,12 @@ abstract class Progress extends Metric
     /**
      * Return a progress result showing the growth of a sum aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  callable(\Illuminate\Database\Eloquent\Builder):void  $progress
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  int|float|null  $target
-     * @return \Laravel\Nova\Metrics\ProgressResult
+     * @return \Laravel\Components\Metrics\ProgressResult
      */
     public function sum($request, $model, callable $progress, $column, $target = null)
     {
@@ -48,13 +48,13 @@ abstract class Progress extends Metric
     /**
      * Return a progress result showing the segments of a aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $function
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  callable(\Illuminate\Database\Eloquent\Builder):void  $progress
      * @param  int|float|null  $target
-     * @return \Laravel\Nova\Metrics\ProgressResult
+     * @return \Laravel\Components\Metrics\ProgressResult
      */
     protected function aggregate($request, $model, $function, $column, callable $progress, $target = null)
     {
@@ -87,7 +87,7 @@ abstract class Progress extends Metric
      *
      * @param  int|float  $value
      * @param  int|float  $target
-     * @return \Laravel\Nova\Metrics\ProgressResult
+     * @return \Laravel\Components\Metrics\ProgressResult
      */
     public function result($value, $target)
     {

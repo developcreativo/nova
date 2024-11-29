@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\LensCountRequest;
+use Laravel\Components\Http\Requests\LensCountRequest;
 
 class LensResourceCountController extends Controller
 {
     /**
      * Get the resource count for a given query.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensCountRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensCountRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(LensCountRequest $request)

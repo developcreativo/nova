@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Components\Modals;
+namespace Laravel\Components\Testing\Browser\Components\Modals;
 
 use Laravel\Dusk\Browser;
-use Laravel\Nova\Testing\Browser\Components\Component;
+use Laravel\Components\Testing\Browser\Components\Component;
 
 abstract class ModalComponent extends Component
 {

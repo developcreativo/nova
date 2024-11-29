@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 class MorphMany extends HasMany
 {

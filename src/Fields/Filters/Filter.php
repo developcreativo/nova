@@ -1,24 +1,24 @@
 <?php
 
-namespace Laravel\Nova\Fields\Filters;
+namespace Laravel\Components\Fields\Filters;
 
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Filters\Filter as BaseFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Filters\Filter as BaseFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 abstract class Filter extends BaseFilter
 {
     /**
      * The filter's field.
      *
-     * @var \Laravel\Nova\Contracts\FilterableField&\Laravel\Nova\Fields\Field
+     * @var \Laravel\Components\Contracts\FilterableField&\Laravel\Components\Fields\Field
      */
     public $field;
 
     /**
      * Construct a new filter.
      *
-     * @param  \Laravel\Nova\Contracts\FilterableField&\Laravel\Nova\Fields\Field  $field
+     * @param  \Laravel\Components\Contracts\FilterableField&\Laravel\Components\Fields\Field  $field
      */
     public function __construct(FilterableField $field)
     {
@@ -48,7 +48,7 @@ abstract class Filter extends BaseFilter
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder

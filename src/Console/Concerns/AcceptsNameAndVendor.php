@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Console\Concerns;
+namespace Laravel\Components\Console\Concerns;
 
 use Illuminate\Support\Str;
 

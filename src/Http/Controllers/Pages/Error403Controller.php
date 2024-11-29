@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 

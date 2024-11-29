@@ -1,20 +1,20 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use Illuminate\Support\Facades\Validator;
-use Laravel\Nova\Contracts\PivotableField;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\PivotableField;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 /**
- * @phpstan-import-type TFieldValidationRules from \Laravel\Nova\Fields\Field
+ * @phpstan-import-type TFieldValidationRules from \Laravel\Components\Fields\Field
  */
 trait PerformsValidation
 {
     /**
      * Validate a resource creation request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -29,7 +29,7 @@ trait PerformsValidation
     /**
      * Create a validator instance for a resource creation request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public static function validatorForCreation(NovaRequest $request)
@@ -44,7 +44,7 @@ trait PerformsValidation
     /**
      * Get the validation rules for a resource creation request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array<array-key, mixed>
      *
      * @phpstan-return array<array-key, TFieldValidationRules>
@@ -64,7 +64,7 @@ trait PerformsValidation
     /**
      * Get the creation validation rules for a specific field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $field
      * @return array<array-key, mixed>
      *
@@ -85,8 +85,8 @@ trait PerformsValidation
     /**
      * Validate a resource update request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource|null  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource|null  $resource
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -101,8 +101,8 @@ trait PerformsValidation
     /**
      * Create a validator instance for a resource update request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource|null  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource|null  $resource
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public static function validatorForUpdate(NovaRequest $request, $resource = null)
@@ -117,8 +117,8 @@ trait PerformsValidation
     /**
      * Get the validation rules for a resource update request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource|null  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource|null  $resource
      * @return array<array-key, mixed>
      *
      * @phpstan-return array<array-key, TFieldValidationRules>
@@ -139,7 +139,7 @@ trait PerformsValidation
     /**
      * Get the update validation rules for a specific field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $field
      * @return array<array-key, mixed>
      *
@@ -160,7 +160,7 @@ trait PerformsValidation
     /**
      * Validate a resource attachment request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -173,7 +173,7 @@ trait PerformsValidation
     /**
      * Create a validator instance for a resource attachment request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public static function validatorForAttachment(NovaRequest $request)
@@ -184,7 +184,7 @@ trait PerformsValidation
     /**
      * Get the validation rules for a resource attachment request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array<array-key, mixed>
      *
      * @phpstan-return array<array-key, TFieldValidationRules>
@@ -201,7 +201,7 @@ trait PerformsValidation
     /**
      * Validate a resource attachment update request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -214,7 +214,7 @@ trait PerformsValidation
     /**
      * Create a validator instance for a resource attachment update request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public static function validatorForAttachmentUpdate(NovaRequest $request)
@@ -225,7 +225,7 @@ trait PerformsValidation
     /**
      * Get the validation rules for a resource attachment update request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array<array-key, mixed>
      *
      * @phpstan-return array<array-key, TFieldValidationRules>
@@ -242,7 +242,7 @@ trait PerformsValidation
     /**
      * Perform any final formatting of the given validation rules.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  array  $rules
      * @return array<array-key, mixed>
      *
@@ -270,7 +270,7 @@ trait PerformsValidation
     /**
      * Get the validation attribute for a specific field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $field
      * @return string
      */
@@ -288,7 +288,7 @@ trait PerformsValidation
     /**
      * Get the validation attachable attribute for a specific field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $field
      * @return string
      */
@@ -306,8 +306,8 @@ trait PerformsValidation
     /**
      * Map field attributes to field names.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource|null  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource|null  $resource
      * @return \Illuminate\Support\Collection<string, string>
      */
     private static function attributeNamesForFields(NovaRequest $request, $resource = null)
@@ -327,7 +327,7 @@ trait PerformsValidation
     /**
      * Handle any post-validation processing.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
@@ -339,7 +339,7 @@ trait PerformsValidation
     /**
      * Handle any post-creation validation processing.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return void
      */
@@ -351,7 +351,7 @@ trait PerformsValidation
     /**
      * Handle any post-update validation processing.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return void
      */

@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Auth\Adapters;
+namespace Laravel\Components\Auth\Adapters;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Laravel\Nova\Contracts\ImpersonatesUsers;
-use Laravel\Nova\Events\StartedImpersonating;
-use Laravel\Nova\Events\StoppedImpersonating;
-use Laravel\Nova\Nova;
+use Laravel\Components\Contracts\ImpersonatesUsers;
+use Laravel\Components\Events\StartedImpersonating;
+use Laravel\Components\Events\StoppedImpersonating;
+use Laravel\Components\Nova;
 
 class SessionImpersonator implements ImpersonatesUsers
 {

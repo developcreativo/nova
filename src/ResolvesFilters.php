@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait ResolvesFilters
 {
     /**
      * Get the filters that are available for the given request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Illuminate\Support\Collection<int, \Laravel\Nova\Filters\Filter>
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Illuminate\Support\Collection<int, \Laravel\Components\Filters\Filter>
      */
     public function availableFilters(NovaRequest $request)
     {
@@ -23,8 +23,8 @@ trait ResolvesFilters
     /**
      * Get the filters for the given request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Illuminate\Support\Collection<int, \Laravel\Nova\Filters\Filter>
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Illuminate\Support\Collection<int, \Laravel\Components\Filters\Filter>
      */
     public function resolveFilters(NovaRequest $request)
     {
@@ -34,7 +34,7 @@ trait ResolvesFilters
     /**
      * Get the filters from filterable fields for the given request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Support\Collection
      */
     public function resolveFiltersFromFields(NovaRequest $request)
@@ -50,7 +50,7 @@ trait ResolvesFilters
     /**
      * Get the filters available on the entity.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Events;
+namespace Laravel\Components\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Http\Request;

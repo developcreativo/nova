@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Nova\Menu;
+namespace Laravel\Components\Menu;
 
 use Illuminate\Support\Traits\Macroable;
-use Laravel\Nova\AuthorizedToSee;
-use Laravel\Nova\Fields\Collapsable;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Makeable;
+use Laravel\Components\AuthorizedToSee;
+use Laravel\Components\Fields\Collapsable;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Makeable;
 
 /**
  * @method static static make(string $name, array $items = [])
@@ -35,7 +35,7 @@ class MenuGroup implements \JsonSerializable
     /**
      * The menu's items.
      *
-     * @var \Laravel\Nova\Menu\MenuCollection
+     * @var \Laravel\Components\Menu\MenuCollection
      */
     public $items;
 

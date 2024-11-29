@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Pages;
+namespace Laravel\Components\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Laravel\Nova\Testing\Browser\Components\Modals\CreateRelationModalComponent;
+use Laravel\Components\Testing\Browser\Components\Modals\CreateRelationModalComponent;
 
 class Update extends Page
 {

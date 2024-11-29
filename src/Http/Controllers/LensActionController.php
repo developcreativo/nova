@@ -1,20 +1,20 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Actions\Action;
-use Laravel\Nova\Actions\ActionCollection;
-use Laravel\Nova\Http\Requests\LensActionRequest;
-use Laravel\Nova\Http\Requests\LensRequest;
-use Laravel\Nova\Nova;
+use Laravel\Components\Actions\Action;
+use Laravel\Components\Actions\ActionCollection;
+use Laravel\Components\Http\Requests\LensActionRequest;
+use Laravel\Components\Http\Requests\LensRequest;
+use Laravel\Components\Nova;
 
 class LensActionController extends Controller
 {
     /**
      * List the actions for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(LensRequest $request)
@@ -44,7 +44,7 @@ class LensActionController extends Controller
     /**
      * Perform an action on the specified resources.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensActionRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensActionRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(LensActionRequest $request)
@@ -57,7 +57,7 @@ class LensActionController extends Controller
     /**
      * Sync an action field on the specified resources.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensActionRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensActionRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function sync(LensActionRequest $request)

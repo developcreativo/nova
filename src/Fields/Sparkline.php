@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Closure;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Metrics\Trend;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Metrics\Trend;
 
 class Sparkline extends Field implements Unfillable
 {
@@ -18,7 +18,7 @@ class Sparkline extends Field implements Unfillable
     /**
      * The data used in the chart.
      *
-     * @var array|(\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(mixed))|\Laravel\Nova\Metrics\Trend
+     * @var array|(\Closure(\Laravel\Components\Http\Requests\NovaRequest):(mixed))|\Laravel\Components\Metrics\Trend
      */
     public $data = [];
 
@@ -32,21 +32,21 @@ class Sparkline extends Field implements Unfillable
     /**
      * Indicates if the element should be shown on the creation view.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
      */
     public $showOnCreation = false;
 
     /**
      * Indicates if the element should be shown on the update view.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest, mixed):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest, mixed):(bool))|bool
      */
     public $showOnUpdate = false;
 
     /**
      * Set the data for the Spark Line.
      *
-     * @param  array|(\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(mixed))|\Laravel\Nova\Metrics\Trend  $data
+     * @param  array|(\Closure(\Laravel\Components\Http\Requests\NovaRequest):(mixed))|\Laravel\Components\Metrics\Trend  $data
      * @return $this
      */
     public function data($data)
@@ -59,7 +59,7 @@ class Sparkline extends Field implements Unfillable
     /**
      * Get field data.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array|mixed
      */
     public function getData(NovaRequest $request)

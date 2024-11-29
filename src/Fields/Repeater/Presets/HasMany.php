@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Fields\Repeater\Presets;
+namespace Laravel\Components\Fields\Repeater\Presets;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany as EloquentHasMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Laravel\Nova\Fields\Field;
-use Laravel\Nova\Fields\FieldCollection;
-use Laravel\Nova\Fields\Repeater\RepeatableCollection;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Support\Fluent;
+use Laravel\Components\Fields\Field;
+use Laravel\Components\Fields\FieldCollection;
+use Laravel\Components\Fields\Repeater\RepeatableCollection;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Support\Fluent;
 
 class HasMany implements Preset
 {
@@ -113,7 +113,7 @@ class HasMany implements Preset
      * Upsert relation.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  \Laravel\Nova\Support\Fluent  $data
+     * @param  \Laravel\Components\Support\Fluent  $data
      * @param  array  $row
      * @param  mixed  $uniqueField
      * @param  \Illuminate\Database\Eloquent\Relations\HasMany  $relation

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Http\Middleware;
+namespace Laravel\Components\Http\Middleware;
 
-use Laravel\Nova\Nova;
+use Laravel\Components\Nova;
 
 class BootTools
 {

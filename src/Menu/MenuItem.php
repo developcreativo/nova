@@ -1,19 +1,19 @@
 <?php
 
-namespace Laravel\Nova\Menu;
+namespace Laravel\Components\Menu;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Traits\Macroable;
 use InvalidArgumentException;
 use JsonSerializable;
-use Laravel\Nova\AuthorizedToSee;
-use Laravel\Nova\Contracts\Filter as FilterContract;
-use Laravel\Nova\Filters\FilterEncoder;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Makeable;
-use Laravel\Nova\Nova;
-use Laravel\Nova\URL;
-use Laravel\Nova\WithBadge;
+use Laravel\Components\AuthorizedToSee;
+use Laravel\Components\Contracts\Filter as FilterContract;
+use Laravel\Components\Filters\FilterEncoder;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Makeable;
+use Laravel\Components\Nova;
+use Laravel\Components\URL;
+use Laravel\Components\WithBadge;
 
 /**
  * @method static static make(string $name, string|null $path = null)
@@ -84,7 +84,7 @@ class MenuItem implements JsonSerializable
     /**
      * The active menu callback.
      *
-     * @var (callable(\Illuminate\Http\Request, \Laravel\Nova\URL):bool)|bool|null
+     * @var (callable(\Illuminate\Http\Request, \Laravel\Components\URL):bool)|bool|null
      */
     public $activeMenuCallback;
 
@@ -98,7 +98,7 @@ class MenuItem implements JsonSerializable
     /**
      * The resource class name.
      *
-     * @var class-string<\Laravel\Nova\Resource>|null
+     * @var class-string<\Laravel\Components\Resource>|null
      */
     public $resource;
 
@@ -118,7 +118,7 @@ class MenuItem implements JsonSerializable
     /**
      * Create a menu item from a resource class.
      *
-     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
      * @return static
      */
     public static function resource($resourceClass)
@@ -137,8 +137,8 @@ class MenuItem implements JsonSerializable
     /**
      * Create a menu item from a lens class.
      *
-     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
-     * @param  class-string<\Laravel\Nova\Lenses\Lens>  $lensClass
+     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Components\Lenses\Lens>  $lensClass
      * @return static
      */
     public static function lens($resourceClass, $lensClass)
@@ -157,7 +157,7 @@ class MenuItem implements JsonSerializable
      *
      * @param  string  $name
      * @param  class-string  $resourceClass
-     * @param  \Laravel\Nova\Filters\Filter|null  $filter
+     * @param  \Laravel\Components\Filters\Filter|null  $filter
      * @param  mixed|null  $value
      * @return static
      */
@@ -182,7 +182,7 @@ class MenuItem implements JsonSerializable
     /**
      * Apply a filter to the menu item.
      *
-     * @param  \Laravel\Nova\Filters\Filter|string  $filter
+     * @param  \Laravel\Components\Filters\Filter|string  $filter
      * @param  mixed  $value
      * @return $this
      */
@@ -210,7 +210,7 @@ class MenuItem implements JsonSerializable
     /**
      * Set the resource to be used for the menu item.
      *
-     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
      * @return $this
      */
     protected function forResource($resourceClass)
@@ -256,7 +256,7 @@ class MenuItem implements JsonSerializable
     /**
      * Create a menu from dashboard class.
      *
-     * @param  class-string<\Laravel\Nova\Dashboard>  $dashboard
+     * @param  class-string<\Laravel\Components\Dashboard>  $dashboard
      * @return static
      */
     public static function dashboard($dashboard)
@@ -397,7 +397,7 @@ class MenuItem implements JsonSerializable
     /**
      * Determine the default active URL state.
      *
-     * @param  (callable(\Illuminate\Http\Request, \Laravel\Nova\URL):bool)|bool  $activeMenuCallback
+     * @param  (callable(\Illuminate\Http\Request, \Laravel\Components\URL):bool)|bool  $activeMenuCallback
      * @return $this
      */
     public function activeWhen($activeMenuCallback)
@@ -410,7 +410,7 @@ class MenuItem implements JsonSerializable
     /**
      * Determine the default active URL state.
      *
-     * @param  (callable(\Illuminate\Http\Request, \Laravel\Nova\URL):bool)|bool  $activeMenuCallback
+     * @param  (callable(\Illuminate\Http\Request, \Laravel\Components\URL):bool)|bool  $activeMenuCallback
      * @return $this
      */
     public function activeUnless($activeMenuCallback)

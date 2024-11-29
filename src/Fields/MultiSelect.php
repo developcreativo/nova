@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Fields\Filters\MultiSelectFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Util;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Fields\Filters\MultiSelectFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Util;
 
 /**
  * @phpstan-type TOptionLabel \Stringable|string|array{label: string, group?: string}
@@ -70,9 +70,9 @@ class MultiSelect extends Field implements FilterableField
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @param  string  $attribute
      * @return mixed
      */
@@ -88,8 +88,8 @@ class MultiSelect extends Field implements FilterableField
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Nova\Fields\Filters\Filter
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Components\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {
@@ -99,7 +99,7 @@ class MultiSelect extends Field implements FilterableField
     /**
      * Define the default filterable callback.
      *
-     * @return callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):\Illuminate\Database\Eloquent\Builder
+     * @return callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):\Illuminate\Database\Eloquent\Builder
      */
     protected function defaultFilterableCallback()
     {

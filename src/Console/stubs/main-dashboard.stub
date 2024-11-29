@@ -2,8 +2,8 @@
 
 namespace App\Nova\Dashboards;
 
-use Laravel\Nova\Cards\Help;
-use Laravel\Nova\Dashboards\Main as Dashboard;
+use Laravel\Components\Cards\Help;
+use Laravel\Components\Dashboards\Main as Dashboard;
 
 class Main extends Dashboard
 {

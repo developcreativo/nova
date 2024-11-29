@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Contracts\Deletable;
-use Laravel\Nova\DeleteField;
-use Laravel\Nova\Nova;
+use Laravel\Components\Contracts\Deletable;
+use Laravel\Components\DeleteField;
+use Laravel\Components\Nova;
 
 trait DetachesPivotModels
 {
     /**
      * Get the pivot record detachment callback for the field.
      *
-     * @return \Closure(\Laravel\Nova\Http\Requests\NovaRequest, mixed):bool
+     * @return \Closure(\Laravel\Components\Http\Requests\NovaRequest, mixed):bool
      */
     protected function detachmentCallback()
     {
@@ -28,7 +28,7 @@ trait DetachesPivotModels
                 $pivotFields->whereInstanceOf(Deletable::class)
                         ->filter->isPrunable()
                         ->each(function ($field) use ($request, $pivot) {
-                            /** @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Deletable $field */
+                            /** @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Deletable $field */
                             DeleteField::forRequest($request, $field, $pivot)->save();
                         });
 

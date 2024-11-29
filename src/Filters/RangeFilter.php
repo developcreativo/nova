@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Filters;
+namespace Laravel\Components\Filters;
 
 abstract class RangeFilter extends Filter
 {

@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 use Closure;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use InvalidArgumentException;
-use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\ActionRequest;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Rules\Filename;
+use Laravel\Components\Fields\ActionFields;
+use Laravel\Components\Fields\Select;
+use Laravel\Components\Fields\Text;
+use Laravel\Components\Http\Requests\ActionRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Nova;
+use Laravel\Components\Rules\Filename;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -36,14 +36,14 @@ class ExportAsCsv extends Action
     /**
      * The custom query callback.
      *
-     * @var (\Closure(\Illuminate\Database\Eloquent\Builder, \Laravel\Nova\Fields\ActionFields):(\Illuminate\Database\Eloquent\Builder))|null
+     * @var (\Closure(\Illuminate\Database\Eloquent\Builder, \Laravel\Components\Fields\ActionFields):(\Illuminate\Database\Eloquent\Builder))|null
      */
     public $withQueryCallback;
 
     /**
      * The custom field callback.
      *
-     * @var (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(array<int, \Laravel\Nova\Fields\Field>))|null
+     * @var (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(array<int, \Laravel\Components\Fields\Field>))|null
      */
     public $withFieldsCallback;
 
@@ -76,7 +76,7 @@ class ExportAsCsv extends Action
     /**
      * Get the fields available on the action.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -91,10 +91,10 @@ class ExportAsCsv extends Action
     /**
      * Perform the action request using custom dispatch handler.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
-     * @param  \Laravel\Nova\Actions\Response  $response
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
-     * @return \Laravel\Nova\Actions\Response
+     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Components\Actions\Response  $response
+     * @param  \Laravel\Components\Fields\ActionFields  $fields
+     * @return \Laravel\Components\Actions\Response
      */
     protected function dispatchRequestUsing(ActionRequest $request, Response $response, ActionFields $fields)
     {
@@ -149,7 +149,7 @@ class ExportAsCsv extends Action
     /**
      * Specify a callback that modifies the query used to retrieve the selected models.
      *
-     * @param  (\Closure(\Illuminate\Database\Eloquent\Builder, \Laravel\Nova\Fields\ActionFields):(\Illuminate\Database\Eloquent\Builder))|null  $withQueryCallback
+     * @param  (\Closure(\Illuminate\Database\Eloquent\Builder, \Laravel\Components\Fields\ActionFields):(\Illuminate\Database\Eloquent\Builder))|null  $withQueryCallback
      * @return $this
      */
     public function withQuery($withQueryCallback)
@@ -162,7 +162,7 @@ class ExportAsCsv extends Action
     /**
      * Specify a callback that defines the fields that should be present within the generated file.
      *
-     * @param  (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(array<int, \Laravel\Nova\Fields\Field>))|null  $withFieldsCallback
+     * @param  (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(array<int, \Laravel\Components\Fields\Field>))|null  $withFieldsCallback
      * @return $this
      */
     public function withFields($withFieldsCallback)
@@ -188,7 +188,7 @@ class ExportAsCsv extends Action
     /**
      * Add a Select field to the action that allows the selection of the generated file's type.
      *
-     * @param  (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(?string))|string|null  $default
+     * @param  (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(?string))|string|null  $default
      * @return $this
      */
     public function withTypeSelector($default = null)
@@ -208,7 +208,7 @@ class ExportAsCsv extends Action
     /**
      * Add a Text field to the action to allow users to define the generated file's name.
      *
-     * @param  (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(?string))|string|null  $default
+     * @param  (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(?string))|string|null  $default
      * @return $this
      */
     public function nameable($default = null)

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
-use Laravel\Nova\Filters\FilterDecoder;
+use Laravel\Components\Filters\FilterDecoder;
 
 /**
  * @property-read string $filters

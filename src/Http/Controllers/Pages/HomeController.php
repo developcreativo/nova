@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Nova;
+use Laravel\Components\Nova;
 
 class HomeController extends Controller
 {

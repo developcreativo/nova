@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Console;
+namespace Laravel\Components\Console;
 
 use Illuminate\Console\Command;
 

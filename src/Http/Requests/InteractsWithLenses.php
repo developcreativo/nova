@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
-use Laravel\Nova\Query\Search;
+use Laravel\Components\Query\Search;
 
 /**
  * @property-read string|null $lens
@@ -12,7 +12,7 @@ trait InteractsWithLenses
     /**
      * Get the lens instance for the given request.
      *
-     * @return \Laravel\Nova\Lenses\Lens
+     * @return \Laravel\Components\Lenses\Lens
      */
     public function lens()
     {

@@ -1,11 +1,11 @@
 <?php
 
-use Laravel\Nova\Actions\ActionResource;
-use Laravel\Nova\Http\Middleware\Authenticate;
-use Laravel\Nova\Http\Middleware\Authorize;
-use Laravel\Nova\Http\Middleware\BootTools;
-use Laravel\Nova\Http\Middleware\DispatchServingNovaEvent;
-use Laravel\Nova\Http\Middleware\HandleInertiaRequests;
+use Laravel\Components\Actions\ActionResource;
+use Laravel\Components\Http\Middleware\Authenticate;
+use Laravel\Components\Http\Middleware\Authorize;
+use Laravel\Components\Http\Middleware\BootTools;
+use Laravel\Components\Http\Middleware\DispatchServingNovaEvent;
+use Laravel\Components\Http\Middleware\HandleInertiaRequests;
 
 return [
 

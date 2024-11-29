@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Http\Resources;
+namespace Laravel\Components\Http\Resources;
 
 use Illuminate\Contracts\Support\Responsable;
-use Laravel\Nova\Makeable;
+use Laravel\Components\Makeable;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 class ActionFields extends ResolvedFields
 {

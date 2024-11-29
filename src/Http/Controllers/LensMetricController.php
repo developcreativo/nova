@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\LensMetricRequest;
+use Laravel\Components\Http\Requests\LensMetricRequest;
 
 class LensMetricController extends Controller
 {
     /**
      * List the metrics for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensMetricRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensMetricRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(LensMetricRequest $request)
@@ -23,7 +23,7 @@ class LensMetricController extends Controller
     /**
      * Get the specified metric's value.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensMetricRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensMetricRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function show(LensMetricRequest $request)

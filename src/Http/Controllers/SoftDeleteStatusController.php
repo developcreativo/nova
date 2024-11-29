@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class SoftDeleteStatusController extends Controller
 {
     /**
      * Determine if the resource is soft deleting.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(NovaRequest $request)

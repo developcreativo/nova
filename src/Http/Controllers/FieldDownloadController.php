@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class FieldDownloadController extends Controller
 {
     /**
      * Download the given field's contents.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(NovaRequest $request)

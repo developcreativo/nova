@@ -1,20 +1,20 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
-use Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest;
-use Laravel\Nova\Menu\Breadcrumb;
-use Laravel\Nova\Menu\Breadcrumbs;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest;
+use Laravel\Components\Menu\Breadcrumb;
+use Laravel\Components\Menu\Breadcrumbs;
+use Laravel\Components\Nova;
 
 class ResourceCreateController extends Controller
 {
     /**
      * Show Resource Create page using Inertia.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
      * @return \Inertia\Response
      */
     public function __invoke(ResourceCreateOrAttachRequest $request)
@@ -35,8 +35,8 @@ class ResourceCreateController extends Controller
     /**
      * Get breadcrumb menu for the page.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
-     * @return \Laravel\Nova\Menu\Breadcrumbs
+     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @return \Laravel\Components\Menu\Breadcrumbs
      */
     protected function breadcrumbs(ResourceCreateOrAttachRequest $request)
     {

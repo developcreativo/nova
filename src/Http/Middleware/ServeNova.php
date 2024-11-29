@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Http\Middleware;
+namespace Laravel\Components\Http\Middleware;
 
-use Laravel\Nova\Events\NovaServiceProviderRegistered;
-use Laravel\Nova\Util;
+use Laravel\Components\Events\NovaServiceProviderRegistered;
+use Laravel\Components\Util;
 
 class ServeNova
 {

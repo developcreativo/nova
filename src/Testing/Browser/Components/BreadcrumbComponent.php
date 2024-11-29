@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Components;
+namespace Laravel\Components\Testing\Browser\Components;
 
 use Laravel\Dusk\Browser;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use Closure;
 use JsonSerializable;
@@ -26,7 +26,7 @@ class PartitionResult implements JsonSerializable
     /**
      * The custom label colors.
      *
-     * @var \Laravel\Nova\Metrics\PartitionColors
+     * @var \Laravel\Components\Metrics\PartitionColors
      */
     public $colors;
 

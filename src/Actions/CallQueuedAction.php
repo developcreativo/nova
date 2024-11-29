@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Laravel\Nova\Contracts\BatchableAction;
-use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Nova;
+use Laravel\Components\Contracts\BatchableAction;
+use Laravel\Components\Fields\ActionFields;
+use Laravel\Components\Nova;
 
 #[\AllowDynamicProperties]
 class CallQueuedAction
@@ -24,9 +24,9 @@ class CallQueuedAction
     /**
      * Create a new job instance.
      *
-     * @param  \Laravel\Nova\Actions\Action  $action
+     * @param  \Laravel\Components\Actions\Action  $action
      * @param  string  $method
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
+     * @param  \Laravel\Components\Fields\ActionFields  $fields
      * @param  \Illuminate\Support\Collection  $models
      * @param  string  $actionBatchId
      * @return void

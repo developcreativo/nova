@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Closure;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Resource;
+use Laravel\Components\Nova;
+use Laravel\Components\Resource;
 
 trait FormatsRelatableDisplayValues
 {

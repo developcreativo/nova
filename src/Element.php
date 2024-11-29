@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use Illuminate\Http\Request;
 use JsonSerializable;

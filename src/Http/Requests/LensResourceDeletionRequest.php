@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
 use Closure;
 use Illuminate\Database\Eloquent\Builder;

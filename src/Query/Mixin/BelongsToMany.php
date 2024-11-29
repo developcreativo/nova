@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Query\Mixin;
+namespace Laravel\Components\Query\Mixin;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Util;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Nova;
+use Laravel\Components\Util;
 
 class Tag extends Field
 {
@@ -33,7 +33,7 @@ class Tag extends Field
     /**
      * The class name of the related resource.
      *
-     * @var class-string<\Laravel\Nova\Resource>
+     * @var class-string<\Laravel\Components\Resource>
      */
     public $resourceClass;
 
@@ -77,7 +77,7 @@ class Tag extends Field
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  class-string<\Laravel\Nova\Resource>|null  $resource
+     * @param  class-string<\Laravel\Components\Resource>|null  $resource
      * @return void
      */
     public function __construct($name, $attribute = null, $resource = null)
@@ -94,9 +94,9 @@ class Tag extends Field
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @param  string  $attribute
      * @return \Closure
      */
@@ -112,7 +112,7 @@ class Tag extends Field
     /**
      * Prepare relation values from request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
      * @return array<int, string>
      */
@@ -184,8 +184,8 @@ class Tag extends Field
     /**
      * Transform the result from resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource  $resource
      * @return array
      */
     protected function transformResult(NovaRequest $request, $resource)

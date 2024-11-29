@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Pages;
+namespace Laravel\Components\Testing\Browser\Pages;
 
 class Replicate extends Create
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Support\Facades\Storage;
-use Laravel\Nova\Contracts\Cover;
+use Laravel\Components\Contracts\Cover;
 
 class Image extends File implements Cover
 {
@@ -26,7 +26,7 @@ class Image extends File implements Cover
      * @param  string  $name
      * @param  string|null  $attribute
      * @param  string|null  $disk
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
      * @return void
      */
     public function __construct($name, $attribute = null, $disk = null, $storageCallback = null)

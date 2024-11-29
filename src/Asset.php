@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use DateTime;
 use Illuminate\Contracts\Support\Responsable;

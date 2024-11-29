@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class MorphToActionTarget extends MorphTo
 {
@@ -17,7 +17,7 @@ class MorphToActionTarget extends MorphTo
     /**
      * Determine if the field is not redundant.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function isNotRedundant(NovaRequest $request)

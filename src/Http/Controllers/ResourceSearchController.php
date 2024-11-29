@@ -1,19 +1,19 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Http\Requests\ResourceSearchRequest;
-use Laravel\Nova\Resource;
-use Laravel\Nova\Util;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\ResourceSearchRequest;
+use Laravel\Components\Resource;
+use Laravel\Components\Util;
 
 class ResourceSearchController extends Controller
 {
     /**
      * List the resources for administration.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceSearchRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceSearchRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourceSearchRequest $request)
@@ -38,7 +38,7 @@ class ResourceSearchController extends Controller
     /**
      * Determine if the query should include trashed models.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $resource
      * @return bool
      */
@@ -62,8 +62,8 @@ class ResourceSearchController extends Controller
     /**
      * Transform the result from resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource  $resource
      * @return array
      */
     protected function transformResult(NovaRequest $request, Resource $resource)

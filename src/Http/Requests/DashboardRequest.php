@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
-use Laravel\Nova\Nova;
+use Laravel\Components\Nova;
 
 class DashboardRequest extends NovaRequest
 {

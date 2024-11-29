@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Laravel\Nova\Card;
+use Laravel\Components\Card;
 
 class {{ class }} extends Card
 {

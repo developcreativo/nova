@@ -1,29 +1,29 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait AssociatableRelation
 {
     /**
      * The callback that should be run to associate relations.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder):(\Illuminate\Database\Eloquent\Builder))|null
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder):(\Illuminate\Database\Eloquent\Builder))|null
      */
     public $relatableQueryCallback;
 
     /**
      * Determines if the display values should be automatically sorted.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
      */
     public $reordersOnAssociatableCallback = true;
 
     /**
      * Determine if the display values should be automatically sorted when rendering associatable relation.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function shouldReorderAssociatableValues(NovaRequest $request)
@@ -50,7 +50,7 @@ trait AssociatableRelation
     /**
      * Determine reordering on associatables.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):bool)|bool  $value
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):bool)|bool  $value
      * @return $this
      */
     public function reorderAssociatables($value = true)
@@ -63,7 +63,7 @@ trait AssociatableRelation
     /**
      * Determine the associate relations query.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder):(\Illuminate\Database\Eloquent\Builder))|null  $callback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder):(\Illuminate\Database\Eloquent\Builder))|null  $callback
      * @return $this
      */
     public function relatableQueryUsing($callback)

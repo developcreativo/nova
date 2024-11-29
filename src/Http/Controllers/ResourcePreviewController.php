@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\ResourcePreviewRequest;
+use Laravel\Components\Http\Requests\ResourcePreviewRequest;
 
 class ResourcePreviewController extends Controller
 {
     /**
      * Preview the resource for administration.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourcePreviewRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourcePreviewRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourcePreviewRequest $request)

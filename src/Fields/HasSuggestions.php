@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait HasSuggestions
 {
@@ -29,7 +29,7 @@ trait HasSuggestions
     /**
      * Resolve the display suggestions for the field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array|null
      */
     public function resolveSuggestions(NovaRequest $request)

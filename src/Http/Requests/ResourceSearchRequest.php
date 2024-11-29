@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
-use Laravel\Nova\Contracts\QueryBuilder;
+use Laravel\Components\Contracts\QueryBuilder;
 
 class ResourceSearchRequest extends NovaRequest
 {

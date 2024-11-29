@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;

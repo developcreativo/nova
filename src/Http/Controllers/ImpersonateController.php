@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Nova\Contracts\ImpersonatesUsers;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Util;
+use Laravel\Components\Contracts\ImpersonatesUsers;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Nova;
+use Laravel\Components\Util;
 
 class ImpersonateController extends Controller
 {
     /**
      * Start impersonating a user.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Contracts\ImpersonatesUsers  $impersonator
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Contracts\ImpersonatesUsers  $impersonator
      * @return \Illuminate\Http\JsonResponse
      */
     public function startImpersonating(NovaRequest $request, ImpersonatesUsers $impersonator)
@@ -56,8 +56,8 @@ class ImpersonateController extends Controller
     /**
      * Stop impersonating a user.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Contracts\ImpersonatesUsers  $impersonator
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Contracts\ImpersonatesUsers  $impersonator
      * @return \Illuminate\Http\JsonResponse
      */
     public function stopImpersonating(NovaRequest $request, ImpersonatesUsers $impersonator)

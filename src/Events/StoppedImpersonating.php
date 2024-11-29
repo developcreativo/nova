@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Events;
+namespace Laravel\Components\Events;
 
 class StoppedImpersonating
 {

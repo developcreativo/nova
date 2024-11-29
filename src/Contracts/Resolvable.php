@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Contracts;
+namespace Laravel\Components\Contracts;
 
 /**
  * @property bool $pivot

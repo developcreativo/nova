@@ -1,19 +1,19 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Contracts\Deletable;
-use Laravel\Nova\DeleteField;
-use Laravel\Nova\Http\Requests\DetachResourceRequest;
-use Laravel\Nova\Nova;
+use Laravel\Components\Contracts\Deletable;
+use Laravel\Components\DeleteField;
+use Laravel\Components\Http\Requests\DetachResourceRequest;
+use Laravel\Components\Nova;
 
 class ResourceDetachController extends Controller
 {
     /**
      * Detach the given resource(s).
      *
-     * @param  \Laravel\Nova\Http\Requests\DetachResourceRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DetachResourceRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(DetachResourceRequest $request)
@@ -50,7 +50,7 @@ class ResourceDetachController extends Controller
     /**
      * Delete pivot relations from model.
      *
-     * @param  \Laravel\Nova\Http\Requests\DetachResourceRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DetachResourceRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $pivot
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -76,8 +76,8 @@ class ResourceDetachController extends Controller
     /**
      * Delete the pivot fields on the given pivot model.
      *
-     * @param  \Laravel\Nova\Http\Requests\DetachResourceRequest  $request
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Http\Requests\DetachResourceRequest  $request
+     * @param  \Laravel\Components\Resource  $resource
      * @param  \Illuminate\Database\Eloquent\Model  $pivot
      * @return void
      */
@@ -87,7 +87,7 @@ class ResourceDetachController extends Controller
             ->whereInstanceOf(Deletable::class)
             ->filter->isPrunable()
             ->each(function ($field) use ($request, $pivot) {
-                /** @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Deletable $field */
+                /** @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Deletable $field */
                 DeleteField::forRequest($request, $field, $pivot)->save();
             });
     }

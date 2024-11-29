@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Auth\Events\Logout;
@@ -10,14 +10,14 @@ use Illuminate\Foundation\Http\Events\RequestHandled;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Nova\Auth\Adapters\SessionImpersonator;
-use Laravel\Nova\Contracts\ImpersonatesUsers;
-use Laravel\Nova\Contracts\QueryBuilder;
-use Laravel\Nova\Events\ServingNova;
-use Laravel\Nova\Http\Middleware\ServeNova;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Listeners\BootNova;
-use Laravel\Nova\Query\Builder;
+use Laravel\Components\Auth\Adapters\SessionImpersonator;
+use Laravel\Components\Contracts\ImpersonatesUsers;
+use Laravel\Components\Contracts\QueryBuilder;
+use Laravel\Components\Events\ServingNova;
+use Laravel\Components\Http\Middleware\ServeNova;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Listeners\BootNova;
+use Laravel\Components\Query\Builder;
 use Laravel\Octane\Events\RequestReceived;
 use Spatie\Once\Cache;
 

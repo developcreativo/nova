@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
-use Laravel\Nova\Contracts\Storable;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\Storable;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class DeleteField
 {
     /**
      * Delete the given field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Deletable  $field
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Deletable  $field
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return \Illuminate\Database\Eloquent\Model
      */

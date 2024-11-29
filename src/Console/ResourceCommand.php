@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Console;
+namespace Laravel\Components\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
@@ -103,7 +103,7 @@ class ResourceCommand extends GeneratorCommand
         $baseResourceClass = $this->getBaseResourceClass();
 
         if (! class_exists($baseResourceClass)) {
-            $baseResourceClass = 'Laravel\Nova\Resource';
+            $baseResourceClass = 'Laravel\Components\Resource';
         } elseif (! Str::contains($resourceName, '/') && class_exists($baseResourceClass)) {
             return $result;
         }
@@ -117,8 +117,8 @@ class ResourceCommand extends GeneratorCommand
         $eol = array_keys($lineEndingCount, max($lineEndingCount))[0];
 
         return str_replace(
-            'use Laravel\Nova\Http\Requests\NovaRequest;'.$eol,
-            'use Laravel\Nova\Http\Requests\NovaRequest;'.$eol."use {$baseResourceClass};".$eol,
+            'use Laravel\Components\Http\Requests\NovaRequest;'.$eol,
+            'use Laravel\Components\Http\Requests\NovaRequest;'.$eol."use {$baseResourceClass};".$eol,
             $result
         );
     }

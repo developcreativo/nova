@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
 trait QueriesResources
 {

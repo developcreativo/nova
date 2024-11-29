@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
@@ -22,7 +22,7 @@ class ResourceRelationshipGuesser
      * Guess the resource class name from the displayable name.
      *
      * @param  string  $name
-     * @return class-string<\Laravel\Nova\Resource>
+     * @return class-string<\Laravel\Components\Resource>
      */
     public static function guessResource($name)
     {

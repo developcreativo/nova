@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait ResolvesReverseRelation
 {
@@ -17,7 +17,7 @@ trait ResolvesReverseRelation
     /**
      * Determine if the field is the reverse relation of a showed index view.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function isReverseRelation(NovaRequest $request)
@@ -34,7 +34,7 @@ trait ResolvesReverseRelation
     /**
      * Get reverse relation field name.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return string
      */
     public function getReverseRelation(NovaRequest $request)

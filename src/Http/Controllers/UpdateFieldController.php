@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
-use Laravel\Nova\Http\Resources\UpdateViewResource;
+use Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
+use Laravel\Components\Http\Resources\UpdateViewResource;
 
 class UpdateFieldController extends Controller
 {
     /**
      * List the update fields for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourceUpdateOrUpdateAttachedRequest $request)
@@ -22,7 +22,7 @@ class UpdateFieldController extends Controller
     /**
      * Synchronize the field for updating.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function sync(ResourceUpdateOrUpdateAttachedRequest $request)

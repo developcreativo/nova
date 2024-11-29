@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
 use Illuminate\Database\Eloquent\Builder;
-use Laravel\Nova\Exceptions\LensCountException;
+use Laravel\Components\Exceptions\LensCountException;
 
 class LensCountRequest extends NovaRequest
 {

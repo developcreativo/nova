@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\NotificationRequest;
-use Laravel\Nova\Notifications\Notification;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\NotificationRequest;
+use Laravel\Components\Notifications\Notification;
+use Laravel\Components\Nova;
 
 class NotificationDeleteAllController extends Controller
 {

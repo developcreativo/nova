@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Exception;
 use Illuminate\Support\Arr;
-use Laravel\Nova\Badge as BadgeComponent;
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Fields\Filters\SelectFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Badge as BadgeComponent;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Fields\Filters\SelectFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class Badge extends Field implements FilterableField, Unfillable
 {
@@ -228,8 +228,8 @@ class Badge extends Field implements FilterableField, Unfillable
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Nova\Fields\Filters\Filter
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Components\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {

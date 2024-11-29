@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Rules;
+namespace Laravel\Components\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class NotAttached implements Rule
 {
     /**
      * The request instance.
      *
-     * @var \Laravel\Nova\Http\Requests\NovaRequest
+     * @var \Laravel\Components\Http\Requests\NovaRequest
      */
     public $request;
 
@@ -24,7 +24,7 @@ class NotAttached implements Rule
     /**
      * Create a new rule instance.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */

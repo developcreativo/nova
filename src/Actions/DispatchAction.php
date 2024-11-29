@@ -1,37 +1,37 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 use Illuminate\Bus\PendingBatch;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Queue;
-use Laravel\Nova\Contracts\BatchableAction;
-use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Http\Requests\ActionRequest;
-use Laravel\Nova\Nova;
+use Laravel\Components\Contracts\BatchableAction;
+use Laravel\Components\Fields\ActionFields;
+use Laravel\Components\Http\Requests\ActionRequest;
+use Laravel\Components\Nova;
 
 class DispatchAction
 {
     /**
      * The request instance.
      *
-     * @var \Laravel\Nova\Http\Requests\ActionRequest
+     * @var \Laravel\Components\Http\Requests\ActionRequest
      */
     protected $request;
 
     /**
      * The action instance.
      *
-     * @var \Laravel\Nova\Actions\Action
+     * @var \Laravel\Components\Actions\Action
      */
     protected $action;
 
     /**
      * The fields for action instance.
      *
-     * @var \Laravel\Nova\Fields\ActionFields
+     * @var \Laravel\Components\Fields\ActionFields
      */
     protected $fields;
 
@@ -45,16 +45,16 @@ class DispatchAction
     /**
      * Set dispatchable callback.
      *
-     * @var (callable(\Laravel\Nova\Actions\Response):(mixed))|null
+     * @var (callable(\Laravel\Components\Actions\Response):(mixed))|null
      */
     protected $dispatchableCallback;
 
     /**
      * Create a new action dispatcher instance.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
-     * @param  \Laravel\Nova\Actions\Action  $action
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
+     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Components\Actions\Action  $action
+     * @param  \Laravel\Components\Fields\ActionFields  $fields
      * @return void
      */
     public function __construct(ActionRequest $request, Action $action, ActionFields $fields)
@@ -71,8 +71,8 @@ class DispatchAction
     /**
      * Configure the batch job for the action.
      *
-     * @param  \Laravel\Nova\Actions\Action  $action
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
+     * @param  \Laravel\Components\Actions\Action  $action
+     * @param  \Laravel\Components\Fields\ActionFields  $fields
      * @return void
      */
     protected function configureBatchJob(Action $action, ActionFields $fields)
@@ -95,7 +95,7 @@ class DispatchAction
     /**
      * Dispatch the action.
      *
-     * @return \Laravel\Nova\Actions\Response
+     * @return \Laravel\Components\Actions\Response
      *
      * @throws \Throwable
      */
@@ -144,7 +144,7 @@ class DispatchAction
     /**
      * Dispatch the given action.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
      * @param  string  $method
      * @param  int  $chunkCount
      * @return $this
@@ -187,8 +187,8 @@ class DispatchAction
     /**
      * Dispatch the given action using custom handler.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
-     * @param  \Closure(\Laravel\Nova\Http\Requests\ActionRequest, \Laravel\Nova\Actions\Response, \Laravel\Nova\Fields\ActionFields):\Laravel\Nova\Actions\Response  $callback
+     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
+     * @param  \Closure(\Laravel\Components\Http\Requests\ActionRequest, \Laravel\Components\Actions\Response, \Laravel\Components\Fields\ActionFields):\Laravel\Components\Actions\Response  $callback
      * @return $this
      */
     public function handleUsing(ActionRequest $request, $callback)

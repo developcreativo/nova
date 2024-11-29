@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields\Markdown;
+namespace Laravel\Components\Fields\Markdown;
 
 use League\CommonMark\CommonMarkConverter;
 

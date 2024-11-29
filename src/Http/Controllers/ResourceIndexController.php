@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\ResourceIndexRequest;
-use Laravel\Nova\Http\Resources\IndexViewResource;
+use Laravel\Components\Http\Requests\ResourceIndexRequest;
+use Laravel\Components\Http\Resources\IndexViewResource;
 
 class ResourceIndexController extends Controller
 {
     /**
      * List the resources for administration.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceIndexRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceIndexRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourceIndexRequest $request)

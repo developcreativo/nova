@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Fields\Filters;
+namespace Laravel\Components\Fields\Filters;
 
 /**
- * @template TField of \Laravel\Nova\Contracts\FilterableField&\Laravel\Nova\Contracts\RelatableField&\Laravel\Nova\Fields\Field
+ * @template TField of \Laravel\Components\Contracts\FilterableField&\Laravel\Components\Contracts\RelatableField&\Laravel\Components\Fields\Field
  */
 class EloquentFilter extends Filter
 {

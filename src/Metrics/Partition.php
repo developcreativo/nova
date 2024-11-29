@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
-use Laravel\Nova\Util;
+use Laravel\Components\Util;
 
 abstract class Partition extends Metric
 {
@@ -20,11 +20,11 @@ abstract class Partition extends Metric
     /**
      * Return a partition result showing the segments of a count aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $groupBy
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     public function count($request, $model, $groupBy, $column = null)
     {
@@ -34,11 +34,11 @@ abstract class Partition extends Metric
     /**
      * Return a partition result showing the segments of an average aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  string  $groupBy
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     public function average($request, $model, $column, $groupBy)
     {
@@ -48,11 +48,11 @@ abstract class Partition extends Metric
     /**
      * Return a partition result showing the segments of a sum aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  string  $groupBy
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     public function sum($request, $model, $column, $groupBy)
     {
@@ -62,11 +62,11 @@ abstract class Partition extends Metric
     /**
      * Return a partition result showing the segments of a max aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  string  $groupBy
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     public function max($request, $model, $column, $groupBy)
     {
@@ -76,11 +76,11 @@ abstract class Partition extends Metric
     /**
      * Return a partition result showing the segments of a min aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  string  $groupBy
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     public function min($request, $model, $column, $groupBy)
     {
@@ -90,12 +90,12 @@ abstract class Partition extends Metric
     /**
      * Return a partition result showing the segments of a aggregate.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $function
      * @param  \Illuminate\Database\Query\Expression|string|null  $column
      * @param  string  $groupBy
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     protected function aggregate($request, $model, $function, $column, $groupBy)
     {
@@ -138,7 +138,7 @@ abstract class Partition extends Metric
      * Create a new partition metric result.
      *
      * @param  array<string, int|float>  $value
-     * @return \Laravel\Nova\Metrics\PartitionResult
+     * @return \Laravel\Components\Metrics\PartitionResult
      */
     public function result(array $value)
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Filters;
+namespace Laravel\Components\Filters;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 abstract class BooleanFilter extends Filter
 {

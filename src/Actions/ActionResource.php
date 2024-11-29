@@ -1,23 +1,23 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\KeyValue;
-use Laravel\Nova\Fields\MorphToActionTarget;
-use Laravel\Nova\Fields\Status;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Resource;
+use Laravel\Components\Fields\DateTime;
+use Laravel\Components\Fields\ID;
+use Laravel\Components\Fields\KeyValue;
+use Laravel\Components\Fields\MorphToActionTarget;
+use Laravel\Components\Fields\Status;
+use Laravel\Components\Fields\Text;
+use Laravel\Components\Fields\Textarea;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Nova;
+use Laravel\Components\Resource;
 
 /**
- * @template TActionModel of \Laravel\Nova\Actions\ActionEvent
+ * @template TActionModel of \Laravel\Components\Actions\ActionEvent
  *
- * @extends \Laravel\Nova\Resource<TActionModel>
+ * @extends \Laravel\Components\Resource<TActionModel>
  */
 class ActionResource extends Resource
 {
@@ -96,7 +96,7 @@ class ActionResource extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -134,7 +134,7 @@ class ActionResource extends Resource
     /**
      * Build an "index" query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */

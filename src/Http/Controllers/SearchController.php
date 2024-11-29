@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\GlobalSearch;
-use Laravel\Nova\Http\Requests\GlobalSearchRequest;
-use Laravel\Nova\Nova;
+use Laravel\Components\GlobalSearch;
+use Laravel\Components\Http\Requests\GlobalSearchRequest;
+use Laravel\Components\Nova;
 
 class SearchController extends Controller
 {
     /**
      * Get the global search results for the given query.
      *
-     * @param  \Laravel\Nova\Http\Requests\GlobalSearchRequest  $request
+     * @param  \Laravel\Components\Http\Requests\GlobalSearchRequest  $request
      * @return array
      */
     public function __invoke(GlobalSearchRequest $request)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use Carbon\CarbonImmutable;
 use DateTime;

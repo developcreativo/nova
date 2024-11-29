@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Pages;
+namespace Laravel\Components\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Laravel\Nova\Testing\Browser\Components\Controls\RelationSelectControlComponent;
-use Laravel\Nova\Testing\Browser\Concerns\InteractsWithInlineCreateRelation;
+use Laravel\Components\Testing\Browser\Components\Controls\RelationSelectControlComponent;
+use Laravel\Components\Testing\Browser\Concerns\InteractsWithInlineCreateRelation;
 
 trait InteractsWithRelations
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Actions\Actionable;
-use Laravel\Nova\Http\Requests\DeleteResourceRequest;
-use Laravel\Nova\Nova;
-use Laravel\Nova\URL;
+use Laravel\Components\Actions\Actionable;
+use Laravel\Components\Http\Requests\DeleteResourceRequest;
+use Laravel\Components\Nova;
+use Laravel\Components\URL;
 
 class ResourceDestroyController extends Controller
 {
@@ -16,7 +16,7 @@ class ResourceDestroyController extends Controller
     /**
      * Destroy the given resource(s).
      *
-     * @param  \Laravel\Nova\Http\Requests\DeleteResourceRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DeleteResourceRequest  $request
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function __invoke(DeleteResourceRequest $request)

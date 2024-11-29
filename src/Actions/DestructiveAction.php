@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 class DestructiveAction extends Action
 {

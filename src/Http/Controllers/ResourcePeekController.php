@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\ResourcePeekRequest;
+use Laravel\Components\Http\Requests\ResourcePeekRequest;
 
 class ResourcePeekController extends Controller
 {
     /**
      * Preview the resource for administration.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourcePeekRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourcePeekRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourcePeekRequest $request)

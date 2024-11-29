@@ -2,12 +2,12 @@
 
 namespace {{ namespace }};
 
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\LensRequest;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Lenses\Lens;
-use Laravel\Nova\Nova;
+use Laravel\Components\Fields\ID;
+use Laravel\Components\Fields\Text;
+use Laravel\Components\Http\Requests\LensRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Lenses\Lens;
+use Laravel\Components\Nova;
 
 class {{ class }} extends Lens
 {
@@ -21,7 +21,7 @@ class {{ class }} extends Lens
     /**
      * Get the query builder / paginator for the lens.
      *
-     * @param  \Laravel\Nova\Http\Requests\LensRequest  $request
+     * @param  \Laravel\Components\Http\Requests\LensRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return mixed
      */
@@ -35,7 +35,7 @@ class {{ class }} extends Lens
     /**
      * Get the fields available to the lens.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -48,7 +48,7 @@ class {{ class }} extends Lens
     /**
      * Get the cards available on the lens.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -59,7 +59,7 @@ class {{ class }} extends Lens
     /**
      * Get the filters available for the lens.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -70,7 +70,7 @@ class {{ class }} extends Lens
     /**
      * Get the actions available on the lens.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

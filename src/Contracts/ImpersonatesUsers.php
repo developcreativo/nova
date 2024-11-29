@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Contracts;
+namespace Laravel\Components\Contracts;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\StatefulGuard;

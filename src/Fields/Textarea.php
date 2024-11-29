@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Exceptions\NovaException;
-use Laravel\Nova\Fields\Filters\TextFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Exceptions\NovaException;
+use Laravel\Components\Fields\Filters\TextFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class Textarea extends Field implements FilterableField
 {
@@ -65,8 +65,8 @@ class Textarea extends Field implements FilterableField
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Nova\Fields\Filters\Filter
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Components\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {
@@ -79,7 +79,7 @@ class Textarea extends Field implements FilterableField
      * @param  (callable():(bool))|bool  $callback
      * @return $this
      *
-     * @throws \Laravel\Nova\Exceptions\NovaException
+     * @throws \Laravel\Components\Exceptions\NovaException
      */
     public function showOnIndex($callback = true)
     {

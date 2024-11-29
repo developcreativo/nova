@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use Illuminate\Http\Resources\ConditionallyLoadsAttributes;
 use Illuminate\Http\Resources\MergeValue;
@@ -9,13 +9,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use JsonSerializable;
-use Laravel\Nova\Contracts\RelatableField;
-use Laravel\Nova\Fields\Collapsable;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Metrics\HasHelpText;
+use Laravel\Components\Contracts\RelatableField;
+use Laravel\Components\Fields\Collapsable;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Metrics\HasHelpText;
 
 /**
- * @phpstan-type TFields \Laravel\Nova\Fields\Field|\Laravel\Nova\ResourceToolElement|\Illuminate\Http\Resources\MergeValue|\Illuminate\Http\Resources\MissingValue
+ * @phpstan-type TFields \Laravel\Components\Fields\Field|\Laravel\Components\ResourceToolElement|\Illuminate\Http\Resources\MergeValue|\Illuminate\Http\Resources\MissingValue
  * @phpstan-type TPanelFields array<int, TFields>|iterable<int, TFields>
  *
  * @method static static make(string $name, \Closure|array|iterable $fields = [])
@@ -47,7 +47,7 @@ class Panel extends MergeValue implements JsonSerializable
     /**
      * The panel fields.
      *
-     * @var array<int, \Laravel\Nova\Fields\Field>
+     * @var array<int, \Laravel\Components\Fields\Field>
      */
     public $data;
 
@@ -101,7 +101,7 @@ class Panel extends MergeValue implements JsonSerializable
      * Mutate new panel from list of fields.
      *
      * @param  string  $name
-     * @param  \Laravel\Nova\Fields\FieldCollection<int, \Laravel\Nova\Fields\Field>  $fields
+     * @param  \Laravel\Components\Fields\FieldCollection<int, \Laravel\Components\Fields\Field>  $fields
      * @return static
      */
     public static function mutate($name, $fields)
@@ -124,7 +124,7 @@ class Panel extends MergeValue implements JsonSerializable
      * Prepare the given fields.
      *
      * @param  (\Closure():(object))|object  $fields
-     * @return array<int, \Laravel\Nova\Fields\Field>
+     * @return array<int, \Laravel\Components\Fields\Field>
      *
      * @phpstan-param (\Closure():(TPanelFields))|TPanelFields $fields
      */
@@ -146,7 +146,7 @@ class Panel extends MergeValue implements JsonSerializable
     /**
      * Get the default panel name for the given resource.
      *
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Resource  $resource
      * @return string
      */
     public static function defaultNameForDetail(Resource $resource)
@@ -160,7 +160,7 @@ class Panel extends MergeValue implements JsonSerializable
     /**
      * Get the default panel name for a create panel.
      *
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Resource  $resource
      * @return string
      */
     public static function defaultNameForCreate(Resource $resource)
@@ -173,7 +173,7 @@ class Panel extends MergeValue implements JsonSerializable
     /**
      * Get the default panel name for the update panel.
      *
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Resource  $resource
      * @return string
      */
     public static function defaultNameForUpdate(Resource $resource)
@@ -187,8 +187,8 @@ class Panel extends MergeValue implements JsonSerializable
     /**
      * Get the default panel name for the given resource.
      *
-     * @param  \Laravel\Nova\Resource  $resource
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return string
      */
     public static function defaultNameForViaRelationship(Resource $resource, NovaRequest $request)

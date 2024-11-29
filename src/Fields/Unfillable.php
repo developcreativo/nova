@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 /**
- * @mixin \Laravel\Nova\Fields\Field
+ * @mixin \Laravel\Components\Fields\Field
  */
 interface Unfillable
 {

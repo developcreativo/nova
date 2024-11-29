@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Nova\Query;
+namespace Laravel\Components\Query;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class ApplyFilter
 {
     /**
      * The filter instance.
      *
-     * @var \Laravel\Nova\Filters\Filter
+     * @var \Laravel\Components\Filters\Filter
      */
     public $filter;
 
@@ -23,7 +23,7 @@ class ApplyFilter
     /**
      * Create a new invokable filter applier.
      *
-     * @param  \Laravel\Nova\Filters\Filter  $filter
+     * @param  \Laravel\Components\Filters\Filter  $filter
      * @param  mixed  $value
      * @return void
      */
@@ -36,7 +36,7 @@ class ApplyFilter
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */

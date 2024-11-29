@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Nova;
 
 class ScriptController extends Controller
 {
     /**
      * Serve the requested script.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Nova\Script
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Components\Script
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */

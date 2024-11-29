@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class FieldAttachmentController extends Controller
 {
     /**
      * Store an attachment for a Trix field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(NovaRequest $request)
     {
-        /** @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable $field */
+        /** @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable $field */
         $field = $request->newResource()
                         ->availableFields($request)
                         ->filter(function ($field) {
@@ -35,12 +35,12 @@ class FieldAttachmentController extends Controller
     /**
      * Delete a single, persisted attachment for a Trix field by URL.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function destroyAttachment(NovaRequest $request)
     {
-        /** @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable $field */
+        /** @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable $field */
         $field = $request->newResource()
                         ->availableFields($request)
                         ->filter(function ($field) {
@@ -59,12 +59,12 @@ class FieldAttachmentController extends Controller
     /**
      * Purge all pending attachments for a Trix field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function destroyPending(NovaRequest $request)
     {
-        /** @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable $field */
+        /** @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable $field */
         $field = $request->newResource()
                         ->availableFields($request)
                         ->filter(function ($field) {
@@ -83,7 +83,7 @@ class FieldAttachmentController extends Controller
     /**
      * Return a new draft ID for the field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function draftId(NovaRequest $request)

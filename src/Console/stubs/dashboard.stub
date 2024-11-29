@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Laravel\Nova\Dashboard;
+use Laravel\Components\Dashboard;
 
 class {{ class }} extends Dashboard
 {

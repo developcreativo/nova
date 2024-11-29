@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Exceptions\HelperNotSupported;
+use Laravel\Components\Exceptions\HelperNotSupported;
 
 trait AsHTML
 {
@@ -18,7 +18,7 @@ trait AsHTML
      *
      * @return $this
      *
-     * @throws \Laravel\Nova\Exceptions\HelperNotSupported
+     * @throws \Laravel\Components\Exceptions\HelperNotSupported
      */
     public function asHtml()
     {

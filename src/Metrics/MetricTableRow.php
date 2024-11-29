@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use JsonSerializable;
-use Laravel\Nova\Makeable;
+use Laravel\Components\Makeable;
 use Laravel\SerializableClosure\SerializableClosure;
 use Serializable;
 

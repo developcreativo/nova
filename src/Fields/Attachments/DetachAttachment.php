@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields\Attachments;
+namespace Laravel\Components\Fields\Attachments;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +9,7 @@ class DetachAttachment
     /**
      * The attachment model.
      *
-     * @var class-string<\Laravel\Nova\Fields\Attachments\Attachment>
+     * @var class-string<\Laravel\Components\Fields\Attachments\Attachment>
      */
     public static $model = Attachment::class;
 

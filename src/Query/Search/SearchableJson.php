@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Query\Search;
+namespace Laravel\Components\Query\Search;
 
 use Illuminate\Support\Str;
 

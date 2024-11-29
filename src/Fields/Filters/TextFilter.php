@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields\Filters;
+namespace Laravel\Components\Fields\Filters;
 
 class TextFilter extends Filter
 {

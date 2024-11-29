@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -54,7 +54,7 @@ class ResourceCollection extends Collection
     /**
      * Sort the resources by their group property.
      *
-     * @return \Illuminate\Support\Collection<string, \Laravel\Nova\ResourceCollection<array-key, TValue>>
+     * @return \Illuminate\Support\Collection<string, \Laravel\Components\ResourceCollection<array-key, TValue>>
      */
     public function grouped()
     {
@@ -67,7 +67,7 @@ class ResourceCollection extends Collection
      * Group the resources for display in navigation.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Support\Collection<string, \Laravel\Nova\ResourceCollection<array-key, TValue>>
+     * @return \Illuminate\Support\Collection<string, \Laravel\Components\ResourceCollection<array-key, TValue>>
      */
     public function groupedForNavigation(Request $request)
     {

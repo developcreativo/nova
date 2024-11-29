@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Nova\Http\Resources;
+namespace Laravel\Components\Http\Resources;
 
-use Laravel\Nova\Http\Requests\ResourceIndexRequest;
+use Laravel\Components\Http\Requests\ResourceIndexRequest;
 
 class IndexViewResource extends Resource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceIndexRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceIndexRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -37,8 +37,8 @@ class IndexViewResource extends Resource
     /**
      * Get authorized resource for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceIndexRequest  $request
-     * @return class-string<\Laravel\Nova\Resource>
+     * @param  \Laravel\Components\Http\Requests\ResourceIndexRequest  $request
+     * @return class-string<\Laravel\Components\Resource>
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

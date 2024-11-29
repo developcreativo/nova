@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
@@ -10,7 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
-use Laravel\Nova\Nova;
+use Laravel\Components\Nova;
 
 abstract class Trend extends RangedMetric
 {
@@ -40,7 +40,7 @@ abstract class Trend extends RangedMetric
      * Create a new trend metric result.
      *
      * @param  int|float|numeric-string|null  $value
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function result($value = null)
     {
@@ -50,10 +50,10 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a count aggregate over months.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string|null  $column
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function countByMonths($request, $model, $column = null)
     {
@@ -63,10 +63,10 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a count aggregate over weeks.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string|null  $column
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function countByWeeks($request, $model, $column = null)
     {
@@ -76,10 +76,10 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a count aggregate over days.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string|null  $column
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function countByDays($request, $model, $column = null)
     {
@@ -89,10 +89,10 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a count aggregate over hours.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string|null  $column
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function countByHours($request, $model, $column = null)
     {
@@ -102,10 +102,10 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a count aggregate over minutes.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string|null  $column
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function countByMinutes($request, $model, $column = null)
     {
@@ -115,11 +115,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a count aggregate over time.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $unit
      * @param  string|null  $column
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function count($request, $model, $unit, $column = null)
     {
@@ -133,11 +133,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a average aggregate over months.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function averageByMonths($request, $model, $column, $dateColumn = null)
     {
@@ -147,11 +147,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a average aggregate over weeks.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function averageByWeeks($request, $model, $column, $dateColumn = null)
     {
@@ -161,11 +161,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a average aggregate over days.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function averageByDays($request, $model, $column, $dateColumn = null)
     {
@@ -175,11 +175,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a average aggregate over hours.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function averageByHours($request, $model, $column, $dateColumn = null)
     {
@@ -189,11 +189,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a average aggregate over minutes.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function averageByMinutes($request, $model, $column, $dateColumn = null)
     {
@@ -203,12 +203,12 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a average aggregate over time.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $unit
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function average($request, $model, $unit, $column, $dateColumn = null)
     {
@@ -218,11 +218,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a sum aggregate over months.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function sumByMonths($request, $model, $column, $dateColumn = null)
     {
@@ -232,11 +232,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a sum aggregate over weeks.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function sumByWeeks($request, $model, $column, $dateColumn = null)
     {
@@ -246,11 +246,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a sum aggregate over days.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function sumByDays($request, $model, $column, $dateColumn = null)
     {
@@ -260,11 +260,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a sum aggregate over hours.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function sumByHours($request, $model, $column, $dateColumn = null)
     {
@@ -274,11 +274,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a sum aggregate over minutes.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function sumByMinutes($request, $model, $column, $dateColumn = null)
     {
@@ -288,12 +288,12 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a sum aggregate over time.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $unit
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function sum($request, $model, $unit, $column, $dateColumn = null)
     {
@@ -303,7 +303,7 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a max aggregate over months.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
@@ -317,11 +317,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a max aggregate over weeks.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function maxByWeeks($request, $model, $column, $dateColumn = null)
     {
@@ -331,11 +331,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a max aggregate over days.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function maxByDays($request, $model, $column, $dateColumn = null)
     {
@@ -345,11 +345,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a max aggregate over hours.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function maxByHours($request, $model, $column, $dateColumn = null)
     {
@@ -359,11 +359,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a max aggregate over minutes.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function maxByMinutes($request, $model, $column, $dateColumn = null)
     {
@@ -373,12 +373,12 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a max aggregate over time.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $unit
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function max($request, $model, $unit, $column, $dateColumn = null)
     {
@@ -388,11 +388,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a min aggregate over months.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function minByMonths($request, $model, $column, $dateColumn = null)
     {
@@ -402,11 +402,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a min aggregate over weeks.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function minByWeeks($request, $model, $column, $dateColumn = null)
     {
@@ -416,11 +416,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a min aggregate over days.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function minByDays($request, $model, $column, $dateColumn = null)
     {
@@ -430,11 +430,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a min aggregate over hours.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function minByHours($request, $model, $column, $dateColumn = null)
     {
@@ -444,11 +444,11 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a min aggregate over minutes.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function minByMinutes($request, $model, $column, $dateColumn = null)
     {
@@ -458,12 +458,12 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a min aggregate over time.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $unit
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     public function min($request, $model, $unit, $column, $dateColumn = null)
     {
@@ -473,13 +473,13 @@ abstract class Trend extends RangedMetric
     /**
      * Return a value result showing a aggregate over time.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|class-string<\Illuminate\Database\Eloquent\Model>  $model
      * @param  string  $unit
      * @param  string  $function
      * @param  \Illuminate\Database\Query\Expression|string  $column
      * @param  string|null  $dateColumn
-     * @return \Laravel\Nova\Metrics\TrendResult
+     * @return \Laravel\Components\Metrics\TrendResult
      */
     protected function aggregate($request, $model, $unit, $function, $column, $dateColumn = null)
     {

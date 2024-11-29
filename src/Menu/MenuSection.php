@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Menu;
+namespace Laravel\Components\Menu;
 
 use Illuminate\Support\Traits\Macroable;
 use JsonSerializable;
-use Laravel\Nova\AuthorizedToSee;
-use Laravel\Nova\Exceptions\NovaException;
-use Laravel\Nova\Fields\Collapsable;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Makeable;
-use Laravel\Nova\URL;
-use Laravel\Nova\WithBadge;
-use Laravel\Nova\WithIcon;
+use Laravel\Components\AuthorizedToSee;
+use Laravel\Components\Exceptions\NovaException;
+use Laravel\Components\Fields\Collapsable;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Makeable;
+use Laravel\Components\URL;
+use Laravel\Components\WithBadge;
+use Laravel\Components\WithIcon;
 
 /**
  * @method static static make(string $name, array|iterable $items = [], string $icon = 'collection')
@@ -42,7 +42,7 @@ class MenuSection implements JsonSerializable
     /**
      * The menu's items.
      *
-     * @var \Laravel\Nova\Menu\MenuCollection
+     * @var \Laravel\Components\Menu\MenuCollection
      */
     public $items;
 
@@ -70,7 +70,7 @@ class MenuSection implements JsonSerializable
     /**
      * Create a menu from dashboard class.
      *
-     * @param  class-string<\Laravel\Nova\Dashboard>  $dashboard
+     * @param  class-string<\Laravel\Components\Dashboard>  $dashboard
      * @return static
      */
     public static function dashboard($dashboard)
@@ -88,7 +88,7 @@ class MenuSection implements JsonSerializable
     /**
      * Create a menu section from a resource class.
      *
-     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
      * @return static
      */
     public static function resource($resourceClass)
@@ -104,8 +104,8 @@ class MenuSection implements JsonSerializable
     /**
      * Create a menu section from a lens class.
      *
-     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
-     * @param  class-string<\Laravel\Nova\Lenses\Lens>  $lensClass
+     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Components\Lenses\Lens>  $lensClass
      * @return static
      */
     public static function lens($resourceClass, $lensClass)

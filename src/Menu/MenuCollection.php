@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Menu;
+namespace Laravel\Components\Menu;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -8,7 +8,7 @@ use JsonSerializable;
 
 /**
  * @template TKey of int
- * @template TValue of \Laravel\Nova\Menu\MenuGroup|\Laravel\Nova\Menu\MenuItem|\Laravel\Nova\Menu\MenuList|non-empty-array
+ * @template TValue of \Laravel\Components\Menu\MenuGroup|\Laravel\Components\Menu\MenuItem|\Laravel\Components\Menu\MenuList|non-empty-array
  *
  * @extends \Illuminate\Support\Collection<TKey, TValue>
  */

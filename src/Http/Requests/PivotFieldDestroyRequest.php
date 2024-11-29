@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Http\Requests;
+namespace Laravel\Components\Http\Requests;
 
-use Laravel\Nova\Fields\File;
-use Laravel\Nova\Nova;
+use Laravel\Components\Fields\File;
+use Laravel\Components\Nova;
 
 class PivotFieldDestroyRequest extends NovaRequest
 {
@@ -45,7 +45,7 @@ class PivotFieldDestroyRequest extends NovaRequest
      * Find the related resource for the operation.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
      */
     public function findRelatedResource($resourceId = null)
     {
@@ -83,7 +83,7 @@ class PivotFieldDestroyRequest extends NovaRequest
     /**
      * Find the field being deleted or fail if it is not found.
      *
-     * @return \Laravel\Nova\Fields\Field&\Laravel\Nova\Fields\File
+     * @return \Laravel\Components\Fields\Field&\Laravel\Components\Fields\File
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 /**
  * @method static static make(string $name, string|array|null $attribute = null, array $lines = [])
@@ -19,14 +19,14 @@ class Stack extends Field
     /**
      * Indicates if the element should be shown on the creation view.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
      */
     public $showOnCreation = false;
 
     /**
      * Indicates if the element should be shown on the update view.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest, mixed):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest, mixed):(bool))|bool
      */
     public $showOnUpdate = false;
 
@@ -41,8 +41,8 @@ class Stack extends Field
      * Create a new Stack field.
      *
      * @param  string  $name
-     * @param  string|array<int, class-string<\Laravel\Nova\Fields\Field>|callable>|null  $attribute
-     * @param  array<int, class-string<\Laravel\Nova\Fields\Field>|callable>  $lines
+     * @param  string|array<int, class-string<\Laravel\Components\Fields\Field>|callable>|null  $attribute
+     * @param  array<int, class-string<\Laravel\Components\Fields\Field>|callable>  $lines
      * @return void
      */
     public function __construct($name, $attribute = null, $lines = [])

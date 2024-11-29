@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Query\ApplySoftDeleteConstraint;
-use Laravel\Nova\Query\Search;
-use Laravel\Nova\Query\Search\PrimaryKey;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Query\ApplySoftDeleteConstraint;
+use Laravel\Components\Query\Search;
+use Laravel\Components\Query\Search\PrimaryKey;
 
 trait PerformsQueries
 {
     /**
      * Build an "index" query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  string|null  $search
-     * @param  array<int, \Laravel\Nova\Query\ApplyFilter>  $filters
+     * @param  array<int, \Laravel\Components\Query\ApplyFilter>  $filters
      * @param  array<string, string>  $orderings
      * @param  string  $withTrashed
      * @return \Illuminate\Database\Eloquent\Builder
@@ -34,7 +34,7 @@ trait PerformsQueries
     /**
      * Initialize the given index query.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  string  $search
      * @param  string  $withTrashed
@@ -93,7 +93,7 @@ trait PerformsQueries
     /**
      * Initialize the given index query using Laravel Scout.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  string  $search
      * @param  string  $withTrashed
@@ -111,7 +111,7 @@ trait PerformsQueries
     /**
      * Build an "index" result for the given resource using Scout.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string|null  $search
      * @param  string  $withTrashed
      * @return \Laravel\Scout\Builder
@@ -143,9 +143,9 @@ trait PerformsQueries
     /**
      * Apply any applicable filters to the query.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  array<int, \Laravel\Nova\Query\ApplyFilter>  $filters
+     * @param  array<int, \Laravel\Components\Query\ApplyFilter>  $filters
      * @return \Illuminate\Database\Eloquent\Builder
      */
     protected static function applyFilters(NovaRequest $request, $query, array $filters)
@@ -193,7 +193,7 @@ trait PerformsQueries
     /**
      * Build an "index" query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -205,7 +205,7 @@ trait PerformsQueries
     /**
      * Build a Scout search query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Laravel\Scout\Builder  $query
      * @return \Laravel\Scout\Builder
      */
@@ -217,7 +217,7 @@ trait PerformsQueries
     /**
      * Build a "detail" query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -229,7 +229,7 @@ trait PerformsQueries
     /**
      * Build an "edit" query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -241,7 +241,7 @@ trait PerformsQueries
     /**
      * Build a "replicate" query for the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -255,7 +255,7 @@ trait PerformsQueries
      *
      * This query determines which instances of the model may be attached to other resources.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */

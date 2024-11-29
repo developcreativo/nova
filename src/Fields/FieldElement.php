@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Element;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Element;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 abstract class FieldElement extends Element
 {
@@ -17,7 +17,7 @@ abstract class FieldElement extends Element
     /**
      * The field's assigned panel.
      *
-     * @var \Laravel\Nova\Panel|null
+     * @var \Laravel\Components\Panel|null
      */
     public $assignedPanel;
 
@@ -38,14 +38,14 @@ abstract class FieldElement extends Element
     /**
      * Indicates if the element should be shown on the creation view.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
      */
     public $showOnCreation = true;
 
     /**
      * Indicates if the element should be shown on the update view.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest, mixed):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest, mixed):(bool))|bool
      */
     public $showOnUpdate = true;
 
@@ -142,7 +142,7 @@ abstract class FieldElement extends Element
     /**
      * Specify that the element should be hidden from the creation view.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $callback
      * @return $this
      */
     public function showOnCreating($callback = true)
@@ -155,7 +155,7 @@ abstract class FieldElement extends Element
     /**
      * Specify that the element should be hidden from the update view.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, mixed):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, mixed):(bool))|bool  $callback
      * @return $this
      */
     public function showOnUpdating($callback = true)
@@ -168,7 +168,7 @@ abstract class FieldElement extends Element
     /**
      * Check for showing when updating.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return bool
      */
@@ -184,7 +184,7 @@ abstract class FieldElement extends Element
     /**
      * Check showing on index.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return bool
      */
@@ -200,7 +200,7 @@ abstract class FieldElement extends Element
     /**
      * Determine if the field is to be shown on the detail view.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return bool
      */
@@ -216,7 +216,7 @@ abstract class FieldElement extends Element
     /**
      * Check for showing when creating.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function isShownOnCreation(NovaRequest $request): bool

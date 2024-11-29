@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Contracts;
+namespace Laravel\Components\Contracts;
 
 /**
- * @method \Illuminate\Http\Response toDownloadResponse(\Laravel\Nova\Http\Requests\NovaRequest $request, \Laravel\Nova\Resource $resource)
+ * @method \Illuminate\Http\Response toDownloadResponse(\Laravel\Components\Http\Requests\NovaRequest $request, \Laravel\Components\Resource $resource)
  *
- * @mixin \Laravel\Nova\Fields\Field
+ * @mixin \Laravel\Components\Fields\Field
  */
 interface Downloadable
 {

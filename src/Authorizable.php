@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Nova;
+namespace Laravel\Components;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
-use Laravel\Nova\Actions\Action;
-use Laravel\Nova\Actions\DestructiveAction;
-use Laravel\Nova\Contracts\ImpersonatesUsers;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Actions\Action;
+use Laravel\Components\Actions\DestructiveAction;
+use Laravel\Components\Contracts\ImpersonatesUsers;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait Authorizable
 {
@@ -234,7 +234,7 @@ trait Authorizable
     /**
      * Determine if the user can add / associate models of the given type to the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model|string  $model
      * @return bool
      */
@@ -255,7 +255,7 @@ trait Authorizable
     /**
      * Determine if the user can attach any models of the given type to the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model|string  $model
      * @return bool
      */
@@ -276,7 +276,7 @@ trait Authorizable
     /**
      * Determine if the user can attach models of the given type to the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model|string  $model
      * @return bool
      */
@@ -297,7 +297,7 @@ trait Authorizable
     /**
      * Determine if the user can detach models of the given type to the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model|string  $model
      * @param  string  $relationship
      * @return bool
@@ -319,8 +319,8 @@ trait Authorizable
     /**
      * Determine if the user can run the given action.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Actions\Action  $action
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Actions\Action  $action
      * @return bool
      */
     public function authorizedToRunAction(NovaRequest $request, Action $action)
@@ -345,8 +345,8 @@ trait Authorizable
     /**
      * Determine if the user can run the given action.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Actions\DestructiveAction  $action
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Actions\DestructiveAction  $action
      * @return bool
      */
     public function authorizedToRunDestructiveAction(NovaRequest $request, DestructiveAction $action)
@@ -367,7 +367,7 @@ trait Authorizable
     /**
      * Determine if the current user can impersonate the given resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function authorizedToImpersonate(NovaRequest $request)

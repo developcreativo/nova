@@ -1,24 +1,24 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Exceptions\NovaException;
-use Laravel\Nova\Fields\Repeater\Presets\HasMany;
-use Laravel\Nova\Fields\Repeater\Presets\JSON;
-use Laravel\Nova\Fields\Repeater\Presets\Preset;
-use Laravel\Nova\Fields\Repeater\Repeatable;
-use Laravel\Nova\Fields\Repeater\RepeatableCollection;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Exceptions\NovaException;
+use Laravel\Components\Fields\Repeater\Presets\HasMany;
+use Laravel\Components\Fields\Repeater\Presets\JSON;
+use Laravel\Components\Fields\Repeater\Presets\Preset;
+use Laravel\Components\Fields\Repeater\Repeatable;
+use Laravel\Components\Fields\Repeater\RepeatableCollection;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 /**
- * @phpstan-import-type TFieldValidationRules from \Laravel\Nova\Fields\Field
+ * @phpstan-import-type TFieldValidationRules from \Laravel\Components\Fields\Field
  */
 class Repeater extends Field
 {
     /**
      * The resource class for the repeater.
      *
-     * @var class-string<\Laravel\Nova\Resource>|null
+     * @var class-string<\Laravel\Components\Resource>|null
      */
     public $resourceClass;
 
@@ -53,7 +53,7 @@ class Repeater extends Field
     /**
      * The repeatable types used for the Repeater.
      *
-     * @var \Laravel\Nova\Fields\Repeater\RepeatableCollection
+     * @var \Laravel\Components\Fields\Repeater\RepeatableCollection
      */
     public $repeatables;
 
@@ -70,7 +70,7 @@ class Repeater extends Field
     /**
      * The preset used for the field.
      *
-     * @var \Laravel\Nova\Fields\Repeater\Presets\Preset|null
+     * @var \Laravel\Components\Fields\Repeater\Presets\Preset|null
      */
     public $preset;
 
@@ -92,7 +92,7 @@ class Repeater extends Field
     /**
      * Specify the callback to be executed to retrieve the pivot fields.
      *
-     * @param  array<int, \Laravel\Nova\Fields\Repeater\Repeatable>  $repeatables
+     * @param  array<int, \Laravel\Components\Fields\Repeater\Repeatable>  $repeatables
      * @return $this
      */
     public function repeatables(array $repeatables)
@@ -129,14 +129,14 @@ class Repeater extends Field
     /**
      * Use the HasMany preset for the field.
      *
-     * @param  class-string<\Laravel\Nova\Resource>|null  $resourceClass
+     * @param  class-string<\Laravel\Components\Resource>|null  $resourceClass
      * @return $this
      *
-     * @throws \Laravel\Nova\Exceptions\NovaException
+     * @throws \Laravel\Components\Exceptions\NovaException
      */
     public function asHasMany($resourceClass = null)
     {
-        /** @var class-string<\Laravel\Nova\Resource>|null $resource */
+        /** @var class-string<\Laravel\Components\Resource>|null $resource */
         $resource = $resourceClass ?? ResourceRelationshipGuesser::guessResource($this->name);
 
         if ($resource) {
@@ -152,7 +152,7 @@ class Repeater extends Field
     /**
      * Return the preset instance for the field.
      *
-     * @return \Laravel\Nova\Fields\Repeater\Presets\Preset
+     * @return \Laravel\Components\Fields\Repeater\Presets\Preset
      */
     public function getPreset()
     {
@@ -188,7 +188,7 @@ class Repeater extends Field
      * Hydrate the given attribute on the model based on the incoming request.
      *
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @param  string  $attribute
      * @return \Closure
      */

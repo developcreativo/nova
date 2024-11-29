@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Contracts\Cover;
+use Laravel\Components\Contracts\Cover;
 
 class Avatar extends Image implements Cover
 {
@@ -12,7 +12,7 @@ class Avatar extends Image implements Cover
      * @param  string|null  $name
      * @param  string|null  $attribute
      * @param  string|null  $disk
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
      * @return void
      */
     public function __construct($name = 'Avatar', $attribute = null, $disk = null, $storageCallback = null)
@@ -27,7 +27,7 @@ class Avatar extends Image implements Cover
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @return \Laravel\Nova\Fields\Gravatar
+     * @return \Laravel\Components\Fields\Gravatar
      */
     public static function gravatar($name = 'Avatar', $attribute = 'email')
     {
@@ -39,7 +39,7 @@ class Avatar extends Image implements Cover
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @return \Laravel\Nova\Fields\UiAvatar
+     * @return \Laravel\Components\Fields\UiAvatar
      */
     public static function uiavatar($name = 'Avatar', $attribute = 'name')
     {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Support\Str;
-use Laravel\Nova\Fields\Attachments\DeleteAttachments;
-use Laravel\Nova\Fields\Attachments\DetachAttachment;
-use Laravel\Nova\Fields\Attachments\DiscardPendingAttachments;
-use Laravel\Nova\Fields\Attachments\PendingAttachment;
-use Laravel\Nova\Fields\Attachments\StorePendingAttachment;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Fields\Attachments\DeleteAttachments;
+use Laravel\Components\Fields\Attachments\DetachAttachment;
+use Laravel\Components\Fields\Attachments\DiscardPendingAttachments;
+use Laravel\Components\Fields\Attachments\PendingAttachment;
+use Laravel\Components\Fields\Attachments\StorePendingAttachment;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait HasAttachments
 {
@@ -90,7 +90,7 @@ trait HasAttachments
     /**
      * Specify the callback that should be used to delete the field.
      *
-     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest, mixed, ?string, ?string):mixed  $deleteCallback
+     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest, mixed, ?string, ?string):mixed  $deleteCallback
      * @return $this
      */
     public function delete(callable $deleteCallback)
@@ -127,9 +127,9 @@ trait HasAttachments
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @param  string  $attribute
      * @return void|\Closure
      */

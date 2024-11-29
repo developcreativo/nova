@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Query\Search;
+namespace Laravel\Components\Query\Search;
 
 class SearchableRelation extends Column
 {

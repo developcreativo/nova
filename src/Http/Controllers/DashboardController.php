@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\DashboardRequest;
-use Laravel\Nova\Http\Resources\DashboardViewResource;
+use Laravel\Components\Http\Requests\DashboardRequest;
+use Laravel\Components\Http\Resources\DashboardViewResource;
 
 class DashboardController extends Controller
 {
     /**
      * Return the details for the Dashboard.
      *
-     * @param  \Laravel\Nova\Http\Requests\DashboardRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DashboardRequest  $request
      * @param  string  $dashboard
      * @return \Illuminate\Http\JsonResponse
      */

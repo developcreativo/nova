@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
-use Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
-use Laravel\Nova\Http\Resources\UpdateViewResource;
-use Laravel\Nova\Menu\Breadcrumb;
-use Laravel\Nova\Menu\Breadcrumbs;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
+use Laravel\Components\Http\Resources\UpdateViewResource;
+use Laravel\Components\Menu\Breadcrumb;
+use Laravel\Components\Menu\Breadcrumbs;
+use Laravel\Components\Nova;
 
 class ResourceUpdateController extends Controller
 {
     /**
      * Show Resource Update page using Inertia.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
      * @return \Inertia\Response
      */
     public function __invoke(ResourceUpdateOrUpdateAttachedRequest $request)
@@ -37,8 +37,8 @@ class ResourceUpdateController extends Controller
     /**
      * Get breadcrumb menu for the page.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
-     * @return \Laravel\Nova\Menu\Breadcrumbs
+     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @return \Laravel\Components\Menu\Breadcrumbs
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException

@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait PeekableFields
 {
     /**
      * Indicates whether to show the field in the modal preview.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
      */
     public $showWhenPeeking = false;
 
     /**
      * Show the field in the modal preview.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $callback
      * @return $this
      */
     public function showWhenPeeking($callback = true)
@@ -29,7 +29,7 @@ trait PeekableFields
     /**
      * Determine if the field is to be shown in the preview modal.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function isShownWhenPeeking(NovaRequest $request): bool

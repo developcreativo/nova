@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Actions;
+namespace Laravel\Components\Actions;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Laravel\Nova\Http\Requests\ActionRequest;
+use Laravel\Components\Http\Requests\ActionRequest;
 
 /**
  * @template TKey of array-key
@@ -16,7 +16,7 @@ class ActionModelCollection extends EloquentCollection
     /**
      * Remove models the user does not have permission to execute the action against.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
      * @return static
      */
     public function filterForExecution(ActionRequest $request)
@@ -36,9 +36,9 @@ class ActionModelCollection extends EloquentCollection
     /**
      * Remove models the user does not have permission to execute the action against.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
-     * @param  \Laravel\Nova\Resource  $resource
-     * @param  \Laravel\Nova\Actions\Action|\Laravel\Nova\Actions\DestructiveAction  $action
+     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Components\Resource  $resource
+     * @param  \Laravel\Components\Actions\Action|\Laravel\Components\Actions\DestructiveAction  $action
      * @return bool
      */
     protected function filterByResourceAuthorization(ActionRequest $request, $resource, $action)

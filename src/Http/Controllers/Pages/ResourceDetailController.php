@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
-use Laravel\Nova\Http\Requests\ResourceDetailRequest;
-use Laravel\Nova\Http\Resources\DetailViewResource;
-use Laravel\Nova\Menu\Breadcrumb;
-use Laravel\Nova\Menu\Breadcrumbs;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\ResourceDetailRequest;
+use Laravel\Components\Http\Resources\DetailViewResource;
+use Laravel\Components\Menu\Breadcrumb;
+use Laravel\Components\Menu\Breadcrumbs;
+use Laravel\Components\Nova;
 
 class ResourceDetailController extends Controller
 {
     /**
      * Show Resource Detail page using Inertia.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceDetailRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceDetailRequest  $request
      * @return \Inertia\Response
      */
     public function __invoke(ResourceDetailRequest $request)
@@ -32,8 +32,8 @@ class ResourceDetailController extends Controller
     /**
      * Get breadcrumb menu for the page.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceDetailRequest  $request
-     * @return \Laravel\Nova\Menu\Breadcrumbs
+     * @param  \Laravel\Components\Http\Requests\ResourceDetailRequest  $request
+     * @return \Laravel\Components\Menu\Breadcrumbs
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException

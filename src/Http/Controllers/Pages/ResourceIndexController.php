@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
-use Laravel\Nova\Http\Requests\ResourceIndexRequest;
-use Laravel\Nova\Http\Resources\IndexViewResource;
-use Laravel\Nova\Menu\Breadcrumb;
-use Laravel\Nova\Menu\Breadcrumbs;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\ResourceIndexRequest;
+use Laravel\Components\Http\Resources\IndexViewResource;
+use Laravel\Components\Menu\Breadcrumb;
+use Laravel\Components\Menu\Breadcrumbs;
+use Laravel\Components\Nova;
 
 class ResourceIndexController extends Controller
 {
     /**
      * Show Resource Index page using Inertia.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceIndexRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceIndexRequest  $request
      * @return \Inertia\Response
      */
     public function __invoke(ResourceIndexRequest $request)
@@ -31,8 +31,8 @@ class ResourceIndexController extends Controller
     /**
      * Get breadcrumb menu for the page.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceIndexRequest  $request
-     * @return \Laravel\Nova\Menu\Breadcrumbs
+     * @param  \Laravel\Components\Http\Requests\ResourceIndexRequest  $request
+     * @return \Laravel\Components\Menu\Breadcrumbs
      */
     protected function breadcrumbs(ResourceIndexRequest $request)
     {

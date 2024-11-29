@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Trix;
+namespace Laravel\Components\Trix;
 
-class PruneStaleAttachments extends \Laravel\Nova\Fields\Attachments\PruneStaleAttachments
+class PruneStaleAttachments extends \Laravel\Components\Fields\Attachments\PruneStaleAttachments
 {
     //
 }

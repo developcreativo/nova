@@ -3,16 +3,16 @@
 namespace {{ namespace }};
 
 use Illuminate\Support\Collection;
-use Laravel\Nova\Actions\DestructiveAction;
-use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Actions\DestructiveAction;
+use Laravel\Components\Fields\ActionFields;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class {{ class }} extends DestructiveAction
 {
     /**
      * Perform the action on the given models.
      *
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
+     * @param  \Laravel\Components\Fields\ActionFields  $fields
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
@@ -24,7 +24,7 @@ class {{ class }} extends DestructiveAction
     /**
      * Get the fields available on the action.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)

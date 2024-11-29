@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Brick\Money\Context;
 use Brick\Money\Context\CustomContext;

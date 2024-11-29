@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait PresentsAudio
 {
     /**
      * The "preload" attribute callback.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):string)|string|null
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):string)|string|null
      */
     public $preloadAudioCallback;
 
     /**
      * Set "preload" option for the field.
      *
-     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):string)|string  $preloadAudioCallback
+     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):string)|string  $preloadAudioCallback
      * @return $this
      */
     public function preload($preloadAudioCallback)

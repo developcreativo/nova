@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Concerns;
+namespace Laravel\Components\Testing\Browser\Concerns;
 
 use Carbon\CarbonInterface;
 use Facebook\WebDriver\Exception\WebDriverException;

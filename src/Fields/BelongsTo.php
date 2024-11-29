@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Laravel\Nova\Contracts\FilterableField;
-use Laravel\Nova\Contracts\QueryBuilder;
-use Laravel\Nova\Contracts\RelatableField;
-use Laravel\Nova\Fields\Filters\EloquentFilter;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Http\Requests\ResourceIndexRequest;
-use Laravel\Nova\Resource;
-use Laravel\Nova\Rules\Relatable;
-use Laravel\Nova\TrashedStatus;
-use Laravel\Nova\Util;
+use Laravel\Components\Contracts\FilterableField;
+use Laravel\Components\Contracts\QueryBuilder;
+use Laravel\Components\Contracts\RelatableField;
+use Laravel\Components\Fields\Filters\EloquentFilter;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\ResourceIndexRequest;
+use Laravel\Components\Resource;
+use Laravel\Components\Rules\Relatable;
+use Laravel\Components\TrashedStatus;
+use Laravel\Components\Util;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, string|null $resource = null)
@@ -41,7 +41,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * The class name of the related resource.
      *
-     * @var class-string<\Laravel\Nova\Resource>
+     * @var class-string<\Laravel\Components\Resource>
      */
     public $resourceClass;
 
@@ -55,7 +55,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * The resolved BelongsTo Resource.
      *
-     * @var \Laravel\Nova\Resource|null
+     * @var \Laravel\Components\Resource|null
      */
     public $belongsToResource;
 
@@ -83,7 +83,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * The callback that should be run when the field is filled.
      *
-     * @var \Closure(\Laravel\Nova\Http\Requests\NovaRequest, mixed):void
+     * @var \Closure(\Laravel\Components\Http\Requests\NovaRequest, mixed):void
      */
     public $filledCallback;
 
@@ -113,7 +113,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  class-string<\Laravel\Nova\Resource>|null  $resource
+     * @param  class-string<\Laravel\Components\Resource>|null  $resource
      * @return void
      */
     public function __construct($name, $attribute = null, $resource = null)
@@ -151,7 +151,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Determine if the field should be displayed for the given request.
      *
-     * @param  \Illuminate\Http\Request&\Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Http\Request&\Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function authorize(Request $request)
@@ -164,7 +164,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
      *
      * Ex: Is this a "user" belongs to field in a blog post list being shown on the "user" detail page.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function isNotRedundant(NovaRequest $request)
@@ -205,7 +205,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Resolve dependent field value.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function resolveDependentValue(NovaRequest $request)
@@ -227,7 +227,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Get the validation rules for this field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function getRules(NovaRequest $request)
@@ -247,8 +247,8 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @return void
      */
     public function fill(NovaRequest $request, $model)
@@ -269,8 +269,8 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @return mixed
      */
     public function fillForAction(NovaRequest $request, $model)
@@ -285,9 +285,9 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
      * @param  string  $attribute
      * @return mixed
      */
@@ -311,9 +311,9 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Build an associatable query for the field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  bool  $withTrashed
-     * @return \Laravel\Nova\Contracts\QueryBuilder
+     * @return \Laravel\Components\Contracts\QueryBuilder
      */
     public function buildAssociatableQuery(NovaRequest $request, $withTrashed = false)
     {
@@ -344,7 +344,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Get the associatable query method name.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return array
      */
@@ -358,7 +358,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Get the associatable query method name.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return string|null
      */
@@ -374,7 +374,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Format the given associatable resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return array
      */
@@ -404,7 +404,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Specify a callback that should be run when the field is filled.
      *
-     * @param  \Closure(\Laravel\Nova\Http\Requests\NovaRequest, mixed):void  $callback
+     * @param  \Closure(\Laravel\Components\Http\Requests\NovaRequest, mixed):void  $callback
      * @return $this
      */
     public function filled($callback)
@@ -479,8 +479,8 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Nova\Fields\Filters\Filter|null
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Components\Fields\Filters\Filter|null
      */
     protected function makeFilter(NovaRequest $request)
     {
@@ -497,7 +497,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Define filterable attribute.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return string
      */
     protected function filterableAttribute(NovaRequest $request)
@@ -508,7 +508,7 @@ class BelongsTo extends Field implements FilterableField, RelatableField
     /**
      * Define the default filterable callback.
      *
-     * @return callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):void
+     * @return callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):void
      */
     protected function defaultFilterableCallback()
     {

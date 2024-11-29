@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Exceptions;
+namespace Laravel\Components\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Notifications;
+namespace Laravel\Components\Notifications;
 
-use Laravel\Nova\Exceptions\HelperNotSupported;
-use Laravel\Nova\Makeable;
-use Laravel\Nova\Nova;
-use Laravel\Nova\URL;
+use Laravel\Components\Exceptions\HelperNotSupported;
+use Laravel\Components\Makeable;
+use Laravel\Components\Nova;
+use Laravel\Components\URL;
 
 class NovaNotification extends \Illuminate\Notifications\Notification
 {
@@ -62,7 +62,7 @@ class NovaNotification extends \Illuminate\Notifications\Notification
     /**
      * The URL used for the call-to-action button.
      *
-     * @var \Laravel\Nova\URL|string|null
+     * @var \Laravel\Components\URL|string|null
      */
     public $actionUrl;
 
@@ -123,7 +123,7 @@ class NovaNotification extends \Illuminate\Notifications\Notification
      * Set the action text and URL used for the notification.
      *
      * @param  string  $text
-     * @param  \Laravel\Nova\URL|string  $url
+     * @param  \Laravel\Components\URL|string  $url
      * @return $this
      */
     public function action(string $text, $url)

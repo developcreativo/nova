@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Components\Controls;
+namespace Laravel\Components\Testing\Browser\Components\Controls;
 
-use Laravel\Nova\Testing\Browser\Components\Component;
+use Laravel\Components\Testing\Browser\Components\Component;
 
 class SelectControlComponent extends Component
 {

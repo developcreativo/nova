@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Nova\Http\Resources;
+namespace Laravel\Components\Http\Resources;
 
-use Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
+use Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
 
 class UpdateViewResource extends Resource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -26,8 +26,8 @@ class UpdateViewResource extends Resource
     /**
      * Get current resource for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
-     * @return \Laravel\Nova\Resource
+     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @return \Laravel\Components\Resource
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException

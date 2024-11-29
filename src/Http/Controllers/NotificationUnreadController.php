@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\NotificationRequest;
-use Laravel\Nova\Notifications\Notification;
+use Laravel\Components\Http\Requests\NotificationRequest;
+use Laravel\Components\Notifications\Notification;
 
 class NotificationUnreadController extends Controller
 {
     /**
      * Mark the given notification as unread.
      *
-     * @param  \Laravel\Nova\Http\Requests\NotificationRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NotificationRequest  $request
      * @param  int|string  $notification
      * @return \Illuminate\Http\JsonResponse
      */

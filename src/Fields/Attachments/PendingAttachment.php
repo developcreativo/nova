@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Fields\Attachments;
+namespace Laravel\Components\Fields\Attachments;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Support\Facades\Storage;
-use Laravel\Nova\Contracts\Storable;
+use Laravel\Components\Contracts\Storable;
 
 /**
  * @property string $attachment
@@ -32,14 +32,14 @@ class PendingAttachment extends Model
     /**
      * The persist attachment model.
      *
-     * @var class-string<\Laravel\Nova\Fields\Attachments\Attachment>
+     * @var class-string<\Laravel\Components\Fields\Attachments\Attachment>
      */
     protected static $persistModel = Attachment::class;
 
     /**
      * Get persist model instance.
      *
-     * @return \Laravel\Nova\Fields\Attachments\Attachment
+     * @return \Laravel\Components\Fields\Attachments\Attachment
      */
     public function getPersistModel()
     {
@@ -50,11 +50,11 @@ class PendingAttachment extends Model
      * Persist the given draft's pending attachments.
      *
      * @param  string  $draftId
-     * @param  \Laravel\Nova\Contracts\Storable  $field
+     * @param  \Laravel\Components\Contracts\Storable  $field
      * @param  mixed  $model
      * @return void
      *
-     * @phpstan-param \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable  $field
+     * @phpstan-param \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable  $field
      */
     public static function persistDraft($draftId, Storable $field, $model)
     {
@@ -64,11 +64,11 @@ class PendingAttachment extends Model
     /**
      * Persist the pending attachment.
      *
-     * @param  \Laravel\Nova\Contracts\Storable  $field
+     * @param  \Laravel\Components\Contracts\Storable  $field
      * @param  mixed  $model
      * @return void
      *
-     * @phpstan-param \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable  $field
+     * @phpstan-param \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable  $field
      */
     public function persist(Storable $field, $model)
     {

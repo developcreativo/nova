@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Nova\Http\Resources;
+namespace Laravel\Components\Http\Resources;
 
-use Laravel\Nova\Contracts\ListableField;
-use Laravel\Nova\Contracts\RelatableField;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\FieldCollection;
-use Laravel\Nova\Fields\HasOne;
-use Laravel\Nova\Fields\MorphOne;
-use Laravel\Nova\Fields\MorphTo;
-use Laravel\Nova\Http\Requests\ResourceDetailRequest;
+use Laravel\Components\Contracts\ListableField;
+use Laravel\Components\Contracts\RelatableField;
+use Laravel\Components\Fields\BelongsTo;
+use Laravel\Components\Fields\FieldCollection;
+use Laravel\Components\Fields\HasOne;
+use Laravel\Components\Fields\MorphOne;
+use Laravel\Components\Fields\MorphTo;
+use Laravel\Components\Http\Requests\ResourceDetailRequest;
 
 class DetailViewResource extends Resource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceDetailRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceDetailRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -27,7 +27,7 @@ class DetailViewResource extends Resource
             $detail['fields'] = collect($detail['fields'])
                 ->when($request->viaResource, function ($fields) use ($request) {
                     return $fields->reject(function ($field) use ($request) {
-                        /** @var \Laravel\Nova\Fields\Field $field */
+                        /** @var \Laravel\Components\Fields\Field $field */
                         if ($field instanceof ListableField) {
                             return true;
                         } elseif (! $field instanceof RelatableField) {
@@ -56,8 +56,8 @@ class DetailViewResource extends Resource
     /**
      * Get authorized resource for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceDetailRequest  $request
-     * @return \Laravel\Nova\Resource
+     * @param  \Laravel\Components\Http\Requests\ResourceDetailRequest  $request
+     * @return \Laravel\Components\Resource
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException

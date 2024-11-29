@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Contracts\Previewable;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Contracts\Previewable;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 class FieldPreviewController extends Controller
 {
     /**
      * Delete the file at the given field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(NovaRequest $request)
@@ -20,7 +20,7 @@ class FieldPreviewController extends Controller
 
         $resource = $request->newResource();
 
-        /** @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Previewable $field */
+        /** @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Previewable $field */
         $field = $resource->availableFields($request)
                     ->whereInstanceOf(Previewable::class)
                     ->findFieldByAttribute($request->field, function () {

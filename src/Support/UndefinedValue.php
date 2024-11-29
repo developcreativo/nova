@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Support;
+namespace Laravel\Components\Support;
 
 /**
  * @internal

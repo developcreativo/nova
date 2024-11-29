@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers\Pages;
+namespace Laravel\Components\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
-use Laravel\Nova\Http\Requests\DashboardRequest;
-use Laravel\Nova\Http\Resources\DashboardViewResource;
-use Laravel\Nova\Menu\Breadcrumb;
-use Laravel\Nova\Menu\Breadcrumbs;
-use Laravel\Nova\Nova;
+use Laravel\Components\Http\Requests\DashboardRequest;
+use Laravel\Components\Http\Resources\DashboardViewResource;
+use Laravel\Components\Menu\Breadcrumb;
+use Laravel\Components\Menu\Breadcrumbs;
+use Laravel\Components\Nova;
 
 class DashboardController extends Controller
 {
     /**
      * Show Resource Create page using Inertia.
      *
-     * @param  \Laravel\Nova\Http\Requests\DashboardRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DashboardRequest  $request
      * @param  string  $name
      * @return \Illuminate\Http\RedirectResponse|\Inertia\Response
      *
@@ -34,9 +34,9 @@ class DashboardController extends Controller
     /**
      * Get breadcrumb menu for the page.
      *
-     * @param  \Laravel\Nova\Http\Requests\DashboardRequest  $request
+     * @param  \Laravel\Components\Http\Requests\DashboardRequest  $request
      * @param  string  $name
-     * @return \Laravel\Nova\Menu\Breadcrumbs
+     * @return \Laravel\Components\Menu\Breadcrumbs
      */
     protected function breadcrumbs(DashboardRequest $request, string $name)
     {

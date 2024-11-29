@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Listeners;
+namespace Laravel\Components\Listeners;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\NovaServiceProvider;
-use Laravel\Nova\Tools\Dashboard;
-use Laravel\Nova\Tools\ResourceManager;
+use Laravel\Components\Nova;
+use Laravel\Components\NovaServiceProvider;
+use Laravel\Components\Tools\Dashboard;
+use Laravel\Components\Tools\ResourceManager;
 
 class BootNova
 {

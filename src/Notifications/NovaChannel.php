@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Notifications;
+namespace Laravel\Components\Notifications;
 
 use Illuminate\Notifications\Notification as LaravelNotification;
 use Illuminate\Support\Facades\Gate;

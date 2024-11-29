@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Http\Resources;
+namespace Laravel\Components\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

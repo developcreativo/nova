@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Nova\Http\Controllers;
+namespace Laravel\Components\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest;
-use Laravel\Nova\Http\Resources\CreateViewResource;
-use Laravel\Nova\Http\Resources\ReplicateViewResource;
+use Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest;
+use Laravel\Components\Http\Resources\CreateViewResource;
+use Laravel\Components\Http\Resources\ReplicateViewResource;
 
 class CreationFieldSyncController extends Controller
 {
     /**
      * Synchronize the field for creation view.
      *
-     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourceCreateOrAttachRequest $request)

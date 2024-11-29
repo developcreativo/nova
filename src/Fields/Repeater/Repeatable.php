@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova\Fields\Repeater;
+namespace Laravel\Components\Fields\Repeater;
 
 use Illuminate\Support\Str;
 use JsonSerializable;
-use Laravel\Nova\Fields\Field;
-use Laravel\Nova\Fields\FieldCollection;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Makeable;
+use Laravel\Components\Fields\Field;
+use Laravel\Components\Fields\FieldCollection;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Makeable;
 
 class Repeatable implements JsonSerializable
 {
@@ -16,7 +16,7 @@ class Repeatable implements JsonSerializable
     /**
      * The collection of fields for the block.
      *
-     * @var \Laravel\Nova\Fields\FieldCollection
+     * @var \Laravel\Components\Fields\FieldCollection
      */
     public $fields;
 
@@ -90,7 +90,7 @@ class Repeatable implements JsonSerializable
     /**
      * Resolve the values of the fields in the Repeatable.
      *
-     * @return \Laravel\Nova\Fields\FieldCollection
+     * @return \Laravel\Components\Fields\FieldCollection
      */
     public function resolveFields(NovaRequest $request)
     {

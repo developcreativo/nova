@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Nova\Testing\Browser\Components;
+namespace Laravel\Components\Testing\Browser\Components;
 
 use Laravel\Dusk\Browser;
-use Laravel\Nova\Testing\Browser\Concerns\InteractsWithInlineCreateRelation;
+use Laravel\Components\Testing\Browser\Concerns\InteractsWithInlineCreateRelation;
 
 class FormComponent extends Component
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 /**
- * @phpstan-type TDependentResolver (callable(static, \Laravel\Nova\Http\Requests\NovaRequest, \Laravel\Nova\Fields\FormData):(void))|class-string
+ * @phpstan-type TDependentResolver (callable(static, \Laravel\Components\Http\Requests\NovaRequest, \Laravel\Components\Fields\FormData):(void))|class-string
  */
 class Dependent
 {
@@ -20,7 +20,7 @@ class Dependent
     /**
      * The dependent attributes.
      *
-     * @var array<int, string|\Laravel\Nova\Fields\Field>
+     * @var array<int, string|\Laravel\Components\Fields\Field>
      */
     public $attributes = [];
 
@@ -36,14 +36,14 @@ class Dependent
     /**
      * The dependent resolved FormData.
      *
-     * @var \Laravel\Nova\Fields\FormData|null
+     * @var \Laravel\Components\Fields\FormData|null
      */
     public $formData;
 
     /**
      * Create a new dependent object.
      *
-     * @param  string|\Laravel\Nova\Fields\Field|array<int, string|\Laravel\Nova\Fields\Field>  $attributes
+     * @param  string|\Laravel\Components\Fields\Field|array<int, string|\Laravel\Components\Fields\Field>  $attributes
      * @param  callable  $resolver
      * @param  string|array<int, string>|null  $context
      *
@@ -56,7 +56,7 @@ class Dependent
         $this->resolver = $resolver;
 
         $this->attributes = collect(Arr::wrap($attributes))->map(function ($item) {
-            /** @var string|\Laravel\Nova\Fields\Field $item */
+            /** @var string|\Laravel\Components\Fields\Field $item */
             if ($item instanceof MorphTo) {
                 return [$item->attribute, "{$item->attribute}_type"];
             }
@@ -68,8 +68,8 @@ class Dependent
     /**
      * Handle the dependencies for request.
      *
-     * @param  \Laravel\Nova\Fields\Field  $field
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Fields\Field  $field
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
      * @return $this
      */
     public function handle(Field $field, NovaRequest $request)

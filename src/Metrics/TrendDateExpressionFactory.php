@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Metrics;
+namespace Laravel\Components\Metrics;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Traits\Macroable;
@@ -17,7 +17,7 @@ class TrendDateExpressionFactory
      * @param  string  $column
      * @param  string  $unit
      * @param  string  $timezone
-     * @return \Laravel\Nova\Metrics\TrendDateExpression
+     * @return \Laravel\Components\Metrics\TrendDateExpression
      *
      * @throws \InvalidArgumentException
      */

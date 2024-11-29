@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Nova\Menu;
+namespace Laravel\Components\Menu;
 
 use JsonSerializable;
-use Laravel\Nova\AuthorizedToSee;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Makeable;
+use Laravel\Components\AuthorizedToSee;
+use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Components\Makeable;
 
 class Breadcrumbs implements JsonSerializable
 {

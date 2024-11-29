@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Nova\Contracts;
+namespace Laravel\Components\Contracts;
 
 interface BehavesAsPanel
 {
     /**
      * Make current field behaves as panel.
      *
-     * @return \Laravel\Nova\Panel
+     * @return \Laravel\Components\Panel
      */
     public function asPanel();
 }

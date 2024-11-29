@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Nova\Console;
+namespace Laravel\Components\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
-use Laravel\Nova\Nova;
+use Laravel\Components\Nova;
 
 class CheckLicenseCommand extends Command
 {

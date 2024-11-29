@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Nova\Fields;
+namespace Laravel\Components\Fields;
 
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Components\Http\Requests\NovaRequest;
 
 trait HasDownload
 {
     /**
      * The callback used to generate the download HTTP response.
      *
-     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest, \Laravel\Nova\Resource, ?string, ?string):(mixed))|null
+     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest, \Laravel\Components\Resource, ?string, ?string):(mixed))|null
      */
     public $downloadResponseCallback;
 
@@ -35,7 +35,7 @@ trait HasDownload
     /**
      * Specify the callback that should be used to create a download HTTP response.
      *
-     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest, \Laravel\Nova\Resource, ?string, ?string):mixed  $downloadResponseCallback
+     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest, \Laravel\Components\Resource, ?string, ?string):mixed  $downloadResponseCallback
      * @return $this
      */
     public function download(callable $downloadResponseCallback)
@@ -48,8 +48,8 @@ trait HasDownload
     /**
      * Create an HTTP response to download the underlying field.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Nova\Resource  $resource
+     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Components\Resource  $resource
      * @return \Illuminate\Http\Response
      */
     public function toDownloadResponse(NovaRequest $request, $resource)

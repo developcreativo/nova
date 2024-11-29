@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Fields\Attachments;
+namespace Laravel\Components\Fields\Attachments;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;

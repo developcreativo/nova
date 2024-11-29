@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Rules;
+namespace Laravel\Components\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Str;
