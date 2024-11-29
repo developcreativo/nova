@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Components\Controls;
+namespace Laravel\Nova\Testing\Browser\Components\Controls;
 
 class RelationSelectControlComponent extends SelectControlComponent
 {

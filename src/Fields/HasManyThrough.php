@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Contracts\ListableField;
-use Laravel\Components\Contracts\RelatableField;
-use Laravel\Components\Panel;
+use Laravel\Nova\Contracts\ListableField;
+use Laravel\Nova\Contracts\RelatableField;
+use Laravel\Nova\Panel;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, string|null $resource = null)
@@ -32,7 +32,7 @@ class HasManyThrough extends HasMany implements ListableField, RelatableField
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  class-string<\Laravel\Components\Resource>|null  $resource
+     * @param  class-string<\Laravel\Nova\Resource>|null  $resource
      * @return void
      */
     public function __construct($name, $attribute = null, $resource = null)
@@ -65,7 +65,7 @@ class HasManyThrough extends HasMany implements ListableField, RelatableField
     /**
      * Make current field behaves as panel.
      *
-     * @return \Laravel\Components\Panel
+     * @return \Laravel\Nova\Panel
      */
     public function asPanel()
     {

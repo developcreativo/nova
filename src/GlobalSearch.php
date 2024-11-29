@@ -1,31 +1,31 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
-use Laravel\Components\Contracts\QueryBuilder;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\QueryBuilder;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class GlobalSearch
 {
     /**
      * The request instance.
      *
-     * @var \Laravel\Components\Http\Requests\NovaRequest
+     * @var \Laravel\Nova\Http\Requests\NovaRequest
      */
     public $request;
 
     /**
      * The resource class names that should be searched.
      *
-     * @var array<int, class-string<\Laravel\Components\Resource>>
+     * @var array<int, class-string<\Laravel\Nova\Resource>>
      */
     public $resources;
 
     /**
      * Create a new global search instance.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @param  array<int, class-string<\Laravel\Components\Resource>>  $resources
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  array<int, class-string<\Laravel\Nova\Resource>>  $resources
      * @return void
      */
     public function __construct(NovaRequest $request, $resources)
@@ -61,7 +61,7 @@ class GlobalSearch
                 ->cursor()
                 ->mapInto($resourceClass)
                 ->map(function ($resource) use ($resourceClass) {
-                    /** @var \Laravel\Components\Resource $resource */
+                    /** @var \Laravel\Nova\Resource $resource */
                     return $this->transformResult($resourceClass, $resource);
                 });
         }
@@ -70,7 +70,7 @@ class GlobalSearch
     /**
      * Transform the result from resource.
      *
-     * @template TResourceValue of \Laravel\Components\Resource
+     * @template TResourceValue of \Laravel\Nova\Resource
      *
      * @param  class-string<TResourceValue>  $resourceClass
      * @param  TResourceValue  $resource

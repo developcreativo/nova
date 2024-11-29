@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Pages;
+namespace Laravel\Nova\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Laravel\Components\Testing\Browser\Components\SearchInputComponent;
+use Laravel\Nova\Testing\Browser\Components\SearchInputComponent;
 
 class Attach extends Page
 {

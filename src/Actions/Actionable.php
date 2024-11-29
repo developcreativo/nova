@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Actions;
+namespace Laravel\Nova\Actions;
 
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 trait Actionable
 {

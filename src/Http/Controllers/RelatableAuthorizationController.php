@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class RelatableAuthorizationController extends Controller
 {
     /**
      * Get the relatable authorization status for the resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function __invoke(NovaRequest $request)

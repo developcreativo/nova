@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait Searchable
 {
     /**
      * Indicates if this relationship is searchable.
      *
-     * @var bool|\Closure(\Laravel\Components\Http\Requests\NovaRequest):bool
+     * @var bool|\Closure(\Laravel\Nova\Http\Requests\NovaRequest):bool
      */
     public $searchable = false;
 
@@ -30,7 +30,7 @@ trait Searchable
     /**
      * Specify if the relationship should be searchable.
      *
-     * @param  bool|\Closure(\Laravel\Components\Http\Requests\NovaRequest):bool  $searchable
+     * @param  bool|\Closure(\Laravel\Nova\Http\Requests\NovaRequest):bool  $searchable
      * @return $this
      */
     public function searchable($searchable = true)
@@ -68,7 +68,7 @@ trait Searchable
     /**
      * Determine if current field are searchable.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function isSearchable(NovaRequest $request)

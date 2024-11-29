@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Filters;
+namespace Laravel\Nova\Filters;
 
 use JsonSerializable;
-use Laravel\Components\AuthorizedToSee;
-use Laravel\Components\Contracts\Filter as FilterContract;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Makeable;
-use Laravel\Components\Metable;
-use Laravel\Components\Nova;
-use Laravel\Components\ProxiesCanSeeToGate;
+use Laravel\Nova\AuthorizedToSee;
+use Laravel\Nova\Contracts\Filter as FilterContract;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Makeable;
+use Laravel\Nova\Metable;
+use Laravel\Nova\Nova;
+use Laravel\Nova\ProxiesCanSeeToGate;
 
 abstract class Filter implements FilterContract, JsonSerializable
 {
@@ -32,7 +32,7 @@ abstract class Filter implements FilterContract, JsonSerializable
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder
@@ -42,7 +42,7 @@ abstract class Filter implements FilterContract, JsonSerializable
     /**
      * Get the filter's available options.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function options(NovaRequest $request)

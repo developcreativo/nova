@@ -4,9 +4,9 @@ namespace {{ namespace }};
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Components\Events\ServingNova;
-use Laravel\Components\Http\Middleware\Authenticate;
-use Laravel\Components\Nova;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Http\Middleware\Authenticate;
+use Laravel\Nova\Nova;
 use {{ namespace }}\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider

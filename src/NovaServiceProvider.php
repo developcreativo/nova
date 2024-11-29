@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

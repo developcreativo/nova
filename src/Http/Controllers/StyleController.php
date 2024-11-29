@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
 
 class StyleController extends Controller
 {
     /**
      * Serve the requested stylesheet.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Components\Style
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Nova\Style
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */

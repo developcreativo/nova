@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Components\Contracts\FilterableField;
-use Laravel\Components\Fields\Filters\BooleanFilter;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\FilterableField;
+use Laravel\Nova\Fields\Filters\BooleanFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Boolean extends Field implements FilterableField
 {
@@ -71,7 +71,7 @@ class Boolean extends Field implements FilterableField
      * Hydrate the given attribute on the model based on the incoming request.
      *
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
      * @param  string  $attribute
      * @return void
      */
@@ -124,7 +124,7 @@ class Boolean extends Field implements FilterableField
     /**
      * Make the field filter.
      *
-     * @return \Laravel\Components\Fields\Filters\Filter
+     * @return \Laravel\Nova\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {

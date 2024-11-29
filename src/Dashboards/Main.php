@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Dashboards;
+namespace Laravel\Nova\Dashboards;
 
 use Illuminate\Support\Str;
-use Laravel\Components\Cards\Help;
-use Laravel\Components\Dashboard;
-use Laravel\Components\Nova;
+use Laravel\Nova\Cards\Help;
+use Laravel\Nova\Dashboard;
+use Laravel\Nova\Nova;
 
 class Main extends Dashboard
 {

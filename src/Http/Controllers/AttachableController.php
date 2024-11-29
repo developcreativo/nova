@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Contracts\PivotableField;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\PivotableField;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class AttachableController extends Controller
 {
     /**
      * List the available related resources for a given resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function __invoke(NovaRequest $request)
@@ -53,7 +53,7 @@ class AttachableController extends Controller
     /**
      * Determine if the query should include trashed models.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  string  $associatedResource
      * @return bool
      */
@@ -77,8 +77,8 @@ class AttachableController extends Controller
     /**
      * Get attachable query resolver.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\PivotableField  $field
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\PivotableField  $field
      * @return callable(\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder):void
      */
     protected function getAttachableQueryResolver(NovaRequest $request, PivotableField $field)

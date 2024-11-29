@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Fluent;

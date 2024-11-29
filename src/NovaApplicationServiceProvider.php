@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Components\Events\ServingNova;
-use Laravel\Components\Exceptions\NovaExceptionHandler;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Exceptions\NovaExceptionHandler;
 
 class NovaApplicationServiceProvider extends ServiceProvider
 {

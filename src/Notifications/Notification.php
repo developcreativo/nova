@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Notifications;
+namespace Laravel\Nova\Notifications;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

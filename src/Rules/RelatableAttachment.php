@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Rules;
+namespace Laravel\Nova\Rules;
 
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 class RelatableAttachment extends Relatable
 {

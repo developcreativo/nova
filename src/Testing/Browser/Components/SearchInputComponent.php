@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Components;
+namespace Laravel\Nova\Testing\Browser\Components;
 
 use Facebook\WebDriver\WebDriverKeys;
 use Illuminate\Support\Arr;
@@ -164,7 +164,7 @@ class SearchInputComponent extends Component
      * Assert on searchable results.
      *
      * @param  \Laravel\Dusk\Browser  $browser
-     * @param  callable(\Laravel\Components\Browser, string):void  $fieldCallback
+     * @param  callable(\Laravel\Nova\Browser, string):void  $fieldCallback
      * @return void
      */
     public function assertSearchResult(Browser $browser, callable $fieldCallback)

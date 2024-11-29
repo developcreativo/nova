@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Laravel\Components\Fields\Field;
+use Laravel\Nova\Fields\Field;
 
 class {{ class }} extends Field
 {

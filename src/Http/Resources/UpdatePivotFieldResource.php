@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Http\Resources;
+namespace Laravel\Nova\Http\Resources;
 
-use Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
+use Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest;
 
 class UpdatePivotFieldResource extends Resource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -28,8 +28,8 @@ class UpdatePivotFieldResource extends Resource
     /**
      * Get current resource for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
-     * @return \Laravel\Components\Resource
+     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @return \Laravel\Nova\Resource
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
@@ -61,8 +61,8 @@ class UpdatePivotFieldResource extends Resource
     /**
      * Get resource for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
-     * @return \Laravel\Components\Resource
+     * @param  \Laravel\Nova\Http\Requests\ResourceUpdateOrUpdateAttachedRequest  $request
+     * @return \Laravel\Nova\Resource
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException

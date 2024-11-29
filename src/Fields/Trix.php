@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Components\Contracts\Deletable as DeletableContract;
-use Laravel\Components\Contracts\FilterableField;
-use Laravel\Components\Contracts\Storable as StorableContract;
-use Laravel\Components\Fields\Filters\TextFilter;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\Deletable as DeletableContract;
+use Laravel\Nova\Contracts\FilterableField;
+use Laravel\Nova\Contracts\Storable as StorableContract;
+use Laravel\Nova\Fields\Filters\TextFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Trix extends Field implements FilterableField, StorableContract, DeletableContract
 {
@@ -33,9 +33,9 @@ class Trix extends Field implements FilterableField, StorableContract, Deletable
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
      * @param  string  $attribute
      * @return void|\Closure
      */
@@ -57,8 +57,8 @@ class Trix extends Field implements FilterableField, StorableContract, Deletable
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Components\Fields\Filters\Filter
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Nova\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\NotificationRequest;
-use Laravel\Components\Notifications\Notification;
+use Laravel\Nova\Http\Requests\NotificationRequest;
+use Laravel\Nova\Notifications\Notification;
 
 class NotificationDeleteController extends Controller
 {
     /**
      * Mark the given notification as read.
      *
-     * @param  \Laravel\Components\Http\Requests\NotificationRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NotificationRequest  $request
      * @param  int|string  $notification
      * @return \Illuminate\Http\JsonResponse
      */

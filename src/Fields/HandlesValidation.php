@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Contracts\Validation\InvokableRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
- * @phpstan-import-type TValidationRules from \Laravel\Components\Fields\Field
- * @phpstan-import-type TFieldValidationRules from \Laravel\Components\Fields\Field
+ * @phpstan-import-type TValidationRules from \Laravel\Nova\Fields\Field
+ * @phpstan-import-type TFieldValidationRules from \Laravel\Nova\Fields\Field
  */
 trait HandlesValidation
 {
@@ -24,37 +24,37 @@ trait HandlesValidation
     /**
      * The validation rules for creation and updates.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string
      *
-     * @phpstan-var (callable(\Laravel\Components\Http\Requests\NovaRequest):TValidationRules)|TValidationRules
+     * @phpstan-var (callable(\Laravel\Nova\Http\Requests\NovaRequest):TValidationRules)|TValidationRules
      */
     public $rules = [];
 
     /**
      * The validation rules for creation.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string
      *
-     * @phpstan-var (callable(\Laravel\Components\Http\Requests\NovaRequest):TValidationRules)|TValidationRules
+     * @phpstan-var (callable(\Laravel\Nova\Http\Requests\NovaRequest):TValidationRules)|TValidationRules
      */
     public $creationRules = [];
 
     /**
      * The validation rules for updates.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string
      *
-     * @phpstan-var (callable(\Laravel\Components\Http\Requests\NovaRequest):TValidationRules)|TValidationRules
+     * @phpstan-var (callable(\Laravel\Nova\Http\Requests\NovaRequest):TValidationRules)|TValidationRules
      */
     public $updateRules = [];
 
     /**
      * Set the validation rules for the field.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string  ...$rules
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string  ...$rules
      * @return $this
      *
-     * @phpstan-param (callable(\Laravel\Components\Http\Requests\NovaRequest):TValidationRules)|TValidationRules ...$rules
+     * @phpstan-param (callable(\Laravel\Nova\Http\Requests\NovaRequest):TValidationRules)|TValidationRules ...$rules
      */
     public function rules($rules)
     {
@@ -74,7 +74,7 @@ trait HandlesValidation
     /**
      * Get the validation rules for this field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<array-key, array<int, mixed>>
      *
      * @phpstan-return array<string, array<int, TFieldValidationRules>>
@@ -89,7 +89,7 @@ trait HandlesValidation
     /**
      * Get the creation rules for this field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<array-key, mixed>
      *
      * @phpstan-return array<string, array<int, TFieldValidationRules>>
@@ -109,10 +109,10 @@ trait HandlesValidation
     /**
      * Set the creation validation rules for the field.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string  ...$rules
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string  ...$rules
      * @return $this
      *
-     * @phpstan-param (callable(\Laravel\Components\Http\Requests\NovaRequest):TValidationRules)|TValidationRules ...$rules
+     * @phpstan-param (callable(\Laravel\Nova\Http\Requests\NovaRequest):TValidationRules)|TValidationRules ...$rules
      */
     public function creationRules($rules)
     {
@@ -132,7 +132,7 @@ trait HandlesValidation
     /**
      * Get the update rules for this field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<array-key, array<int, mixed>>
      *
      * @phpstan-return array<string, array<int, TFieldValidationRules>>
@@ -152,10 +152,10 @@ trait HandlesValidation
     /**
      * Set the creation validation rules for the field.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string  ...$rules
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array|\Stringable|string|callable))|array|\Stringable|string  ...$rules
      * @return $this
      *
-     * @phpstan-param (callable(\Laravel\Components\Http\Requests\NovaRequest):TValidationRules)|TValidationRules ...$rules
+     * @phpstan-param (callable(\Laravel\Nova\Http\Requests\NovaRequest):TValidationRules)|TValidationRules ...$rules
      */
     public function updateRules($rules)
     {
@@ -175,7 +175,7 @@ trait HandlesValidation
     /**
      * Get the validation attribute for the field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return string
      */
     public function getValidationAttribute(NovaRequest $request)
@@ -186,7 +186,7 @@ trait HandlesValidation
     /**
      * Get the validation attribute names for the field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<string, string>
      */
     public function getValidationAttributeNames(NovaRequest $request)

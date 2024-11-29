@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
-use Laravel\Components\Contracts\QueryBuilder;
-use Laravel\Components\Nova;
+use Laravel\Nova\Contracts\QueryBuilder;
+use Laravel\Nova\Nova;
 
 trait InteractsWithResources
 {
@@ -44,7 +44,7 @@ trait InteractsWithResources
     /**
      * Get the class name of the resource being requested.
      *
-     * @return class-string<\Laravel\Components\Resource>
+     * @return class-string<\Laravel\Nova\Resource>
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
@@ -60,7 +60,7 @@ trait InteractsWithResources
     /**
      * Get a new instance of the resource being requested.
      *
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      */
     public function newResource()
     {
@@ -73,7 +73,7 @@ trait InteractsWithResources
      * Find the resource instance for the request or abort.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
@@ -86,7 +86,7 @@ trait InteractsWithResources
      * Find the resource instance for the request.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Components\Resource
+     * @return \Laravel\Nova\Resource
      */
     public function findResource($resourceId = null)
     {
@@ -144,7 +144,7 @@ trait InteractsWithResources
      * Get a new instance of the resource being requested.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      */
     public function newResourceWith($model)
     {

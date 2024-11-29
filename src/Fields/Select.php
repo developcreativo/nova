@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Components\Contracts\FilterableField;
-use Laravel\Components\Exceptions\NovaException;
-use Laravel\Components\Fields\Filters\SelectFilter;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Util;
+use Laravel\Nova\Contracts\FilterableField;
+use Laravel\Nova\Exceptions\NovaException;
+use Laravel\Nova\Fields\Filters\SelectFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Util;
 use Stringable;
 
 /**
@@ -85,8 +85,8 @@ class Select extends Field implements FilterableField
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Components\Fields\Filters\Filter
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Nova\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {

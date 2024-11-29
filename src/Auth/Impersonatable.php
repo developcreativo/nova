@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Auth;
+namespace Laravel\Nova\Auth;
 
 use Illuminate\Support\Facades\Gate;
 

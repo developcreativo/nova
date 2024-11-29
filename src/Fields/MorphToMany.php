@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Laravel\Components\Contracts\Deletable as DeletableContract;
-use Laravel\Components\Contracts\ListableField;
-use Laravel\Components\Contracts\PivotableField;
-use Laravel\Components\Contracts\QueryBuilder;
-use Laravel\Components\Contracts\RelatableField;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Panel;
-use Laravel\Components\Rules\RelatableAttachment;
-use Laravel\Components\TrashedStatus;
+use Laravel\Nova\Contracts\Deletable as DeletableContract;
+use Laravel\Nova\Contracts\ListableField;
+use Laravel\Nova\Contracts\PivotableField;
+use Laravel\Nova\Contracts\QueryBuilder;
+use Laravel\Nova\Contracts\RelatableField;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Panel;
+use Laravel\Nova\Rules\RelatableAttachment;
+use Laravel\Nova\TrashedStatus;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, string|null $resource = null)
@@ -38,7 +38,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * The class name of the related resource.
      *
-     * @var class-string<\Laravel\Components\Resource>
+     * @var class-string<\Laravel\Nova\Resource>
      */
     public $resourceClass;
 
@@ -59,14 +59,14 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * The callback that should be used to resolve the pivot fields.
      *
-     * @var callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Components\Fields\Field>
+     * @var callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Nova\Fields\Field>
      */
     public $fieldsCallback;
 
     /**
      * The callback that should be used to resolve the pivot actions.
      *
-     * @var callable(\Laravel\Components\Http\Requests\NovaRequest):array<int, \Laravel\Components\Actions\Action>
+     * @var callable(\Laravel\Nova\Http\Requests\NovaRequest):array<int, \Laravel\Nova\Actions\Action>
      */
     public $actionsCallback;
 
@@ -89,7 +89,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  class-string<\Laravel\Components\Resource>|null  $resource
+     * @param  class-string<\Laravel\Nova\Resource>|null  $resource
      * @return void
      */
     public function __construct($name, $attribute = null, $resource = null)
@@ -162,7 +162,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Get the validation rules for this field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function getRules(NovaRequest $request)
@@ -179,7 +179,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Get the creation rules for this field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<string, array<int, string|\Illuminate\Validation\Rule|\Illuminate\Contracts\Validation\Rule|callable>>
      */
     public function getCreationRules(NovaRequest $request)
@@ -192,9 +192,9 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Build an attachable query for the field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  bool  $withTrashed
-     * @return \Laravel\Components\Contracts\QueryBuilder
+     * @return \Laravel\Nova\Contracts\QueryBuilder
      */
     public function buildAttachableQuery(NovaRequest $request, $withTrashed = false)
     {
@@ -217,7 +217,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Get the attachable query method name.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return array
      */
@@ -231,7 +231,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Get the attachable query method name.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return string|null
      */
@@ -247,7 +247,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Format the given attachable resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return array
      */
@@ -264,7 +264,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Specify the callback to be executed to retrieve the pivot fields.
      *
-     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Components\Fields\Field>  $callback
+     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model):array<int, \Laravel\Nova\Fields\Field>  $callback
      * @return $this
      */
     public function fields($callback)
@@ -277,7 +277,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Specify the callback to be executed to retrieve the pivot actions.
      *
-     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest):array<int, \Laravel\Components\Actions\Action>  $callback
+     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest):array<int, \Laravel\Nova\Actions\Action>  $callback
      * @return $this
      */
     public function actions($callback)
@@ -316,7 +316,7 @@ class MorphToMany extends Field implements DeletableContract, ListableField, Piv
     /**
      * Make current field behaves as panel.
      *
-     * @return \Laravel\Components\Panel
+     * @return \Laravel\Nova\Panel
      */
     public function asPanel()
     {

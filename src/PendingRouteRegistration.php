@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
-use Laravel\Components\Http\Controllers\ForgotPasswordController;
-use Laravel\Components\Http\Controllers\LoginController;
-use Laravel\Components\Http\Controllers\ResetPasswordController;
+use Laravel\Nova\Http\Controllers\ForgotPasswordController;
+use Laravel\Nova\Http\Controllers\LoginController;
+use Laravel\Nova\Http\Controllers\ResetPasswordController;
 
 class PendingRouteRegistration
 {
@@ -27,7 +27,7 @@ class PendingRouteRegistration
     {
         Nova::withAuthentication();
 
-        Route::namespace('Laravel\Components\Http\Controllers')
+        Route::namespace('Laravel\Nova\Http\Controllers')
             ->domain(config('nova.domain', null))
             ->middleware($middleware)
             ->prefix(Nova::path())
@@ -36,7 +36,7 @@ class PendingRouteRegistration
                 $router->post('/login', [LoginController::class, 'login'])->name('nova.login');
             });
 
-        Route::namespace('Laravel\Components\Http\Controllers')
+        Route::namespace('Laravel\Nova\Http\Controllers')
             ->domain(config('nova.domain', null))
             ->middleware(config('nova.middleware', []))
             ->prefix(Nova::path())
@@ -79,7 +79,7 @@ class PendingRouteRegistration
     {
         $this->registered = true;
 
-        Route::namespace('Laravel\Components\Http\Controllers')
+        Route::namespace('Laravel\Nova\Http\Controllers')
             ->domain(config('nova.domain', null))
             ->middleware(config('nova.middleware', []))
             ->prefix(Nova::path())
@@ -89,7 +89,7 @@ class PendingRouteRegistration
                 $router->get('/404', 'Pages\Error404Controller')->name('404');
             });
 
-        Route::namespace('Laravel\Components\Http\Controllers')
+        Route::namespace('Laravel\Nova\Http\Controllers')
             ->domain(config('nova.domain', null))
             ->middleware(config('nova.api_middleware', []))
             ->prefix(Nova::path())

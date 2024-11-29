@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use Closure;
 use Illuminate\Support\Str;
@@ -16,7 +16,7 @@ class ResourceTool extends Panel
     /**
      * The resource tool element.
      *
-     * @var \Laravel\Components\Element
+     * @var \Laravel\Nova\Element
      */
     public $element;
 

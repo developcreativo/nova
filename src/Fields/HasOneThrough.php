@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Http\Request;
-use Laravel\Components\Contracts\BehavesAsPanel;
-use Laravel\Components\Contracts\RelatableField;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
-use Laravel\Components\Panel;
+use Laravel\Nova\Contracts\BehavesAsPanel;
+use Laravel\Nova\Contracts\RelatableField;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Panel;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, string|null $resource = null)
@@ -24,7 +24,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * The class name of the related resource.
      *
-     * @var class-string<\Laravel\Components\Resource>
+     * @var class-string<\Laravel\Nova\Resource>
      */
     public $resourceClass;
 
@@ -45,7 +45,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * The resolved HasOneThrough Resource.
      *
-     * @var \Laravel\Components\Resource|null
+     * @var \Laravel\Nova\Resource|null
      */
     public $hasOneThroughResource;
 
@@ -66,7 +66,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * The callback used to determine if the HasOne field has already been filled.
      *
-     * @var \Closure(\Laravel\Components\Http\Requests\NovaRequest):bool
+     * @var \Closure(\Laravel\Nova\Http\Requests\NovaRequest):bool
      */
     public $filledCallback;
 
@@ -75,7 +75,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
      *
      * @param  string  $name
      * @param  string|null  $attribute
-     * @param  class-string<\Laravel\Components\Resource>|null  $resource
+     * @param  class-string<\Laravel\Nova\Resource>|null  $resource
      * @return void
      */
     public function __construct($name, $attribute = null, $resource = null)
@@ -183,7 +183,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * Make current field behaves as panel.
      *
-     * @return \Laravel\Components\Panel
+     * @return \Laravel\Nova\Panel
      */
     public function asPanel()
     {
@@ -218,7 +218,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * Set the Closure used to determine if the HasOne field has already been filled.
      *
-     * @param  \Closure(\Laravel\Components\Http\Requests\NovaRequest):bool  $callback
+     * @param  \Closure(\Laravel\Nova\Http\Requests\NovaRequest):bool  $callback
      * @return $this
      */
     public function alreadyFilledWhen($callback)
@@ -231,7 +231,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * Determine if the HasOne field has alreaady been filled.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function alreadyFilled(NovaRequest $request)
@@ -242,7 +242,7 @@ class HasOneThrough extends Field implements RelatableField, BehavesAsPanel
     /**
      * Check showing on index.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return bool
      */

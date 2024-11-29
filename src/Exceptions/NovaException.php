@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Exceptions;
+namespace Laravel\Nova\Exceptions;
 
 use Exception;
 
@@ -11,7 +11,7 @@ class NovaException extends Exception
      *
      * @param  string  $method
      * @param  string  $class
-     * @return \Laravel\Components\Exceptions\HelperNotSupported
+     * @return \Laravel\Nova\Exceptions\HelperNotSupported
      */
     public static function helperNotSupported($method, $class)
     {
@@ -22,7 +22,7 @@ class NovaException extends Exception
      * Create a new exception instance.
      *
      * @param  string  $name
-     * @return \Laravel\Components\Exceptions\ResourceMissingException
+     * @return \Laravel\Nova\Exceptions\ResourceMissingException
      */
     public static function missingResourceForRepeater($name)
     {

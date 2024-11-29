@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Contracts;
+namespace Laravel\Nova\Contracts;
 
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\TrashedStatus;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\TrashedStatus;
 
 /**
  * @method $this tap(callable(\Illuminate\Database\Eloquent\Builder):void $callback)
@@ -22,10 +22,10 @@ interface QueryBuilder
     /**
      * Build a "search" query for the given resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  string|null  $search
-     * @param  array<int, \Laravel\Components\Query\ApplyFilter>  $filters
+     * @param  array<int, \Laravel\Nova\Query\ApplyFilter>  $filters
      * @param  array<string, string>  $orderings
      * @param  string  $withTrashed
      * @return $this

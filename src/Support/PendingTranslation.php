@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Support;
+namespace Laravel\Nova\Support;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\ForwardsCalls;

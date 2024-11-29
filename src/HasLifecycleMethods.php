@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait HasLifecycleMethods
 {
     /**
      * Register a callback to be called after the resource is created.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
@@ -22,7 +22,7 @@ trait HasLifecycleMethods
     /**
      * Register a callback to be called after the resource is updated.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
@@ -34,7 +34,7 @@ trait HasLifecycleMethods
     /**
      * Register a callback to be called after the resource is deleted.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
@@ -46,7 +46,7 @@ trait HasLifecycleMethods
     /**
      * Register a callback to be called after the resource is force-deleted.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
@@ -58,7 +58,7 @@ trait HasLifecycleMethods
     /**
      * Register a callback to be called after the resource is restored.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */

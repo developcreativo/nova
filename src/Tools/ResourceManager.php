@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Components\Tools;
+namespace Laravel\Nova\Tools;
 
 use Illuminate\Http\Request;
-use Laravel\Components\HasMenu;
-use Laravel\Components\Menu\MenuGroup;
-use Laravel\Components\Menu\MenuItem;
-use Laravel\Components\Menu\MenuSection;
-use Laravel\Components\Nova;
-use Laravel\Components\Tool;
+use Laravel\Nova\HasMenu;
+use Laravel\Nova\Menu\MenuGroup;
+use Laravel\Nova\Menu\MenuItem;
+use Laravel\Nova\Menu\MenuSection;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Tool;
 
 class ResourceManager extends Tool implements HasMenu
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Actions;
+namespace Laravel\Nova\Actions;
 
 use Illuminate\Support\Str;
 
@@ -9,7 +9,7 @@ class ActionMethod
     /**
      * Determine the appropriate "handle" method for the given models.
      *
-     * @param  \Laravel\Components\Actions\Action  $action
+     * @param  \Laravel\Nova\Actions\Action  $action
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return string
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
@@ -8,9 +8,9 @@ use Carbon\CarbonInterval;
 use DateTimeInterface;
 use Exception;
 use Illuminate\Support\Arr;
-use Laravel\Components\Contracts\FilterableField;
-use Laravel\Components\Fields\Filters\DateFilter;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\FilterableField;
+use Laravel\Nova\Fields\Filters\DateFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Date extends Field implements FilterableField
 {
@@ -136,7 +136,7 @@ class Date extends Field implements FilterableField
     /**
      * Make the field filter.
      *
-     * @return \Laravel\Components\Fields\Filters\Filter
+     * @return \Laravel\Nova\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {
@@ -146,7 +146,7 @@ class Date extends Field implements FilterableField
     /**
      * Define the default filterable callback.
      *
-     * @return callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):\Illuminate\Database\Eloquent\Builder
+     * @return callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):\Illuminate\Database\Eloquent\Builder
      */
     protected function defaultFilterableCallback()
     {

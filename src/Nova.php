@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use BadMethodCallException;
 use Illuminate\Http\Request;
@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-use Laravel\Components\Actions\ActionResource;
-use Laravel\Components\Contracts\ImpersonatesUsers;
-use Laravel\Components\Exceptions\ResourceMissingException;
-use Laravel\Components\Http\Middleware\RedirectIfAuthenticated;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Menu\Menu;
+use Laravel\Nova\Actions\ActionResource;
+use Laravel\Nova\Contracts\ImpersonatesUsers;
+use Laravel\Nova\Exceptions\ResourceMissingException;
+use Laravel\Nova\Http\Middleware\RedirectIfAuthenticated;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Menu\Menu;
 use ReflectionClass;
 use Symfony\Component\Finder\Finder;
 
@@ -34,21 +34,21 @@ class Nova
     /**
      * The registered dashboard names.
      *
-     * @var array<int, \Laravel\Components\Dashboard>
+     * @var array<int, \Laravel\Nova\Dashboard>
      */
     public static $dashboards = [];
 
     /**
      * The registered resource names.
      *
-     * @var array<int, class-string<\Laravel\Components\Resource>>
+     * @var array<int, class-string<\Laravel\Nova\Resource>>
      */
     public static $resources = [];
 
     /**
      * An index of resource names keyed by the model name.
      *
-     * @var array<class-string<\Illuminate\Database\Eloquent\Model>, class-string<\Laravel\Components\Resource>>
+     * @var array<class-string<\Illuminate\Database\Eloquent\Model>, class-string<\Laravel\Nova\Resource>>
      */
     public static $resourcesByModel = [];
 
@@ -83,21 +83,21 @@ class Nova
     /**
      * All of the registered Nova tools.
      *
-     * @var array<int, \Laravel\Components\Tool>
+     * @var array<int, \Laravel\Nova\Tool>
      */
     public static $tools = [];
 
     /**
      * All of the registered Nova tool scripts.
      *
-     * @var array<int, \Laravel\Components\Script>
+     * @var array<int, \Laravel\Nova\Script>
      */
     public static $scripts = [];
 
     /**
      * All of the registered Nova tool CSS.
      *
-     * @var array<int, \Laravel\Components\Style>
+     * @var array<int, \Laravel\Nova\Style>
      */
     public static $styles = [];
 
@@ -146,14 +146,14 @@ class Nova
     /**
      * The callback used to create Nova's main menu.
      *
-     * @var (\Closure(\Illuminate\Http\Request, \Laravel\Components\Menu\Menu):(\Laravel\Components\Menu\Menu|array))|null
+     * @var (\Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array))|null
      */
     public static $mainMenuCallback;
 
     /**
      * The callback used to create Nova's user menu.
      *
-     * @var (\Closure(\Illuminate\Http\Request, \Laravel\Components\Menu\Menu):(\Laravel\Components\Menu\Menu|array))|null
+     * @var (\Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array))|null
      */
     public static $userMenuCallback;
 
@@ -167,14 +167,14 @@ class Nova
     /**
      * The callback used to resolve Nova's RTL.
      *
-     * @var (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool|null
+     * @var (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool|null
      */
     public static $rtlCallback;
 
     /**
      * The callback used to resolve Nova's Breadcrumb.
      *
-     * @var (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool|null
+     * @var (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool|null
      */
     public static $withBreadcrumbs;
 
@@ -263,7 +263,7 @@ class Nova
     /**
      * Run callback when currently serving Nova.
      *
-     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest):mixed  $callback
+     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest):mixed  $callback
      * @param  (callable(\Illuminate\Http\Request):(mixed))|null  $default
      * @return mixed
      */
@@ -298,7 +298,7 @@ class Nova
     /**
      * Register the Nova routes.
      *
-     * @return \Laravel\Components\PendingRouteRegistration
+     * @return \Laravel\Nova\PendingRouteRegistration
      */
     public static function routes()
     {
@@ -310,7 +310,7 @@ class Nova
     /**
      * Retrieve Nova's Impersonator Implementation.
      *
-     * @return \Laravel\Components\Contracts\ImpersonatesUsers
+     * @return \Laravel\Nova\Contracts\ImpersonatesUsers
      */
     public static function impersonator()
     {
@@ -359,7 +359,7 @@ class Nova
      * Return Nova's authorized resources.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Laravel\Components\ResourceCollection<int, class-string<\Laravel\Components\Resource>>
+     * @return \Laravel\Nova\ResourceCollection<int, class-string<\Laravel\Nova\Resource>>
      */
     public static function authorizedResources(Request $request)
     {
@@ -369,7 +369,7 @@ class Nova
     /**
      * Return the base collection of Nova resources.
      *
-     * @return \Laravel\Components\ResourceCollection<int, class-string<\Laravel\Components\Resource>>
+     * @return \Laravel\Nova\ResourceCollection<int, class-string<\Laravel\Nova\Resource>>
      */
     private static function resourceCollection()
     {
@@ -391,7 +391,7 @@ class Nova
     /**
      * Replace the registered resources with the given resources.
      *
-     * @param  array<int, class-string<\Laravel\Components\Resource>>  $resources
+     * @param  array<int, class-string<\Laravel\Nova\Resource>>  $resources
      * @return static
      */
     public static function replaceResources(array $resources)
@@ -419,7 +419,7 @@ class Nova
      * Get the resources available for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<int, class-string<\Laravel\Components\Resource>>
+     * @return array<int, class-string<\Laravel\Nova\Resource>>
      */
     public static function availableResources(Request $request)
     {
@@ -432,7 +432,7 @@ class Nova
      * Get the grouped resources available for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<string, \Laravel\Components\ResourceCollection<int, class-string<\Laravel\Components\Resource>>>
+     * @return array<string, \Laravel\Nova\ResourceCollection<int, class-string<\Laravel\Nova\Resource>>>
      */
     public static function groupedResources(Request $request)
     {
@@ -445,7 +445,7 @@ class Nova
      * Get the grouped resources available for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Laravel\Components\ResourceCollection<string, \Laravel\Components\ResourceCollection<int, class-string<\Laravel\Components\Resource>>>
+     * @return \Laravel\Nova\ResourceCollection<string, \Laravel\Nova\ResourceCollection<int, class-string<\Laravel\Nova\Resource>>>
      */
     public static function groupedResourcesForNavigation(Request $request)
     {
@@ -490,7 +490,7 @@ class Nova
     /**
      * Register the given resources.
      *
-     * @param  array<int, class-string<\Laravel\Components\Resource>>  $resources
+     * @param  array<int, class-string<\Laravel\Nova\Resource>>  $resources
      * @return static
      */
     public static function resources(array $resources)
@@ -506,9 +506,9 @@ class Nova
      * Get a new resource instance with the given model instance.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      *
-     * @throws \Laravel\Components\Exceptions\ResourceMissingException
+     * @throws \Laravel\Nova\Exceptions\ResourceMissingException
      */
     public static function newResourceFromModel($model)
     {
@@ -523,7 +523,7 @@ class Nova
      * Get the resource class name for a given model class.
      *
      * @param  \Illuminate\Database\Eloquent\Model|class-string<\Illuminate\Database\Eloquent\Model>  $class
-     * @return class-string<\Laravel\Components\Resource>|null
+     * @return class-string<\Laravel\Nova\Resource>|null
      */
     public static function resourceForModel($class)
     {
@@ -546,7 +546,7 @@ class Nova
      * Get a resource instance for a given key.
      *
      * @param  string  $key
-     * @return \Laravel\Components\Resource|null
+     * @return \Laravel\Nova\Resource|null
      */
     public static function resourceInstanceForKey($key)
     {
@@ -559,7 +559,7 @@ class Nova
      * Get the resource class name for a given key.
      *
      * @param  string  $key
-     * @return class-string<\Laravel\Components\Resource>|null
+     * @return class-string<\Laravel\Nova\Resource>|null
      */
     public static function resourceForKey($key)
     {
@@ -685,7 +685,7 @@ class Nova
     /**
      * Register new tools with Nova.
      *
-     * @param  array<int, \Laravel\Components\Tool>  $tools
+     * @param  array<int, \Laravel\Nova\Tool>  $tools
      * @return static
      */
     public static function tools(array $tools)
@@ -701,7 +701,7 @@ class Nova
     /**
      * Get the tools registered with Nova.
      *
-     * @return array<int, \Laravel\Components\Tool>
+     * @return array<int, \Laravel\Nova\Tool>
      */
     public static function registeredTools()
     {
@@ -723,7 +723,7 @@ class Nova
      * Get the tools registered with Nova.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<int, \Laravel\Components\Tool>
+     * @return array<int, \Laravel\Nova\Tool>
      */
     public static function availableTools(Request $request)
     {
@@ -738,7 +738,7 @@ class Nova
      * Get the dashboards registered with Nova.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<int, \Laravel\Components\Dashboard>
+     * @return array<int, \Laravel\Nova\Dashboard>
      */
     public static function availableDashboards(Request $request)
     {
@@ -748,7 +748,7 @@ class Nova
     /**
      * Register the dashboards.
      *
-     * @param  array<int, \Laravel\Components\Dashboard>  $dashboards
+     * @param  array<int, \Laravel\Nova\Dashboard>  $dashboards
      * @return static
      */
     public static function dashboards(array $dashboards)
@@ -761,7 +761,7 @@ class Nova
     /**
      * Get the available dashboard cards for the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Support\Collection
      */
     public static function allAvailableDashboardCards(NovaRequest $request)
@@ -770,7 +770,7 @@ class Nova
             ->filter
             ->authorize($request)
             ->flatMap(function ($dashboard) {
-                /** @var \Laravel\Components\Dashboard $dashboard */
+                /** @var \Laravel\Nova\Dashboard $dashboard */
                 return $dashboard->cards();
             })->unique()
             ->filter
@@ -782,8 +782,8 @@ class Nova
      * Get the available dashboard for the given request.
      *
      * @param  string  $dashboard
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Components\Dashboard|null
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Nova\Dashboard|null
      */
     public static function dashboardForKey($dashboard, NovaRequest $request)
     {
@@ -797,7 +797,7 @@ class Nova
      * Get the available dashboard cards for the given request.
      *
      * @param  string  $dashboard
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Support\Collection
      */
     public static function availableDashboardCardsForDashboard($dashboard, NovaRequest $request)
@@ -814,7 +814,7 @@ class Nova
     /**
      * Get all of the additional scripts that should be registered.
      *
-     * @return array<int, \Laravel\Components\Script>
+     * @return array<int, \Laravel\Nova\Script>
      */
     public static function allScripts()
     {
@@ -825,7 +825,7 @@ class Nova
      * Get all of the available scripts that should be registered.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<int, \Laravel\Components\Script>
+     * @return array<int, \Laravel\Nova\Script>
      */
     public static function availableScripts(Request $request)
     {
@@ -839,7 +839,7 @@ class Nova
     /**
      * Get all of the additional stylesheets that should be registered.
      *
-     * @return array<int, \Laravel\Components\Style>
+     * @return array<int, \Laravel\Nova\Style>
      */
     public static function allStyles()
     {
@@ -850,7 +850,7 @@ class Nova
      * Get all of the available stylesheets that should be registered.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<int, \Laravel\Components\Style>
+     * @return array<int, \Laravel\Nova\Style>
      */
     public static function availableStyles(Request $request)
     {
@@ -875,7 +875,7 @@ class Nova
     /**
      * Register the given script file with Nova.
      *
-     * @param  string|\Laravel\Components\Script  $name
+     * @param  string|\Laravel\Nova\Script  $name
      * @param  string  $path
      * @return static
      */
@@ -900,7 +900,7 @@ class Nova
     /**
      * Register the given CSS file with Nova.
      *
-     * @param  string|\Laravel\Components\Style  $name
+     * @param  string|\Laravel\Nova\Style  $name
      * @param  string  $path
      * @return static
      */
@@ -1127,7 +1127,7 @@ class Nova
     /**
      * Enable RTL content direction.
      *
-     * @param  (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $rtlCallback
+     * @param  (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $rtlCallback
      * @return static
      */
     public static function enableRTL($rtlCallback = true)
@@ -1161,7 +1161,7 @@ class Nova
      * Get the resources available for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array<int, class-string<\Laravel\Components\Resource>>
+     * @return array<int, class-string<\Laravel\Nova\Resource>>
      */
     public static function globallySearchableResources(Request $request)
     {
@@ -1185,7 +1185,7 @@ class Nova
      * Resolve the main menu for Nova.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Laravel\Components\Menu\Menu
+     * @return \Laravel\Nova\Menu\Menu
      */
     public static function resolveMainMenu(Request $request)
     {
@@ -1202,7 +1202,7 @@ class Nova
      * Resolve the default main menu for Nova.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Laravel\Components\Menu\Menu
+     * @return \Laravel\Nova\Menu\Menu
      */
     public static function defaultMainMenu(Request $request)
     {
@@ -1217,7 +1217,7 @@ class Nova
      * Resolve the user menu for Nova.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Laravel\Components\Menu\Menu
+     * @return \Laravel\Nova\Menu\Menu
      */
     public static function resolveUserMenu(Request $request)
     {
@@ -1234,7 +1234,7 @@ class Nova
      * Resolve the default user menu for Nova.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Laravel\Components\Menu\Menu
+     * @return \Laravel\Nova\Menu\Menu
      */
     public static function defaultUserMenu(Request $request)
     {
@@ -1252,7 +1252,7 @@ class Nova
     public static function resourceInformation(Request $request)
     {
         return static::resourceCollection()->map(function ($resource) use ($request) {
-            /** @var class-string<\Laravel\Components\Resource> $resource */
+            /** @var class-string<\Laravel\Nova\Resource> $resource */
             return array_merge([
                 'uriKey' => $resource::uriKey(),
                 'label' => $resource::label(),
@@ -1317,7 +1317,7 @@ class Nova
     /**
      * Set the main menu for Nova.
      *
-     * @param  \Closure(\Illuminate\Http\Request, \Laravel\Components\Menu\Menu):(\Laravel\Components\Menu\Menu|array)  $callback
+     * @param  \Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array)  $callback
      * @return static
      */
     public static function mainMenu($callback)
@@ -1343,7 +1343,7 @@ class Nova
     /**
      * Set the main menu for Nova.
      *
-     * @param  \Closure(\Illuminate\Http\Request, \Laravel\Components\Menu\Menu):(\Laravel\Components\Menu\Menu|array)  $userMenuCallback
+     * @param  \Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array)  $userMenuCallback
      * @return static
      */
     public static function userMenu($userMenuCallback)
@@ -1356,7 +1356,7 @@ class Nova
     /**
      * Enable Breadcrumb Menu.
      *
-     * @param  (\Closure(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $withBreadcrumbs
+     * @param  (\Closure(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $withBreadcrumbs
      * @return static
      */
     public static function withBreadcrumbs($withBreadcrumbs = true)
@@ -1543,10 +1543,10 @@ class Nova
     /**
      * Translate the given message.
      *
-     * @param  \Laravel\Components\Support\PendingTranslation|string|null  $key
+     * @param  \Laravel\Nova\Support\PendingTranslation|string|null  $key
      * @param  array<string, string>  $replace
      * @param  string|null  $locale
-     * @return \Laravel\Components\Support\PendingTranslation&\Stringable
+     * @return \Laravel\Nova\Support\PendingTranslation&\Stringable
      */
     public static function __($key = null, $replace = [], $locale = null)
     {

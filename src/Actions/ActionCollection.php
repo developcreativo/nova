@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Actions;
+namespace Laravel\Nova\Actions;
 
 use Illuminate\Support\Collection;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
  * @template TKey of array-key
- * @template TValue of \Laravel\Components\Actions\Action
+ * @template TValue of \Laravel\Nova\Actions\Action
  *
  * @extends \Illuminate\Support\Collection<TKey, TValue>
  */
@@ -16,7 +16,7 @@ class ActionCollection extends Collection
     /**
      * Get the actions that are authorized for viewing on the index.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return static<TKey, TValue>
      */
     public function authorizedToSeeOnIndex(NovaRequest $request)
@@ -36,7 +36,7 @@ class ActionCollection extends Collection
     /**
      * Get the actions that are authorized for viewing on detail pages.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return static<TKey, TValue>
      */
     public function authorizedToSeeOnDetail(NovaRequest $request)
@@ -47,7 +47,7 @@ class ActionCollection extends Collection
     /**
      * Get the actions that are authorized for viewing on table rows.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return static<TKey, TValue>
      */
     public function authorizedToSeeOnTableRow(NovaRequest $request)

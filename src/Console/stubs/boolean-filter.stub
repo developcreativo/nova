@@ -2,15 +2,15 @@
 
 namespace {{ namespace }};
 
-use Laravel\Components\Filters\BooleanFilter;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Filters\BooleanFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class {{ class }} extends BooleanFilter
 {
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder
@@ -23,7 +23,7 @@ class {{ class }} extends BooleanFilter
     /**
      * Get the filter's available options.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function options(NovaRequest $request)

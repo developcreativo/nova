@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components\Actions;
+namespace Laravel\Nova\Actions;
 
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 trait CallsQueuedActions
 {
@@ -15,7 +15,7 @@ trait CallsQueuedActions
     /**
      * The action class name.
      *
-     * @var \Laravel\Components\Actions\Action
+     * @var \Laravel\Nova\Actions\Action
      */
     public $action;
 
@@ -29,7 +29,7 @@ trait CallsQueuedActions
     /**
      * The resolved fields.
      *
-     * @var \Laravel\Components\Fields\ActionFields
+     * @var \Laravel\Nova\Fields\ActionFields
      */
     public $fields;
 
@@ -43,7 +43,7 @@ trait CallsQueuedActions
     /**
      * Call the action using the given callback.
      *
-     * @param  callable(\Laravel\Components\Actions\Action):void  $callback
+     * @param  callable(\Laravel\Nova\Actions\Action):void  $callback
      * @return void
      */
     protected function callAction($callback)

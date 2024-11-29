@@ -2,16 +2,16 @@
 
 namespace {{ namespace }};
 
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Metrics\MetricTableRow;
-use Laravel\Components\Metrics\Table;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Metrics\MetricTableRow;
+use Laravel\Nova\Metrics\Table;
 
 class {{ class }} extends Table
 {
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function calculate(NovaRequest $request)

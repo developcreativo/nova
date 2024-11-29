@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
-use Laravel\Components\Contracts\RelatableField;
+use Laravel\Nova\Contracts\RelatableField;
 
 /**
  * @property-read string|null $orderBy

@@ -4,8 +4,8 @@ namespace {{ namespace }};
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Components\Events\ServingNova;
-use Laravel\Components\Nova;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
 class ToolServiceProvider extends ServiceProvider
 {

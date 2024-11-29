@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Fields\Filters;
+namespace Laravel\Nova\Fields\Filters;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class StatusFilter extends Filter
 {
@@ -16,7 +16,7 @@ class StatusFilter extends Filter
     /**
      * Get the filter's available options.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function options(NovaRequest $request)

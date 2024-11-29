@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Http\Resources;
+namespace Laravel\Nova\Http\Resources;
 
-use Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest;
+use Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest;
 
 class ReplicateViewResource extends CreateViewResource
 {
@@ -27,8 +27,8 @@ class ReplicateViewResource extends CreateViewResource
     /**
      * Get current resource for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
-     * @return \Laravel\Components\Resource
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @return \Laravel\Nova\Resource
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

@@ -1,34 +1,34 @@
 <?php
 
-namespace Laravel\Components\Fields\Attachments;
+namespace Laravel\Nova\Fields\Attachments;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Laravel\Components\Contracts\Storable;
+use Laravel\Nova\Contracts\Storable;
 
 class StorePendingAttachment
 {
     /**
      * The field instance.
      *
-     * @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable
+     * @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable
      */
     public $field;
 
     /**
      * The pending attachment model.
      *
-     * @var class-string<\Laravel\Components\Fields\Attachments\PendingAttachment>
+     * @var class-string<\Laravel\Nova\Fields\Attachments\PendingAttachment>
      */
     public static $model = PendingAttachment::class;
 
     /**
      * Create a new invokable instance.
      *
-     * @param  \Laravel\Components\Contracts\Storable  $field
+     * @param  \Laravel\Nova\Contracts\Storable  $field
      * @return void
      *
-     * @phpstan-param \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable $field
+     * @phpstan-param \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable $field
      */
     public function __construct(Storable $field)
     {

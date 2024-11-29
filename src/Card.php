@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 abstract class Card extends Element
 {

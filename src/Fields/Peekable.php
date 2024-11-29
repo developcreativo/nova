@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait Peekable
 {
     /**
      * Indicates if the related resource can be peeked at.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool|null
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool|null
      */
     public $peekable = true;
 
     /**
      * Specify if the related resource can be peeked at.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $callback
      * @return $this
      */
     public function peekable($callback = true)
@@ -41,7 +41,7 @@ trait Peekable
     /**
      * Resolve whether the relation is able to be peeked at.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function isPeekable(NovaRequest $request)
@@ -56,7 +56,7 @@ trait Peekable
     /**
      * Determine if the relation has fields that can be peeked at.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function hasFieldsToPeekAt(NovaRequest $request)
@@ -75,7 +75,7 @@ trait Peekable
     /**
      * Return the appropriate related Resource for the field.
      *
-     * @return \Laravel\Components\Resource|null
+     * @return \Laravel\Nova\Resource|null
      */
     protected function relatedResource()
     {

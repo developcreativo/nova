@@ -2,7 +2,7 @@
 
 namespace {{ namespace }}\Http\Middleware;
 
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 use {{ namespace }}\{{ class }};
 
 class Authorize
@@ -24,7 +24,7 @@ class Authorize
     /**
      * Determine whether this tool belongs to the package.
      *
-     * @param  \Laravel\Components\Tool  $tool
+     * @param  \Laravel\Nova\Tool  $tool
      * @return bool
      */
     public function matchesTool($tool)

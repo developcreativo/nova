@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Query;
+namespace Laravel\Nova\Query;
 
-use Laravel\Components\TrashedStatus;
+use Laravel\Nova\TrashedStatus;
 
 class ApplySoftDeleteConstraint
 {

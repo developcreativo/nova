@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;

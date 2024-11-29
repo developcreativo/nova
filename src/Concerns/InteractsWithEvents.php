@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Concerns;
+namespace Laravel\Nova\Concerns;
 
 use Illuminate\Support\Facades\Event;
-use Laravel\Components\Events\NovaServiceProviderRegistered;
-use Laravel\Components\Events\ServingNova;
+use Laravel\Nova\Events\NovaServiceProviderRegistered;
+use Laravel\Nova\Events\ServingNova;
 
 trait InteractsWithEvents
 {
     /**
      * Register an event listener for the Nova "booted" event.
      *
-     * @param  (\Closure(\Laravel\Components\Events\NovaServiceProviderRegistered):(void))|string  $callback
+     * @param  (\Closure(\Laravel\Nova\Events\NovaServiceProviderRegistered):(void))|string  $callback
      * @return void
      */
     public static function booted($callback)
@@ -22,7 +22,7 @@ trait InteractsWithEvents
     /**
      * Register an event listener for the Nova "serving" event.
      *
-     * @param  (\Closure(\Laravel\Components\Events\ServingNova):(void))|string  $callback
+     * @param  (\Closure(\Laravel\Nova\Events\ServingNova):(void))|string  $callback
      * @return void
      */
     public static function serving($callback)

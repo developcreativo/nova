@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Actions;
+namespace Laravel\Nova\Actions;
 
 use ArrayAccess;
 use JsonSerializable;
@@ -59,7 +59,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
 
     /**
      * @param  string  $message
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function message($message)
     {
@@ -92,7 +92,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
 
     /**
      * @param  string  $message
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function danger(string $message)
     {
@@ -112,7 +112,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
     }
 
     /**
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function deleted()
     {
@@ -134,7 +134,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
 
     /**
      * @param  string  $url
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function redirect($url)
     {
@@ -145,7 +145,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
 
     /**
      * @param  string  $url
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function openInNewTab($url)
     {
@@ -172,7 +172,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
     /**
      * @param  string  $path
      * @param  array  $options
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function visit($path, $options = [])
     {
@@ -208,7 +208,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
     /**
      * @param  string  $name
      * @param  string  $url
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function download(string $name, string $url)
     {
@@ -233,7 +233,7 @@ class ActionResponse implements ArrayAccess, JsonSerializable
     /**
      * @param  string  $modal
      * @param  array  $data
-     * @return \Laravel\Components\Actions\ActionResponse
+     * @return \Laravel\Nova\Actions\ActionResponse
      */
     public static function modal(string $modal, $data)
     {

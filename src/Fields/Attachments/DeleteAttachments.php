@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields\Attachments;
+namespace Laravel\Nova\Fields\Attachments;
 
 use Illuminate\Http\Request;
 
@@ -9,21 +9,21 @@ class DeleteAttachments
     /**
      * The field instance.
      *
-     * @var \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable
+     * @var \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable
      */
     public $field;
 
     /**
      * The attachment model.
      *
-     * @var class-string<\Laravel\Components\Fields\Attachments\Attachment>
+     * @var class-string<\Laravel\Nova\Fields\Attachments\Attachment>
      */
     public static $model = Attachment::class;
 
     /**
      * Create a new class instance.
      *
-     * @param  \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\Storable  $field
+     * @param  \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\Storable  $field
      * @return void
      */
     public function __construct($field)

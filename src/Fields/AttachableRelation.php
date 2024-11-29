@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait AttachableRelation
 {
     /**
      * Determines if the display values should be automatically sorted.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
      */
     public $reordersOnAttachableCallback = true;
 
     /**
      * Determine if the display values should be automatically sorted when rendering attachable relation.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function shouldReorderAttachableValues(NovaRequest $request)
@@ -43,7 +43,7 @@ trait AttachableRelation
     /**
      * Determine reordering on attachables.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $value
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $value
      * @return $this
      */
     public function reorderAttachables($value = true)

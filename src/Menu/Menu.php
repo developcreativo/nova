@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Menu;
+namespace Laravel\Nova\Menu;
 
 use JsonSerializable;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Makeable;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Makeable;
 
 /**
- * @phpstan-type TMenu \Laravel\Components\Menu\MenuGroup|\Laravel\Components\Menu\MenuItem|\Laravel\Components\Menu\MenuList|\Laravel\Components\Menu\MenuSection
+ * @phpstan-type TMenu \Laravel\Nova\Menu\MenuGroup|\Laravel\Nova\Menu\MenuItem|\Laravel\Nova\Menu\MenuList|\Laravel\Nova\Menu\MenuSection
  *
  * @method static static make(array|iterable $items = [])
  */
@@ -35,8 +35,8 @@ class Menu implements JsonSerializable
     /**
      * Wrap the given menu if not already wrapped.
      *
-     * @param  \Laravel\Components\Menu\Menu|array|iterable  $menu
-     * @return \Laravel\Components\Menu\Menu
+     * @param  \Laravel\Nova\Menu\Menu|array|iterable  $menu
+     * @return \Laravel\Nova\Menu\Menu
      */
     public static function wrap($menu)
     {

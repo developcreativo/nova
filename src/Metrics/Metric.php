@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Components\Metrics;
+namespace Laravel\Nova\Metrics;
 
 use DateInterval;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
-use Laravel\Components\Card;
-use Laravel\Components\Exceptions\HelperNotSupported;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Card;
+use Laravel\Nova\Exceptions\HelperNotSupported;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
 
 abstract class Metric extends Card
 {
@@ -39,7 +39,7 @@ abstract class Metric extends Card
     /**
      * Calculate the metric's value.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function resolve(NovaRequest $request)
@@ -62,7 +62,7 @@ abstract class Metric extends Card
     /**
      * Return a resolver function for the metric.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return \Closure(): mixed
      */
     public function getResolver(NovaRequest $request)
@@ -77,7 +77,7 @@ abstract class Metric extends Card
     /**
      * Get the appropriate cache key for the metric.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return string
      */
     public function getCacheKey(NovaRequest $request)

@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Str;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
  * @template TKey of array-key
@@ -19,7 +19,7 @@ class FormData extends Fluent
     /**
      * The Request instance.
      *
-     * @var \Laravel\Components\Http\Requests\NovaRequest
+     * @var \Laravel\Nova\Http\Requests\NovaRequest
      */
     protected $request;
 
@@ -27,7 +27,7 @@ class FormData extends Fluent
      * Create a new fluent instance.
      *
      * @param  iterable<TKey, TValue>  $attributes
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return void
      */
     public function __construct($attributes, NovaRequest $request)
@@ -40,7 +40,7 @@ class FormData extends Fluent
     /**
      * Make fluent payload from request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  array<string, mixed>  $fields
      * @return static
      */
@@ -64,7 +64,7 @@ class FormData extends Fluent
     /**
      * Make fluent payload from request only on specific keys.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  array<int, string>  $onlyAttributes
      * @return static
      */

@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Actions\Actionable;
-use Laravel\Components\Http\Requests\DeleteLensResourceRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Actions\Actionable;
+use Laravel\Nova\Http\Requests\DeleteLensResourceRequest;
+use Laravel\Nova\Nova;
 
 class LensResourceDestroyController extends Controller
 {
@@ -14,7 +14,7 @@ class LensResourceDestroyController extends Controller
     /**
      * Destroy the given resource(s).
      *
-     * @param  \Laravel\Components\Http\Requests\DeleteLensResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\DeleteLensResourceRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(DeleteLensResourceRequest $request)

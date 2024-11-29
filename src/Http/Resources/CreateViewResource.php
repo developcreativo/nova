@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Http\Resources;
+namespace Laravel\Nova\Http\Resources;
 
-use Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest;
+use Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest;
 
 class CreateViewResource extends Resource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -27,8 +27,8 @@ class CreateViewResource extends Resource
     /**
      * Get current resource for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
-     * @return \Laravel\Components\Resource
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @return \Laravel\Nova\Resource
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

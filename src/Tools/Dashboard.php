@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Tools;
+namespace Laravel\Nova\Tools;
 
 use Illuminate\Http\Request;
-use Laravel\Components\Menu\MenuSection;
-use Laravel\Components\Nova;
-use Laravel\Components\Tool;
+use Laravel\Nova\Menu\MenuSection;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Tool;
 
 class Dashboard extends Tool
 {

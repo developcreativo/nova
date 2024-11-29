@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components\Exceptions;
+namespace Laravel\Nova\Exceptions;
 
 use Closure;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Inertia\Inertia;
-use Laravel\Components\Nova;
-use Laravel\Components\Util;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Util;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
 

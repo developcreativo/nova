@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait FillsFields
 {
     /**
      * Fill a new model instance using the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return array{\Illuminate\Database\Eloquent\Model, array<int, callable>}
      */
@@ -28,7 +28,7 @@ trait FillsFields
     /**
      * Fill a new model instance using the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return array{\Illuminate\Database\Eloquent\Model, array<int, callable>}
      */
@@ -47,7 +47,7 @@ trait FillsFields
     /**
      * Fill a new pivot model instance using the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  \Illuminate\Database\Eloquent\Relations\Pivot  $pivot
      * @return array{\Illuminate\Database\Eloquent\Model, array<int, callable>}
@@ -69,7 +69,7 @@ trait FillsFields
     /**
      * Fill a new pivot model instance using the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  \Illuminate\Database\Eloquent\Relations\Pivot  $pivot
      * @return array{\Illuminate\Database\Eloquent\Model, array<int, callable>}
@@ -90,9 +90,9 @@ trait FillsFields
     /**
      * Fill the given fields for the model.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  \Illuminate\Support\Collection<int, \Laravel\Components\Fields\Field>  $fields
+     * @param  \Illuminate\Support\Collection<int, \Laravel\Nova\Fields\Field>  $fields
      * @return array{\Illuminate\Database\Eloquent\Model, array<int, callable>}
      */
     protected static function fillFields(NovaRequest $request, $model, $fields)

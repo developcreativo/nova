@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 /**
  * @phpstan-type TOptionValue string
- * @phpstan-type TOptionLabel \Laravel\Components\Support\PendingTranslation
+ * @phpstan-type TOptionLabel \Laravel\Nova\Support\PendingTranslation
  */
 class Country extends Select
 {

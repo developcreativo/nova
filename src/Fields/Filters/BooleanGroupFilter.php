@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields\Filters;
+namespace Laravel\Nova\Fields\Filters;
 
 class BooleanGroupFilter extends Filter
 {

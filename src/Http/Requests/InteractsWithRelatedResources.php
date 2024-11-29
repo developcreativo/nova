@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
-use Laravel\Components\Nova;
-use Laravel\Components\Resource;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Resource;
 
 trait InteractsWithRelatedResources
 {
@@ -11,7 +11,7 @@ trait InteractsWithRelatedResources
      * Find the parent resource model instance for the request.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Components\Resource
+     * @return \Laravel\Nova\Resource
      */
     public function findParentResource($resourceId = null)
     {
@@ -24,7 +24,7 @@ trait InteractsWithRelatedResources
      * Find the parent resource model instance for the request.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
@@ -77,7 +77,7 @@ trait InteractsWithRelatedResources
      * Find the related resource instance for the request.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Components\Resource
+     * @return \Laravel\Nova\Resource
      */
     public function findRelatedResource($resourceId = null)
     {
@@ -90,7 +90,7 @@ trait InteractsWithRelatedResources
      * Find the related resource instance for the request or abort.
      *
      * @param  string|int|null  $resourceId
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
@@ -164,7 +164,7 @@ trait InteractsWithRelatedResources
     /**
      * Get the class name of the "related" resource being requested.
      *
-     * @return class-string<\Laravel\Components\Resource>
+     * @return class-string<\Laravel\Nova\Resource>
      */
     public function relatedResource()
     {
@@ -174,7 +174,7 @@ trait InteractsWithRelatedResources
     /**
      * Get a new instance of the "related" resource being requested.
      *
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      */
     public function newRelatedResource()
     {
@@ -186,7 +186,7 @@ trait InteractsWithRelatedResources
     /**
      * Get the class name of the "via" resource being requested.
      *
-     * @return class-string<\Laravel\Components\Resource>
+     * @return class-string<\Laravel\Nova\Resource>
      */
     public function viaResource()
     {
@@ -196,7 +196,7 @@ trait InteractsWithRelatedResources
     /**
      * Get a new instance of the "via" resource being requested.
      *
-     * @return \Laravel\Components\Resource<\Illuminate\Database\Eloquent\Model>
+     * @return \Laravel\Nova\Resource<\Illuminate\Database\Eloquent\Model>
      */
     public function newViaResource()
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
-use Laravel\Components\Fields\FieldElement;
+use Laravel\Nova\Fields\FieldElement;
 
 class ResourceToolElement extends FieldElement
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Contracts;
+namespace Laravel\Nova\Contracts;
 
 /**
- * @mixin \Laravel\Components\Fields\Field
+ * @mixin \Laravel\Nova\Fields\Field
  *
  * @property bool $allowDuplicateRelations
  * @property string $manyToManyRelationship

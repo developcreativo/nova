@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Str;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Support\UndefinedValue;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Support\UndefinedValue;
 
 /**
  * @property array $fieldDependencies
@@ -31,7 +31,7 @@ trait DependentFields
     /**
      * Resolve dependent field value.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function resolveDependentValue(NovaRequest $request)
@@ -42,7 +42,7 @@ trait DependentFields
     /**
      * Sync depends on logic.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return $this
      */
     public function syncDependsOn(NovaRequest $request)
@@ -78,7 +78,7 @@ trait DependentFields
     /**
      * Apply depends on logic.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return $this
      */
     public function applyDependsOn(NovaRequest $request)
@@ -94,7 +94,7 @@ trait DependentFields
     /**
      * Get depends on attributes.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<string, mixed>|null
      */
     protected function getDependentsAttributes(NovaRequest $request)
@@ -114,7 +114,7 @@ trait DependentFields
     /**
      * Serialize dependent field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<string, mixed>
      */
     protected function serializeDependentField(NovaRequest $request): array

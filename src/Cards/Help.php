@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Cards;
+namespace Laravel\Nova\Cards;
 
-use Laravel\Components\Card;
+use Laravel\Nova\Card;
 
 class Help extends Card
 {

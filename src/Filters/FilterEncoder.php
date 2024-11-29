@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Filters;
+namespace Laravel\Nova\Filters;
 
 class FilterEncoder
 {

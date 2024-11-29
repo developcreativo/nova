@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Macros;
+namespace Laravel\Nova\Macros;
 
 use Illuminate\Support\Carbon;
 

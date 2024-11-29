@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait DeterminesIfCreateRelationCanBeShown
 {
     /**
      * The callback used to determine if the create relation button should be shown.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
      */
     public $showCreateRelationButtonCallback;
 
@@ -23,7 +23,7 @@ trait DeterminesIfCreateRelationCanBeShown
     /**
      * Set the callback used to determine if the field is required.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $callback
      * @return $this
      */
     public function showCreateRelationButton($callback = true)
@@ -59,7 +59,7 @@ trait DeterminesIfCreateRelationCanBeShown
     /**
      * Determine if Nova should show the edit pivot relation button.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function createRelationShouldBeShown(NovaRequest $request)

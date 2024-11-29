@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Resources;
+namespace Laravel\Nova\Http\Resources;
 
 use Illuminate\Database\Eloquent\Builder;
-use Laravel\Components\Http\Requests\LensRequest;
-use Laravel\Components\Query\ApplySoftDeleteConstraint;
+use Laravel\Nova\Http\Requests\LensRequest;
+use Laravel\Nova\Query\ApplySoftDeleteConstraint;
 
 class LensViewResource extends Resource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Components\Http\Requests\LensRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\LensRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -51,8 +51,8 @@ class LensViewResource extends Resource
     /**
      * Get authorized resource for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\LensRequest  $request
-     * @return \Laravel\Components\Lenses\Lens
+     * @param  \Laravel\Nova\Http\Requests\LensRequest  $request
+     * @return \Laravel\Nova\Lenses\Lens
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

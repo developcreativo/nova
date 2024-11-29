@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Menu;
+namespace Laravel\Nova\Menu;
 
 use JsonSerializable;
-use Laravel\Components\AuthorizedToSee;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Makeable;
-use Laravel\Components\Nova;
-use Laravel\Components\Resource;
+use Laravel\Nova\AuthorizedToSee;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Makeable;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Resource;
 
 class Breadcrumb implements JsonSerializable
 {
@@ -43,7 +43,7 @@ class Breadcrumb implements JsonSerializable
     /**
      * Create a breadcrumb from a resource class.
      *
-     * @param  \Laravel\Components\Resource|class-string<\Laravel\Components\Resource>  $resourceClass
+     * @param  \Laravel\Nova\Resource|class-string<\Laravel\Nova\Resource>  $resourceClass
      * @return static
      */
     public static function resource($resourceClass)

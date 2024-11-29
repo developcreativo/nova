@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
-use Laravel\Components\Metrics\Metric;
-use Laravel\Components\Nova;
+use Laravel\Nova\Metrics\Metric;
+use Laravel\Nova\Nova;
 
 /**
  * @property-read string $metric
@@ -13,7 +13,7 @@ class DashboardMetricRequest extends NovaRequest
     /**
      * Get the metric instance for the given request.
      *
-     * @return \Laravel\Components\Metrics\Metric
+     * @return \Laravel\Nova\Metrics\Metric
      */
     public function metric()
     {

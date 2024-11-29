@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\Facades\Schema;
-use Laravel\Components\Util;
+use Laravel\Nova\Util;
 
 class CreateActionEventsTable extends Migration
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\ResourceDetailRequest;
-use Laravel\Components\Http\Resources\DetailViewResource;
+use Laravel\Nova\Http\Requests\ResourceDetailRequest;
+use Laravel\Nova\Http\Resources\DetailViewResource;
 
 class ResourceShowController extends Controller
 {
     /**
      * Display the resource for administration.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceDetailRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ResourceDetailRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourceDetailRequest $request)

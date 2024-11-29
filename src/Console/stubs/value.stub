@@ -2,16 +2,16 @@
 
 namespace {{ namespace }};
 
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Metrics\Value;
-use Laravel\Components\Nova;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Metrics\Value;
+use Laravel\Nova\Nova;
 
 class {{ class }} extends Value
 {
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function calculate(NovaRequest $request)

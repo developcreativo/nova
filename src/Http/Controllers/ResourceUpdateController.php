@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Laravel\Components\Exceptions\ResourceSaveCancelledException;
-use Laravel\Components\Http\Requests\UpdateResourceRequest;
-use Laravel\Components\Nova;
-use Laravel\Components\URL;
-use Laravel\Components\Util;
+use Laravel\Nova\Exceptions\ResourceSaveCancelledException;
+use Laravel\Nova\Http\Requests\UpdateResourceRequest;
+use Laravel\Nova\Nova;
+use Laravel\Nova\URL;
+use Laravel\Nova\Util;
 use Throwable;
 
 class ResourceUpdateController extends Controller
@@ -17,14 +17,14 @@ class ResourceUpdateController extends Controller
     /**
      * The action event for the action.
      *
-     * @var \Laravel\Components\Actions\ActionEvent|null
+     * @var \Laravel\Nova\Actions\ActionEvent|null
      */
     protected $actionEvent;
 
     /**
      * Create a new resource.
      *
-     * @param  \Laravel\Components\Http\Requests\UpdateResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\UpdateResourceRequest  $request
      * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
@@ -83,7 +83,7 @@ class ResourceUpdateController extends Controller
     /**
      * Determine if the model has been updated since it was retrieved.
      *
-     * @param  \Laravel\Components\Http\Requests\UpdateResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\UpdateResourceRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return bool
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
 class ResourceDetailRequest extends NovaRequest
 {

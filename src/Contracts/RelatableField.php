@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components\Contracts;
+namespace Laravel\Nova\Contracts;
 
 /**
- * @mixin \Laravel\Components\Fields\Field
+ * @mixin \Laravel\Nova\Fields\Field
  *
  * @property string $attribute
- * @property \Laravel\Components\Resource $resourceClass
+ * @property \Laravel\Nova\Resource $resourceClass
  * @property string $resourceName
  */
 interface RelatableField

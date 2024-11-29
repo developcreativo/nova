@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Rules\NotAttached;
-use Laravel\Components\Rules\NotExactlyAttached;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Rules\NotAttached;
+use Laravel\Nova\Rules\NotExactlyAttached;
 
 trait ManyToManyCreationRules
 {
     /**
      * The callback that should be used to set creation rules callback for the pivot actions.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(array))|null
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array))|null
      */
     public $creationRulesCallback;
 
@@ -26,7 +26,7 @@ trait ManyToManyCreationRules
     /**
      * Set creation rules callback for this relation.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(array))|null  $callback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(array))|null  $callback
      * @return $this
      */
     public function creationRules($callback = null)
@@ -71,7 +71,7 @@ trait ManyToManyCreationRules
     /**
      * Get the creation rules for this field.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array<int, string|\Illuminate\Validation\Rule|\Illuminate\Contracts\Validation\Rule|callable>
      */
     public function getManyToManyCreationRules(NovaRequest $request)

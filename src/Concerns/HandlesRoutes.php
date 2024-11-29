@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Concerns;
+namespace Laravel\Nova\Concerns;
 
 use Illuminate\Support\Facades\Route;
 

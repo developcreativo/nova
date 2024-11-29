@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\MetricRequest;
+use Laravel\Nova\Http\Requests\MetricRequest;
 
 class MetricController extends Controller
 {
     /**
      * List the metrics for the given resource.
      *
-     * @param  \Laravel\Components\Http\Requests\MetricRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\MetricRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(MetricRequest $request)
@@ -23,7 +23,7 @@ class MetricController extends Controller
     /**
      * Get the specified metric's value.
      *
-     * @param  \Laravel\Components\Http\Requests\MetricRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\MetricRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function show(MetricRequest $request)

@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Contracts;
+namespace Laravel\Nova\Contracts;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
- * @mixin \Laravel\Components\Fields\Field
+ * @mixin \Laravel\Nova\Fields\Field
  *
  * @method array jsonSerialize()
  *
@@ -19,7 +19,7 @@ interface FilterableField
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed  $value
      * @return void
@@ -29,8 +29,8 @@ interface FilterableField
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Components\Fields\Filters\Filter|null
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Nova\Fields\Filters\Filter|null
      */
     public function resolveFilter(NovaRequest $request);
 

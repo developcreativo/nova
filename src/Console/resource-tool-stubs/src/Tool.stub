@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Laravel\Components\ResourceTool;
+use Laravel\Nova\ResourceTool;
 
 class {{ class }} extends ResourceTool
 {

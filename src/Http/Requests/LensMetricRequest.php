@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
-use Laravel\Components\Metrics\Metric;
+use Laravel\Nova\Metrics\Metric;
 
 class LensMetricRequest extends MetricRequest
 {

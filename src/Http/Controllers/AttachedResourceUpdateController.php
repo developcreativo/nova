@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Components\Actions\ActionEvent;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Actions\ActionEvent;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
 use Throwable;
 
 class AttachedResourceUpdateController extends Controller
@@ -18,14 +18,14 @@ class AttachedResourceUpdateController extends Controller
     /**
      * The action event for the action.
      *
-     * @var \Laravel\Components\Actions\ActionEvent|null
+     * @var \Laravel\Nova\Actions\ActionEvent|null
      */
     protected $actionEvent;
 
     /**
      * Update an attached resource pivot record.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(NovaRequest $request)
@@ -73,9 +73,9 @@ class AttachedResourceUpdateController extends Controller
     /**
      * Validate the attachment request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
      * @return void
      */
     protected function validate(NovaRequest $request, $model, $resourceClass)
@@ -92,8 +92,8 @@ class AttachedResourceUpdateController extends Controller
     /**
      * Get update rules for request from the resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
      * @return array
      */
     protected function updateRulesFor(NovaRequest $request, $resourceClass)
@@ -111,7 +111,7 @@ class AttachedResourceUpdateController extends Controller
     /**
      * Find the pivot model for the operation.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return \Illuminate\Database\Eloquent\Relations\Pivot
      */
@@ -136,7 +136,7 @@ class AttachedResourceUpdateController extends Controller
     /**
      * Determine if the model has been updated since it was retrieved.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return bool
      */

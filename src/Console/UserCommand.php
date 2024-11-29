@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Console;
+namespace Laravel\Nova\Console;
 
 use Illuminate\Console\Command;
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 class UserCommand extends Command
 {

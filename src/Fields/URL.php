@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Exceptions\NovaException;
+use Laravel\Nova\Exceptions\NovaException;
 
 class URL extends Text
 {

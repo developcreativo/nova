@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Http\Resources;
+namespace Laravel\Nova\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Laravel\Components\Contracts\ImpersonatesUsers;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Contracts\ImpersonatesUsers;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
 
 /**
  * @property string $email

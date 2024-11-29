@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Pages;
+namespace Laravel\Nova\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Laravel\Components\Testing\Browser\Components\SearchInputComponent;
+use Laravel\Nova\Testing\Browser\Components\SearchInputComponent;
 
 trait HasSearchable
 {
@@ -112,7 +112,7 @@ trait HasSearchable
      *
      * @param  \Laravel\Dusk\Browser  $browser
      * @param  string  $attribute
-     * @param  callable(\Laravel\Components\Browser, string):void  $fieldCallback
+     * @param  callable(\Laravel\Nova\Browser, string):void  $fieldCallback
      * @return void
      */
     public function assertSearchResult(Browser $browser, $attribute, callable $fieldCallback)

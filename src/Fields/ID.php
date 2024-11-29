@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Util;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Util;
 
 /**
  * @method static static make(mixed $name = null, string|null $attribute = null, callable|null $resolveCallback = null)
@@ -44,7 +44,7 @@ class ID extends Field
      * @param  string  $name
      * @param  string  $attribute
      * @param  callable|null  $resolveCallback
-     * @return \Laravel\Components\Fields\Hidden
+     * @return \Laravel\Nova\Fields\Hidden
      */
     public static function hidden($name = 'ID', $attribute = 'id', callable $resolveCallback = null)
     {
@@ -54,7 +54,7 @@ class ID extends Field
     /**
      * Create a new, resolved ID field for the given resource.
      *
-     * @param  \Laravel\Components\Resource  $resource
+     * @param  \Laravel\Nova\Resource  $resource
      * @return static|null
      */
     public static function forResource($resource)

@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Concerns;
+namespace Laravel\Nova\Testing\Browser\Concerns;
 
 use Laravel\Dusk\Browser;
-use Laravel\Components\Testing\Browser\Components\Modals\CreateRelationModalComponent;
+use Laravel\Nova\Testing\Browser\Components\Modals\CreateRelationModalComponent;
 
 trait InteractsWithInlineCreateRelation
 {

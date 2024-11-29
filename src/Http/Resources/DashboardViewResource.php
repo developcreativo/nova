@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Http\Resources;
+namespace Laravel\Nova\Http\Resources;
 
-use Laravel\Components\Dashboards\Main;
-use Laravel\Components\Http\Requests\DashboardRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Dashboards\Main;
+use Laravel\Nova\Http\Requests\DashboardRequest;
+use Laravel\Nova\Nova;
 
 class DashboardViewResource extends Resource
 {
@@ -29,7 +29,7 @@ class DashboardViewResource extends Resource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Laravel\Components\Http\Requests\DashboardRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\DashboardRequest  $request
      * @return array
      */
     public function toArray($request)
@@ -47,8 +47,8 @@ class DashboardViewResource extends Resource
     /**
      * Get authorized dashboard for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\DashboardRequest  $request
-     * @return \Laravel\Components\Dashboard
+     * @param  \Laravel\Nova\Http\Requests\DashboardRequest  $request
+     * @return \Laravel\Nova\Dashboard
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Laravel\Components\Http\Resources\NotificationResource;
-use Laravel\Components\Notifications\Notification;
-use Laravel\Components\Nova;
+use Laravel\Nova\Http\Resources\NotificationResource;
+use Laravel\Nova\Notifications\Notification;
+use Laravel\Nova\Nova;
 
 class NotificationRequest extends NovaRequest
 {

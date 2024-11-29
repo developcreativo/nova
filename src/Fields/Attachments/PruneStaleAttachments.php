@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields\Attachments;
+namespace Laravel\Nova\Fields\Attachments;
 
 use Illuminate\Support\Facades\Artisan;
 
@@ -9,7 +9,7 @@ class PruneStaleAttachments
     /**
      * The pending attachment model.
      *
-     * @var class-string<\Laravel\Components\Fields\Attachments\PendingAttachment>
+     * @var class-string<\Laravel\Nova\Fields\Attachments\PendingAttachment>
      */
     public static $model = PendingAttachment::class;
 

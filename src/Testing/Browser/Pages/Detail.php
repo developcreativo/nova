@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Pages;
+namespace Laravel\Nova\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Laravel\Components\Testing\Browser\Components\ActionDropdownComponent;
-use Laravel\Components\Testing\Browser\Components\IndexComponent;
-use Laravel\Components\Testing\Browser\Components\Modals\DeleteResourceModalComponent;
-use Laravel\Components\Testing\Browser\Components\Modals\RestoreResourceModalComponent;
+use Laravel\Nova\Testing\Browser\Components\ActionDropdownComponent;
+use Laravel\Nova\Testing\Browser\Components\IndexComponent;
+use Laravel\Nova\Testing\Browser\Components\Modals\DeleteResourceModalComponent;
+use Laravel\Nova\Testing\Browser\Components\Modals\RestoreResourceModalComponent;
 
 class Detail extends Page
 {

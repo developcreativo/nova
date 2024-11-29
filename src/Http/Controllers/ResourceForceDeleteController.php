@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Actions\Actionable;
-use Laravel\Components\Http\Requests\ForceDeleteResourceRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Actions\Actionable;
+use Laravel\Nova\Http\Requests\ForceDeleteResourceRequest;
+use Laravel\Nova\Nova;
 
 class ResourceForceDeleteController extends Controller
 {
@@ -14,7 +14,7 @@ class ResourceForceDeleteController extends Controller
     /**
      * Force delete the given resource(s).
      *
-     * @param  \Laravel\Components\Http\Requests\ForceDeleteResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ForceDeleteResourceRequest  $request
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function __invoke(ForceDeleteResourceRequest $request)

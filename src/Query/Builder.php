@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Query;
+namespace Laravel\Nova\Query;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Pagination\Paginator;
-use Laravel\Components\Contracts\QueryBuilder;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\TrashedStatus;
+use Laravel\Nova\Contracts\QueryBuilder;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\TrashedStatus;
 use Laravel\Scout\Builder as ScoutBuilder;
 use Laravel\Scout\Contracts\PaginatesEloquentModels;
 use RuntimeException;
@@ -17,7 +17,7 @@ class Builder implements QueryBuilder
     /**
      * The resource class.
      *
-     * @var class-string<\Laravel\Components\Resource>
+     * @var class-string<\Laravel\Nova\Resource>
      */
     protected $resourceClass;
 
@@ -52,7 +52,7 @@ class Builder implements QueryBuilder
     /**
      * Construct a new query builder for a resource.
      *
-     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
+     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
      * @return void
      */
     public function __construct($resourceClass)
@@ -81,10 +81,10 @@ class Builder implements QueryBuilder
     /**
      * Build a "search" query for the given resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Relations\Relation  $query
      * @param  string|null  $search
-     * @param  array<int, \Laravel\Components\Query\ApplyFilter>  $filters
+     * @param  array<int, \Laravel\Nova\Query\ApplyFilter>  $filters
      * @param  array<string, string>  $orderings
      * @param  string  $withTrashed
      * @return $this

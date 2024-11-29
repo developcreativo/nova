@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Pages;
+namespace Laravel\Nova\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
-use Laravel\Components\Testing\Browser\Components\FormComponent;
-use Laravel\Components\Testing\Browser\Components\IndexComponent;
+use Laravel\Nova\Testing\Browser\Components\FormComponent;
+use Laravel\Nova\Testing\Browser\Components\IndexComponent;
 
 class Index extends Page
 {

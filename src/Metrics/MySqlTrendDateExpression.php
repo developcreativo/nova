@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Metrics;
+namespace Laravel\Nova\Metrics;
 
 class MySqlTrendDateExpression extends TrendDateExpression
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Laravel\Components\Concerns;
+namespace Laravel\Nova\Concerns;
 
-use Laravel\Components\Actions\ActionResource;
+use Laravel\Nova\Actions\ActionResource;
 
 trait InteractsWithActionEvent
 {
     /**
      * Get the configured ActionResource class.
      *
-     * @return class-string<\Laravel\Components\Actions\ActionResource>
+     * @return class-string<\Laravel\Nova\Actions\ActionResource>
      */
     public static function actionResource()
     {
@@ -19,7 +19,7 @@ trait InteractsWithActionEvent
     /**
      * Get a new instance of the configured ActionEvent.
      *
-     * @return \Illuminate\Database\Eloquent\Model|\Laravel\Components\Actions\ActionEvent
+     * @return \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Actions\ActionEvent
      */
     public static function actionEvent()
     {
@@ -29,7 +29,7 @@ trait InteractsWithActionEvent
     /**
      * Invoke the callback with an instance of the configured ActionEvent if it is available.
      *
-     * @param  callable(\Laravel\Components\Actions\ActionEvent):mixed  $callback
+     * @param  callable(\Laravel\Nova\Actions\ActionEvent):mixed  $callback
      * @return mixed
      */
     public static function usingActionEvent(callable $callback)

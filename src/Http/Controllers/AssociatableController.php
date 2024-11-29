@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Contracts\RelatableField;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\RelatableField;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class AssociatableController extends Controller
 {
     /**
      * List the available related resources for a given resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function __invoke(NovaRequest $request)
@@ -52,7 +52,7 @@ class AssociatableController extends Controller
     /**
      * Determine if the query should include trashed models.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  string  $associatedResource
      * @return bool
      */

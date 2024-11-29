@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Http\Middleware;
+namespace Laravel\Nova\Http\Middleware;
 
 use Closure;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Middleware\Authenticate as BaseAuthenticationMiddleware;
-use Laravel\Components\Exceptions\AuthenticationException as NovaAuthenticationException;
+use Laravel\Nova\Exceptions\AuthenticationException as NovaAuthenticationException;
 
 class Authenticate extends BaseAuthenticationMiddleware
 {

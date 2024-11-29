@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Http\Middleware;
+namespace Laravel\Nova\Http\Middleware;
 
 use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Components\Events\ServingNova;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class DispatchServingNovaEvent
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Filters;
+namespace Laravel\Nova\Filters;
 
-use Laravel\Components\Query\ApplyFilter;
+use Laravel\Nova\Query\ApplyFilter;
 
 class FilterDecoder
 {
@@ -35,7 +35,7 @@ class FilterDecoder
     /**
      * Decode the given filters.
      *
-     * @return \Illuminate\Support\Collection<int, \Laravel\Components\Query\ApplyFilter>
+     * @return \Illuminate\Support\Collection<int, \Laravel\Nova\Query\ApplyFilter>
      */
     public function filters()
     {
@@ -72,7 +72,7 @@ class FilterDecoder
     /**
      * Decode the filter string from base64 encoding.
      *
-     * @return array<int, array<class-string<\Laravel\Components\Filters\Filter>|string, mixed>>
+     * @return array<int, array<class-string<\Laravel\Nova\Filters\Filter>|string, mixed>>
      */
     public function decodeFromBase64String()
     {

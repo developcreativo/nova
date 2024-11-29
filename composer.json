@@ -1,5 +1,5 @@
 {
-  "name": "laravel/components",
+  "name": "laravel/nova",
   "description": "A wonderful administration interface for Laravel.",
   "keywords": [
     "laravel",
@@ -40,12 +40,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Laravel\\Components\\": "src/"
+      "Laravel\\Nova\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Laravel\\Components\\Tests\\": "tests/"
+      "Laravel\\Nova\\Tests\\": "tests/"
     }
   },
   "extra": {
@@ -54,10 +54,10 @@
     },
     "laravel": {
       "providers": [
-        "Laravel\\Components\\NovaCoreServiceProvider"
+        "Laravel\\Nova\\NovaCoreServiceProvider"
       ],
       "aliases": {
-        "Components": "Laravel\\Components\\Components"
+        "Nova": "Laravel\\Nova\\Nova"
       }
     }
   },

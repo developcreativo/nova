@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Query\Search;
+namespace Laravel\Nova\Query\Search;
 
 class SearchableMorphToRelation extends SearchableRelation
 {
     /**
      * The available morph types.
      *
-     * @var array<int, class-string<\Illuminate\Database\Eloquent\Model|\Laravel\Components\Resource>|string>
+     * @var array<int, class-string<\Illuminate\Database\Eloquent\Model|\Laravel\Nova\Resource>|string>
      */
     public $types = [];
 
@@ -16,7 +16,7 @@ class SearchableMorphToRelation extends SearchableRelation
      *
      * @param  string  $relation
      * @param  \Illuminate\Database\Query\Expression|string  $column
-     * @param  array<int, class-string<\Illuminate\Database\Eloquent\Model|\Laravel\Components\Resource>|string>  $types
+     * @param  array<int, class-string<\Illuminate\Database\Eloquent\Model|\Laravel\Nova\Resource>|string>  $types
      * @return void
      */
     public function __construct(string $relation, $column, array $types = [])

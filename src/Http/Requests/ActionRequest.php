@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
 use Closure;
 use Illuminate\Http\UploadedFile;
-use Laravel\Components\Actions\ActionModelCollection;
-use Laravel\Components\Fields\ActionFields;
-use Laravel\Components\Fields\FieldCollection;
-use Laravel\Components\Support\Fluent;
+use Laravel\Nova\Actions\ActionModelCollection;
+use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Fields\FieldCollection;
+use Laravel\Nova\Support\Fluent;
 
 /**
  * @property-read string|null $resources
@@ -20,7 +20,7 @@ class ActionRequest extends NovaRequest
     /**
      * Get the action instance specified by the request.
      *
-     * @return \Laravel\Components\Actions\Action|\Laravel\Components\Actions\DestructiveAction
+     * @return \Laravel\Nova\Actions\Action|\Laravel\Nova\Actions\DestructiveAction
      */
     public function action()
     {
@@ -84,7 +84,7 @@ class ActionRequest extends NovaRequest
      * Get the selected models for the action in chunks.
      *
      * @param  int  $count
-     * @param  \Closure(\Laravel\Components\Actions\ActionModelCollection):mixed  $callback
+     * @param  \Closure(\Laravel\Nova\Actions\ActionModelCollection):mixed  $callback
      * @return mixed
      */
     public function chunks($count, Closure $callback)
@@ -165,7 +165,7 @@ class ActionRequest extends NovaRequest
      * Map the chunk of models into an appropriate state.
      *
      * @param  \Illuminate\Support\LazyCollection|\Illuminate\Database\Eloquent\Collection  $chunk
-     * @return \Laravel\Components\Actions\ActionModelCollection
+     * @return \Laravel\Nova\Actions\ActionModelCollection
      */
     protected function mapChunk($chunk)
     {
@@ -203,7 +203,7 @@ class ActionRequest extends NovaRequest
     /**
      * Resolve the fields using the request.
      *
-     * @return \Laravel\Components\Fields\ActionFields
+     * @return \Laravel\Nova\Fields\ActionFields
      */
     public function resolveFields()
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Str;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
 
 class KeyValue extends Field
 {
@@ -57,7 +57,7 @@ class KeyValue extends Field
     /**
      * The callback used to determine if the keys are readonly.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool|null
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool|null
      */
     public $readonlyKeysCallback;
 
@@ -78,9 +78,9 @@ class KeyValue extends Field
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
      * @param  string  $attribute
      * @return void
      */
@@ -96,7 +96,7 @@ class KeyValue extends Field
     /**
      * Fill the model's attribute with data.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
      * @param  mixed  $value
      * @param  string  $attribute
      * @return void
@@ -148,7 +148,7 @@ class KeyValue extends Field
     /**
      * Set the callback used to determine if the keys are readonly.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $callback
      * @return $this
      */
     public function disableEditingKeys($callback = true)
@@ -161,7 +161,7 @@ class KeyValue extends Field
     /**
      * Determine if the keys are readonly.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return bool
      */
     public function readonlyKeys(NovaRequest $request)

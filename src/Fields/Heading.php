@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 /**
  * @method static static make(mixed $name, string|null $attribute = null, callable|null $resolveCallback = null)

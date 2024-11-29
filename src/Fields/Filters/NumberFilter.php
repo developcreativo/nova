@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Fields\Filters;
+namespace Laravel\Nova\Fields\Filters;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class NumberFilter extends Filter
 {
@@ -16,7 +16,7 @@ class NumberFilter extends Filter
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder

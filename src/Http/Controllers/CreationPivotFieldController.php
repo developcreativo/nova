@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest;
-use Laravel\Components\Http\Resources\CreationPivotFieldResource;
+use Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest;
+use Laravel\Nova\Http\Resources\CreationPivotFieldResource;
 
 class CreationPivotFieldController extends Controller
 {
     /**
      * List the pivot fields for the given resource and relation.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(ResourceCreateOrAttachRequest $request)
@@ -22,7 +22,7 @@ class CreationPivotFieldController extends Controller
     /**
      * Synchronize the pivot field for creation.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function sync(ResourceCreateOrAttachRequest $request)

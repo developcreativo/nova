@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Arr;
-use Laravel\Components\Fields\Filters\NumberFilter;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Filters\NumberFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Number extends Text
 {
@@ -90,8 +90,8 @@ class Number extends Text
     /**
      * Make the field filter.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Laravel\Components\Fields\Filters\Filter
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Laravel\Nova\Fields\Filters\Filter
      */
     protected function makeFilter(NovaRequest $request)
     {
@@ -101,7 +101,7 @@ class Number extends Text
     /**
      * Define the default filterable callback.
      *
-     * @return callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):\Illuminate\Database\Eloquent\Builder
+     * @return callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Builder, mixed, string):\Illuminate\Database\Eloquent\Builder
      */
     protected function defaultFilterableCallback()
     {

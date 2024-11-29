@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Pages;
+namespace Laravel\Nova\Testing\Browser\Pages;
 
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\Page as Dusk;
-use Laravel\Components\Nova;
-use Laravel\Components\Testing\Browser\Concerns\InteractsWithElements;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Testing\Browser\Concerns\InteractsWithElements;
 
 class Page extends Dusk
 {

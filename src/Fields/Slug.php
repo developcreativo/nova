@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Str;
-use Laravel\Components\Contracts\Previewable;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\Previewable;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Slug extends Field implements Previewable
 {
@@ -18,7 +18,7 @@ class Slug extends Field implements Previewable
     /**
      * The field the slug should be generated from.
      *
-     * @var string|\Laravel\Components\Fields\Field
+     * @var string|\Laravel\Nova\Fields\Field
      */
     public $from;
 
@@ -52,7 +52,7 @@ class Slug extends Field implements Previewable
     /**
      * The field the slug should be generated from.
      *
-     * @param  string|\Laravel\Components\Fields\Field  $from
+     * @param  string|\Laravel\Nova\Fields\Field  $from
      * @return $this
      */
     public function from($from)

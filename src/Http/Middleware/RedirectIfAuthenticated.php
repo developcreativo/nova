@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Http\Middleware;
+namespace Laravel\Nova\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 class RedirectIfAuthenticated
 {

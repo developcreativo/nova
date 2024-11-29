@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use Laravel\Components\Actions\ActionEvent;
-use Laravel\Components\Exceptions\ResourceSaveCancelledException;
-use Laravel\Components\Http\Requests\CreateResourceRequest;
-use Laravel\Components\Nova;
-use Laravel\Components\URL;
+use Laravel\Nova\Actions\ActionEvent;
+use Laravel\Nova\Exceptions\ResourceSaveCancelledException;
+use Laravel\Nova\Http\Requests\CreateResourceRequest;
+use Laravel\Nova\Nova;
+use Laravel\Nova\URL;
 use Throwable;
 
 class ResourceStoreController extends Controller
@@ -18,19 +18,19 @@ class ResourceStoreController extends Controller
     /**
      * The action event for the action.
      *
-     * @var \Laravel\Components\Actions\ActionEvent|null
+     * @var \Laravel\Nova\Actions\ActionEvent|null
      */
     protected $actionEvent;
 
     /**
      * Create a new resource.
      *
-     * @param  \Laravel\Components\Http\Requests\CreateResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\CreateResourceRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function __invoke(CreateResourceRequest $request)
     {
-        /** @var \Laravel\Components\Resource $resource */
+        /** @var \Laravel\Nova\Resource $resource */
         $resource = $request->resource();
 
         $resource::authorizeToCreate($request);
@@ -75,7 +75,7 @@ class ResourceStoreController extends Controller
     /**
      * Save the resource.
      *
-     * @param  \Laravel\Components\Http\Requests\CreateResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\CreateResourceRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return bool
      */

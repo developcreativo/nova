@@ -2,9 +2,9 @@
 
 namespace {{ namespace }};
 
-use Laravel\Components\Fields\ID;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Fields\Repeater\Repeatable;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Repeater\Repeatable;
 
 class {{ class }} extends Repeatable
 {
@@ -19,7 +19,7 @@ class {{ class }} extends Repeatable
     /**
      * Get the fields displayed by the repeatable.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)

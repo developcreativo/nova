@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Components\Query;
+namespace Laravel\Nova\Query;
 
 use Illuminate\Database\Eloquent\Builder;
-use Laravel\Components\Query\Search\Column;
+use Laravel\Nova\Query\Search\Column;
 
 class Search
 {
@@ -37,8 +37,8 @@ class Search
     /**
      * Get the raw results of the search.
      *
-     * @param  class-string<\Laravel\Components\Resource>  $resourceClass
-     * @param  array<int, string|\Laravel\Components\Query\Search\Column>  $searchColumns
+     * @param  class-string<\Laravel\Nova\Resource>  $resourceClass
+     * @param  array<int, string|\Laravel\Nova\Query\Search\Column>  $searchColumns
      * @return mixed
      */
     public function handle($resourceClass, array $searchColumns)

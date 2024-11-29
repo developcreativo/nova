@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
 use Closure;
 use Illuminate\Support\Collection;
@@ -34,7 +34,7 @@ class DetachResourceRequest extends DeletionRequest
      * Get the models that may be detached.
      *
      * @param  \Illuminate\Support\Collection  $models
-     * @param  \Laravel\Components\Resource  $parentResource
+     * @param  \Laravel\Nova\Resource  $parentResource
      * @return \Illuminate\Support\Collection
      */
     protected function detachableModels(Collection $models, $parentResource)

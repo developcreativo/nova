@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Components;
+namespace Laravel\Nova\Testing\Browser\Components;
 
 class LensComponent extends IndexComponent
 {

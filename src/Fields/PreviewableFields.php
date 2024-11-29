@@ -1,22 +1,22 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait PreviewableFields
 {
     /**
      * Indicates whether to show the field in the modal preview.
      *
-     * @var (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool
+     * @var (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool
      */
     public $showOnPreview = false;
 
     /**
      * Show the field in the modal preview.
      *
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest):(bool))|bool  $callback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest):(bool))|bool  $callback
      * @return $this
      */
     public function showOnPreview($callback = true)
@@ -45,7 +45,7 @@ trait PreviewableFields
     /**
      * Determine if the field is to be shown in the preview modal.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
      * @return bool
      */

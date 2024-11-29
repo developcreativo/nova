@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Closure;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Laravel\Components\Contracts\Deletable as DeletableContract;
-use Laravel\Components\Contracts\Downloadable as DownloadableContract;
-use Laravel\Components\Contracts\Storable as StorableContract;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Contracts\Deletable as DeletableContract;
+use Laravel\Nova\Contracts\Downloadable as DownloadableContract;
+use Laravel\Nova\Contracts\Storable as StorableContract;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
  * @method static static make(mixed $name, string|callable|null $attribute = null, string|null $disk = null, callable|null $storageCallback = null)
@@ -33,7 +33,7 @@ class File extends Field implements StorableContract, DeletableContract, Downloa
     /**
      * The callback that should be executed to store the file.
      *
-     * @var callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed
+     * @var callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed
      */
     public $storageCallback;
 
@@ -78,10 +78,10 @@ class File extends Field implements StorableContract, DeletableContract, Downloa
      * @param  string  $name
      * @param  string|callable|null  $attribute
      * @param  string|null  $disk
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):(mixed))|null  $storageCallback
      * @return void
      *
-     * @phpstan-param  callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Fluent, string, string, ?string, ?string):mixed  $storageCallback
+     * @phpstan-param  callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Fluent, string, string, ?string, ?string):mixed  $storageCallback
      */
     public function __construct($name, $attribute = null, $disk = null, $storageCallback = null)
     {
@@ -190,10 +190,10 @@ class File extends Field implements StorableContract, DeletableContract, Downloa
     /**
      * Specify the callback that should be used to store the file.
      *
-     * @param  callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed  $storageCallback
+     * @param  callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed  $storageCallback
      * @return $this
      *
-     * @phpstan-param  callable(\Laravel\Components\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Fluent, string, string, ?string, ?string):mixed  $storageCallback
+     * @phpstan-param  callable(\Laravel\Nova\Http\Requests\NovaRequest, \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Fluent, string, string, ?string, ?string):mixed  $storageCallback
      */
     public function store(callable $storageCallback)
     {
@@ -270,8 +270,8 @@ class File extends Field implements StorableContract, DeletableContract, Downloa
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
      * @return void
      */
     public function fillForAction(NovaRequest $request, $model)
@@ -284,9 +284,9 @@ class File extends Field implements StorableContract, DeletableContract, Downloa
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  string  $requestAttribute
-     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Components\Support\Fluent  $model
+     * @param  \Illuminate\Database\Eloquent\Model|\Laravel\Nova\Support\Fluent  $model
      * @param  string  $attribute
      * @return mixed
      */

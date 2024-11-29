@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Exceptions;
+namespace Laravel\Nova\Exceptions;
 
 use Exception;
 

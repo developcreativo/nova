@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Http\Requests;
+namespace Laravel\Nova\Http\Requests;
 
-use Laravel\Components\Contracts\QueryBuilder;
+use Laravel\Nova\Contracts\QueryBuilder;
 
 class ResourceIndexRequest extends NovaRequest
 {

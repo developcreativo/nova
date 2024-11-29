@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Query\Search;
+namespace Laravel\Nova\Query\Search;
 
 class SearchableText extends Column
 {

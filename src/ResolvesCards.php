@@ -1,16 +1,16 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait ResolvesCards
 {
     /**
      * Get the cards that are available for the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Illuminate\Support\Collection<int, \Laravel\Components\Metrics\Metric|\Laravel\Components\Card>
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Illuminate\Support\Collection<int, \Laravel\Nova\Metrics\Metric|\Laravel\Nova\Card>
      */
     public function availableCards(NovaRequest $request)
     {
@@ -24,8 +24,8 @@ trait ResolvesCards
     /**
      * Get the cards that are available for the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Illuminate\Support\Collection<int, \Laravel\Components\Metrics\Metric|\Laravel\Components\Card>
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Illuminate\Support\Collection<int, \Laravel\Nova\Metrics\Metric|\Laravel\Nova\Card>
      */
     public function availableCardsForDetail(NovaRequest $request)
     {
@@ -39,8 +39,8 @@ trait ResolvesCards
     /**
      * Get the cards for the given request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return \Illuminate\Support\Collection<int, \Laravel\Components\Metrics\Metric|\Laravel\Components\Card>
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return \Illuminate\Support\Collection<int, \Laravel\Nova\Metrics\Metric|\Laravel\Nova\Card>
      */
     public function resolveCards(NovaRequest $request)
     {
@@ -50,7 +50,7 @@ trait ResolvesCards
     /**
      * Get the cards available on the entity.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)

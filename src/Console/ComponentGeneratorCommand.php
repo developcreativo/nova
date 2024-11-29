@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Console;
+namespace Laravel\Nova\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Laravel\Components\Console\Concerns\AcceptsNameAndVendor;
+use Laravel\Nova\Console\Concerns\AcceptsNameAndVendor;
 use Symfony\Component\Process\Process;
 
 abstract class ComponentGeneratorCommand extends Command

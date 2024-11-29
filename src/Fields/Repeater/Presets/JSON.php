@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Components\Fields\Repeater\Presets;
+namespace Laravel\Nova\Fields\Repeater\Presets;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Components\Fields\Field;
-use Laravel\Components\Fields\FieldCollection;
-use Laravel\Components\Fields\Repeater\RepeatableCollection;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Support\Fluent;
+use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Fields\FieldCollection;
+use Laravel\Nova\Fields\Repeater\RepeatableCollection;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Support\Fluent;
 
 class JSON implements Preset
 {

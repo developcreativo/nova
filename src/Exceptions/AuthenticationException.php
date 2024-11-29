@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Exceptions;
+namespace Laravel\Nova\Exceptions;
 
 use Illuminate\Auth\AuthenticationException as BaseAuthenticationException;
 use Inertia\Inertia;
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 class AuthenticationException extends BaseAuthenticationException
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Testing\Browser\Components\Modals;
+namespace Laravel\Nova\Testing\Browser\Components\Modals;
 
 use Laravel\Dusk\Browser;
 

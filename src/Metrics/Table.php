@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Components\Metrics;
+namespace Laravel\Nova\Metrics;
 
-use Laravel\Components\Nova;
+use Laravel\Nova\Nova;
 
 class Table extends Metric
 {

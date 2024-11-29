@@ -1,20 +1,20 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers\Pages;
+namespace Laravel\Nova\Http\Controllers\Pages;
 
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
-use Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest;
-use Laravel\Components\Menu\Breadcrumb;
-use Laravel\Components\Menu\Breadcrumbs;
-use Laravel\Components\Nova;
+use Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest;
+use Laravel\Nova\Menu\Breadcrumb;
+use Laravel\Nova\Menu\Breadcrumbs;
+use Laravel\Nova\Nova;
 
 class ResourceReplicateController extends Controller
 {
     /**
      * Show Resource Replicate page using Inertia.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
      * @return \Inertia\Response
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -38,8 +38,8 @@ class ResourceReplicateController extends Controller
     /**
      * Get breadcrumb menu for the page.
      *
-     * @param  \Laravel\Components\Http\Requests\ResourceCreateOrAttachRequest  $request
-     * @return \Laravel\Components\Menu\Breadcrumbs
+     * @param  \Laravel\Nova\Http\Requests\ResourceCreateOrAttachRequest  $request
+     * @return \Laravel\Nova\Menu\Breadcrumbs
      */
     protected function breadcrumbs(ResourceCreateOrAttachRequest $request)
     {

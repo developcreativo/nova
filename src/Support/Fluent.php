@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Support;
+namespace Laravel\Nova\Support;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Laravel\Components\Makeable;
+use Laravel\Nova\Makeable;
 
 class Fluent extends \Illuminate\Support\Fluent
 {

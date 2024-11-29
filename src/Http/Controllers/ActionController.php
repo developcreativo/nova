@@ -1,21 +1,21 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Actions\Action;
-use Laravel\Components\Actions\ActionCollection;
-use Laravel\Components\Http\Requests\ActionRequest;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
-use Laravel\Components\Resource;
+use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Actions\ActionCollection;
+use Laravel\Nova\Http\Requests\ActionRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Resource;
 
 class ActionController extends Controller
 {
     /**
      * List the actions for the given resource.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(NovaRequest $request)
@@ -50,7 +50,7 @@ class ActionController extends Controller
     /**
      * Perform an action on the specified resources.
      *
-     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(ActionRequest $request)
@@ -63,7 +63,7 @@ class ActionController extends Controller
     /**
      * Sync an action field on the specified resources.
      *
-     * @param  \Laravel\Components\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function sync(ActionRequest $request)
@@ -88,9 +88,9 @@ class ActionController extends Controller
     /**
      * Get the available actions for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @param  \Laravel\Components\Resource  $resource
-     * @return \Laravel\Components\Actions\ActionCollection<int, \Laravel\Components\Actions\Action>
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Resource  $resource
+     * @return \Laravel\Nova\Actions\ActionCollection<int, \Laravel\Nova\Actions\Action>
      */
     protected function availableActions(NovaRequest $request, Resource $resource)
     {

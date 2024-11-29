@@ -1,17 +1,17 @@
 <?php
 
-namespace Laravel\Components\Http\Controllers;
+namespace Laravel\Nova\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Components\Http\Requests\RestoreResourceRequest;
-use Laravel\Components\Nova;
+use Laravel\Nova\Http\Requests\RestoreResourceRequest;
+use Laravel\Nova\Nova;
 
 class ResourceRestoreController extends Controller
 {
     /**
      * Restore the given resource(s).
      *
-     * @param  \Laravel\Components\Http\Requests\RestoreResourceRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\RestoreResourceRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(RestoreResourceRequest $request)

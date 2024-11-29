@@ -1,19 +1,19 @@
 <?php
 
-namespace Laravel\Components\Rules;
+namespace Laravel\Nova\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Arr;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Nova;
-use Laravel\Components\ResourceToolElement;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Nova;
+use Laravel\Nova\ResourceToolElement;
 
 class NotExactlyAttached implements Rule
 {
     /**
      * The request instance.
      *
-     * @var \Laravel\Components\Http\Requests\NovaRequest
+     * @var \Laravel\Nova\Http\Requests\NovaRequest
      */
     public $request;
 
@@ -27,7 +27,7 @@ class NotExactlyAttached implements Rule
     /**
      * Create a new rule instance.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Model|null  $model
      * @return void
      */

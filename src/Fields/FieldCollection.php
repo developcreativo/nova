@@ -1,25 +1,25 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\MissingValue;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
-use Laravel\Components\Contracts\FilterableField;
-use Laravel\Components\Contracts\ListableField;
-use Laravel\Components\Contracts\RelatableField;
-use Laravel\Components\Contracts\Resolvable;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Panel;
-use Laravel\Components\ResourceTool;
-use Laravel\Components\ResourceToolElement;
-use Laravel\Components\Util;
+use Laravel\Nova\Contracts\FilterableField;
+use Laravel\Nova\Contracts\ListableField;
+use Laravel\Nova\Contracts\RelatableField;
+use Laravel\Nova\Contracts\Resolvable;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Panel;
+use Laravel\Nova\ResourceTool;
+use Laravel\Nova\ResourceToolElement;
+use Laravel\Nova\Util;
 
 /**
  * @template TKey of int
- * @template TValue of \Laravel\Components\Panel|\Laravel\Components\ResourceToolElement|\Laravel\Components\Fields\Field|\Illuminate\Http\Resources\MissingValue
+ * @template TValue of \Laravel\Nova\Panel|\Laravel\Nova\ResourceToolElement|\Laravel\Nova\Fields\Field|\Illuminate\Http\Resources\MissingValue
  *
  * @extends \Illuminate\Support\Collection<TKey, TValue>
  */
@@ -125,9 +125,9 @@ class FieldCollection extends Collection
     /**
      * Remove non-creation fields from the collection.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
-     * @return static<int, \Laravel\Components\Fields\Field>
+     * @return static<int, \Laravel\Nova\Fields\Field>
      */
     public function onlyCreateFields(NovaRequest $request, $resource)
     {
@@ -143,9 +143,9 @@ class FieldCollection extends Collection
     /**
      * Remove non-update fields from the collection.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
-     * @return static<int, \Laravel\Components\Fields\Field>
+     * @return static<int, \Laravel\Nova\Fields\Field>
      */
     public function onlyUpdateFields(NovaRequest $request, $resource)
     {
@@ -161,9 +161,9 @@ class FieldCollection extends Collection
     /**
      * Filter fields for showing on detail.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
-     * @return static<int, \Laravel\Components\Fields\Field>
+     * @return static<int, \Laravel\Nova\Fields\Field>
      */
     public function filterForDetail(NovaRequest $request, $resource)
     {
@@ -175,9 +175,9 @@ class FieldCollection extends Collection
     /**
      * Filter fields for showing on preview.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
-     * @return static<int, \Laravel\Components\Fields\Field>
+     * @return static<int, \Laravel\Nova\Fields\Field>
      */
     public function filterForPreview(NovaRequest $request, $resource)
     {
@@ -189,8 +189,8 @@ class FieldCollection extends Collection
     /**
      * Filter fields for showing when peeking.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
-     * @return static<int, \Laravel\Components\Fields\Field>
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return static<int, \Laravel\Nova\Fields\Field>
      */
     public function filterForPeeking(NovaRequest $request)
     {
@@ -203,9 +203,9 @@ class FieldCollection extends Collection
     /**
      * Filter fields for showing on index.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  mixed  $resource
-     * @return static<int, \Laravel\Components\Fields\Field>
+     * @return static<int, \Laravel\Nova\Fields\Field>
      */
     public function filterForIndex(NovaRequest $request, $resource)
     {
@@ -217,7 +217,7 @@ class FieldCollection extends Collection
     /**
      * Reject if the field is readonly.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return static<int, TValue>
      */
     public function withoutReadonly(NovaRequest $request)
@@ -230,7 +230,7 @@ class FieldCollection extends Collection
     /**
      * Reject if the field is a missing value.
      *
-     * @return static<int, \Laravel\Components\Panel|\Laravel\Components\ResourceToolElement|\Laravel\Components\Fields\Field>
+     * @return static<int, \Laravel\Nova\Panel|\Laravel\Nova\ResourceToolElement|\Laravel\Nova\Fields\Field>
      */
     public function withoutMissingValues()
     {
@@ -278,7 +278,7 @@ class FieldCollection extends Collection
     /**
      * Filter the fields to only many-to-many relationships.
      *
-     * @return static<TKey, \Laravel\Components\Fields\MorphToMany|\Laravel\Components\Fields\BelongsToMany>
+     * @return static<TKey, \Laravel\Nova\Fields\MorphToMany|\Laravel\Nova\Fields\BelongsToMany>
      */
     public function filterForManyToManyRelations()
     {
@@ -290,7 +290,7 @@ class FieldCollection extends Collection
     /**
      * Reject if the field supports Filterable Field.
      *
-     * @return static<TKey, \Laravel\Components\Fields\Field&\Laravel\Components\Contracts\FilterableField>
+     * @return static<TKey, \Laravel\Nova\Fields\Field&\Laravel\Nova\Contracts\FilterableField>
      */
     public function withOnlyFilterableFields()
     {
@@ -302,7 +302,7 @@ class FieldCollection extends Collection
     /**
      * Apply depends on for the request.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return $this
      */
     public function applyDependsOn(NovaRequest $request)
@@ -315,7 +315,7 @@ class FieldCollection extends Collection
     /**
      * Apply depends on for the request with default values.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return $this
      */
     public function applyDependsOnWithDefaultValues(NovaRequest $request)

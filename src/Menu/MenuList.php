@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Menu;
+namespace Laravel\Nova\Menu;
 
-use Laravel\Components\AuthorizedToSee;
-use Laravel\Components\Http\Requests\NovaRequest;
-use Laravel\Components\Makeable;
+use Laravel\Nova\AuthorizedToSee;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Makeable;
 
 /**
  * @method static static make(array $items)
@@ -24,7 +24,7 @@ class MenuList implements \JsonSerializable
     /**
      * The menu's items.
      *
-     * @var \Laravel\Components\Menu\MenuCollection
+     * @var \Laravel\Nova\Menu\MenuCollection
      */
     public $items;
 

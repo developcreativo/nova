@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Components\Fields;
+namespace Laravel\Nova\Fields;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -34,7 +34,7 @@ class Audio extends File
      * @param  string  $name
      * @param  string|callable|null  $attribute
      * @param  string|null  $disk
-     * @param  (callable(\Laravel\Components\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed)|null  $storageCallback
+     * @param  (callable(\Laravel\Nova\Http\Requests\NovaRequest, object, string, string, ?string, ?string):mixed)|null  $storageCallback
      * @return void
      */
     public function __construct($name, $attribute = null, $disk = 'public', $storageCallback = null)

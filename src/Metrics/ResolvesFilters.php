@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components\Metrics;
+namespace Laravel\Nova\Metrics;
 
 use Illuminate\Support\Collection;
-use Laravel\Components\Filters\FilterDecoder;
-use Laravel\Components\Http\Requests\NovaRequest;
+use Laravel\Nova\Filters\FilterDecoder;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 trait ResolvesFilters
 {
@@ -31,7 +31,7 @@ trait ResolvesFilters
     /**
      * Apply filter query.
      *
-     * @param  \Laravel\Components\Http\Requests\NovaRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder
      */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ $locale = \Laravel\Components\Nova::resolveUserLocale(request()) }}" dir="{{ \Laravel\Components\Nova::rtlEnabled() ? 'rtl' : 'ltr' }}" class="h-full font-sans antialiased">
+<html lang="{{ $locale = \Laravel\Nova\Nova::resolveUserLocale(request()) }}" dir="{{ \Laravel\Nova\Nova::rtlEnabled() ? 'rtl' : 'ltr' }}" class="h-full font-sans antialiased">
 <head>
     <meta name="theme-color" content="#fff">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('app.css', 'vendor/nova') }}">
 
-    @if ($styles = \Laravel\Components\Nova::availableStyles(request()))
+    @if ($styles = \Laravel\Nova\Nova::availableStyles(request()))
     <!-- Tool Styles -->
         @foreach($styles as $asset)
             <link rel="stylesheet" href="{!! $asset->url() !!}">
@@ -38,12 +38,12 @@
 
     <!-- Build Nova Instance -->
     <script>
-        const config = @json(\Laravel\Components\Nova::jsonVariables(request()));
+        const config = @json(\Laravel\Nova\Nova::jsonVariables(request()));
         window.Nova = createNovaApp(config)
         Nova.countdown()
     </script>
 
-    @if ($scripts = \Laravel\Components\Nova::availableScripts(request()))
+    @if ($scripts = \Laravel\Nova\Nova::availableScripts(request()))
         <!-- Tool Scripts -->
         @foreach ($scripts as $asset)
             <script src="{!! $asset->url() !!}"></script>

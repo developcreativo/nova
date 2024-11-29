@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Components;
+namespace Laravel\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Laravel\Components\Menu\MenuItem;
+use Laravel\Nova\Menu\MenuItem;
 
 abstract class Dashboard extends Element implements HasMenu
 {
