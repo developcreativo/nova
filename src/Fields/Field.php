@@ -23,13 +23,13 @@ use Laravel\Nova\Util;
 abstract class Field extends FieldElement implements JsonSerializable, Resolvable
 {
     use DependentFields;
+    use HandlesValidation;
     use HasHelpText;
     use Macroable;
     use PeekableFields;
     use PreviewableFields;
     use SupportsFullWidthFields;
     use Tappable;
-    use HandlesValidation;
 
     const LEFT_ALIGN = 'left';
 
@@ -234,7 +234,7 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
      * @param  (callable(mixed, mixed, ?string):(mixed))|null  $resolveCallback
      * @return void
      */
-    public function __construct($name, $attribute = null, callable $resolveCallback = null)
+    public function __construct($name, $attribute = null, ?callable $resolveCallback = null)
     {
         $this->name = $name;
         $this->resolveCallback = $resolveCallback;
@@ -876,6 +876,8 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
     {
         /** @phpstan-ignore-next-line */
         return with(app(NovaRequest::class), function ($request) {
+            $value = $this->isValidNullValue($this->value) ? null : $this->value;
+
             return array_merge([
                 'attribute' => $this->attribute,
                 'component' => $this->component(),
@@ -904,7 +906,7 @@ abstract class Field extends FieldElement implements JsonSerializable, Resolvabl
                 ),
                 'usesCustomizedDisplay' => $this->usesCustomizedDisplay,
                 'validationKey' => $this->validationKey(),
-                'value' => $this->value ?? $this->resolveDefaultValue($request),
+                'value' => $value ?? $this->resolveDefaultValue($request),
                 'visible' => $this->visible,
                 'withLabel' => $this->withLabel,
                 'wrapping' => $this->wrapping,

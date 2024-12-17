@@ -74,27 +74,33 @@
         />
 
         <!-- View Resource Link -->
-        <Button
+        <Link
           v-if="authorizedToViewAnyResources"
-          :as="resource.authorizedToView ? 'Link' : 'Button'"
+          :as="!resource.authorizedToView ? 'button' : 'a'"
           v-tooltip.click="__('View')"
           :aria-label="__('View')"
           :dusk="`${resource['id'].value}-view-button`"
-          @click.stop="navigateToDetailView"
-          icon="eye"
-          variant="action"
+          :href="viewURL"
+          class="inline-flex items-center justify-center h-9 w-9"
           :class="
             resource.authorizedToView
-              ? 'hover:text-primary-500 dark:hover:text-primary-500'
-              : null
+              ? 'text-gray-500 dark:text-gray-400 hover:[&:not(:disabled)]:text-primary-500 dark:hover:[&:not(:disabled)]:text-primary-500'
+              : 'disabled:cursor-not-allowed disabled:opacity-50'
           "
           :disabled="!resource.authorizedToView"
-        />
+          @click.stop
+        >
+          <span class="flex items-center gap-1">
+            <span>
+              <Icon name="eye" type="outline" />
+            </span>
+          </span>
+        </Link>
 
         <!-- Edit Button -->
-        <Button
+        <Link
           v-if="authorizedToUpdateAnyResources"
-          :as="resource.authorizedToUpdate ? 'Link' : 'Button'"
+          :as="!resource.authorizedToUpdate ? 'button' : 'a'"
           v-tooltip.click="viaManyToMany ? __('Edit Attached') : __('Edit')"
           :aria-label="viaManyToMany ? __('Edit Attached') : __('Edit')"
           :dusk="
@@ -102,16 +108,22 @@
               ? `${resource['id'].value}-edit-attached-button`
               : `${resource['id'].value}-edit-button`
           "
-          @click.stop="navigateToEditView"
-          icon="pencil-square"
-          variant="action"
+          :href="updateURL"
+          class="inline-flex items-center justify-center h-9 w-9"
           :class="
             resource.authorizedToUpdate
-              ? 'hover:text-primary-500 dark:hover:text-primary-500'
-              : null
+              ? 'text-gray-500 dark:text-gray-400 hover:[&:not(:disabled)]:text-primary-500 dark:hover:[&:not(:disabled)]:text-primary-500'
+              : 'disabled:cursor-not-allowed disabled:opacity-50'
           "
           :disabled="!resource.authorizedToUpdate"
-        />
+          @click.stop
+        >
+          <span class="flex items-center gap-1">
+            <span>
+              <Icon name="pencil-square" type="outline" />
+            </span>
+          </span>
+        </Link>
 
         <!-- Delete Resource Link -->
         <Button

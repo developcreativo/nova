@@ -23,7 +23,7 @@
       </div>
 
       <div
-        class="fixed inset-0 z-[55] bg-gray-500 dark:bg-gray-900 opacity-75"
+        class="fixed inset-0 z-[55] bg-gray-500/75 dark:bg-gray-900/75"
         dusk="modal-backdrop"
       />
     </template>
@@ -47,8 +47,6 @@ import {
 } from 'vue'
 
 const modalContent = ref(null)
-const activateFocusTrap = ref(() => {})
-const deactivateFocusTrap = ref(() => {})
 
 const attrs = useAttrs()
 
@@ -80,22 +78,34 @@ const props = defineProps({
   useFocusTrap: { type: Boolean, default: true },
 })
 
-if (props.useFocusTrap) {
-  const { activate, deactivate } = useFocusTrap(modalContent, {
-    immediate: false,
-    allowOutsideClick: false,
-    escapeDeactivates: false,
-  })
+const usesFocusTrap = ref(true)
 
-  activateFocusTrap.value = activate
-  deactivateFocusTrap.value = deactivate
-}
+const hasTrapFocus = computed(() => {
+  return props.useFocusTrap && usesFocusTrap.value === true
+})
+
+const { activate, deactivate } = useFocusTrap(modalContent, {
+  immediate: false,
+  allowOutsideClick: true,
+  escapeDeactivates: false,
+})
 
 watch(
   () => props.show,
-  v => handleVisibilityChange(v),
-  { immediate: true }
+  v => handleVisibilityChange(v)
 )
+
+watch(hasTrapFocus, enable => {
+  try {
+    if (enable) {
+      nextTick(() => activate())
+    } else {
+      deactivate()
+    }
+  } catch (e) {
+    //
+  }
+})
 
 useEventListener(document, 'keydown', e => {
   if (e.key === 'Escape' && props.show === true) {
@@ -103,31 +113,46 @@ useEventListener(document, 'keydown', e => {
   }
 })
 
+const disableModalFocusTrap = () => {
+  usesFocusTrap.value = false
+}
+
+const enableModalFocusTrap = () => {
+  usesFocusTrap.value = true
+}
+
 onMounted(() => {
+  Nova.$on('disable-focus-trap', disableModalFocusTrap)
+  Nova.$on('enable-focus-trap', enableModalFocusTrap)
+
   if (props.show === true) handleVisibilityChange(true)
 })
 
 onBeforeUnmount(() => {
   document.body.classList.remove('overflow-hidden')
   Nova.resumeShortcuts()
-  if (props.useFocusTrap) deactivateFocusTrap.value()
+
+  Nova.$off('disable-focus-trap', disableModalFocusTrap)
+  Nova.$off('enable-focus-trap', enableModalFocusTrap)
+
+  usesFocusTrap.value = false
 })
 
 const store = useStore()
 
 async function handleVisibilityChange(showing) {
-  await nextTick()
-
   if (showing === true) {
     emit('showing')
     document.body.classList.add('overflow-hidden')
     Nova.pauseShortcuts()
-    if (props.useFocusTrap) activateFocusTrap.value()
+
+    usesFocusTrap.value = true
   } else {
+    usesFocusTrap.value = false
+
     emit('closing')
     document.body.classList.remove('overflow-hidden')
     Nova.resumeShortcuts()
-    if (props.useFocusTrap) deactivateFocusTrap.value()
   }
 
   store.commit('allowLeavingModal')

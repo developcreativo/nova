@@ -23,12 +23,12 @@ use Laravel\Nova\Metrics\HasHelpText;
 #[\AllowDynamicProperties]
 class Panel extends MergeValue implements JsonSerializable
 {
-    use ConditionallyLoadsAttributes;
-    use Macroable;
-    use Metable;
-    use Makeable;
-    use HasHelpText;
     use Collapsable;
+    use ConditionallyLoadsAttributes;
+    use HasHelpText;
+    use Macroable;
+    use Makeable;
+    use Metable;
 
     /**
      * The name of the panel.

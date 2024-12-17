@@ -26,7 +26,10 @@
             </div>
 
             <!-- Custom Filters -->
-            <div v-for="filter in filters" :key="filter.name">
+            <div
+              v-for="(filter, index) in filters"
+              :key="`${filter.class}-${index}`"
+            >
               <component
                 :is="filter.component"
                 :filter-key="filter.class"

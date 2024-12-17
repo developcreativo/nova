@@ -37,12 +37,12 @@ use ReflectionClass;
 #[\AllowDynamicProperties]
 class Action implements JsonSerializable
 {
-    use AuthorizedToSee,
-        Macroable,
-        Makeable,
-        Metable,
-        ProxiesCanSeeToGate,
-        Tappable;
+    use AuthorizedToSee;
+    use Macroable;
+    use Makeable;
+    use Metable;
+    use ProxiesCanSeeToGate;
+    use Tappable;
 
     public const FULLSCREEN_STYLE = 'fullscreen';
 
@@ -350,32 +350,35 @@ class Action implements JsonSerializable
     /**
      * Return a Inertia visit from the action.
      *
-     * @param  string  $name
-     * @param  (\Closure():(string))|(\Closure(\Illuminate\Database\Eloquent\Model):(string))|string|array<string, mixed>  $path
-     * @param  array<string, mixed>  $options
+     * @template TVisit of string|\Laravel\Nova\URL
+     * @template TQueryString of array<string, mixed>
+     *
+     * @param  TVisit  $name
+     * @param  (\Closure():(TVisit))|(\Closure(\Illuminate\Database\Eloquent\Model):(TVisit))|TVisit|TQueryString  $path
+     * @param  TQueryString  $options
      * @return static|\Laravel\Nova\Actions\ActionResponse
      */
     public static function visit($name, $path = [], $options = [])
     {
-        if (\func_num_args() === 3) {
-            return (new static)
-                ->withName($name)
-                ->noop()
-                ->tap(function ($action) use ($path, $options) {
-                    $action->handleUsing(function ($fields, $models) use ($action, $path, $options) {
-                        if ($action->sole === true) {
-                            return ActionResponse::visit(value($path, $models->first()), $options);
-                        }
-
-                        return ActionResponse::visit(value($path), $options);
-                    });
-                })
-                ->then(function ($response) {
-                    return $response->first();
-                });
+        if (\func_num_args() <= 2 && is_array($path)) {
+            return ActionResponse::visit($name, $path);
         }
 
-        return ActionResponse::visit($name, $path);
+        return (new static)
+            ->withName($name)
+            ->noop()
+            ->tap(function ($action) use ($path, $options) {
+                $action->handleUsing(function ($fields, $models) use ($action, $path, $options) {
+                    if ($action->sole === true) {
+                        return ActionResponse::visit(value($path, $models->first()), $options);
+                    }
+
+                    return ActionResponse::visit(value($path), $options);
+                });
+            })
+            ->then(function ($response) {
+                return $response->first();
+            });
     }
 
     /**
@@ -441,7 +444,7 @@ class Action implements JsonSerializable
      * @param  string  $url
      * @return static|\Laravel\Nova\Actions\ActionResponse
      *
-     * @deprecated Use "downloadURL"
+     * @deprecated Use "Action::downloadUrl()"
      */
     public static function download($url, $name)
     {
@@ -590,7 +593,7 @@ class Action implements JsonSerializable
      * @param  string|null  $message
      * @return static|\Laravel\Nova\Actions\ActionResponse
      */
-    public static function danger($name, string $message = null)
+    public static function danger($name, ?string $message = null)
     {
         if (\func_num_args() === 2) {
             return (new static)

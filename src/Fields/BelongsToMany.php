@@ -3,7 +3,6 @@
 namespace Laravel\Nova\Fields;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Laravel\Nova\Contracts\Deletable as DeletableContract;
 use Laravel\Nova\Contracts\FilterableField;
 use Laravel\Nova\Contracts\ListableField;
@@ -21,15 +20,16 @@ use Laravel\Nova\TrashedStatus;
  */
 class BelongsToMany extends Field implements DeletableContract, FilterableField, ListableField, PivotableField, RelatableField
 {
-    use AttachableRelation,
-        Deletable,
-        DeterminesIfCreateRelationCanBeShown,
-        DetachesPivotModels,
-        EloquentFilterable,
-        FormatsRelatableDisplayValues,
-        ManyToManyCreationRules,
-        Searchable,
-        Collapsable;
+    use AttachableRelation;
+    use Collapsable;
+    use Deletable;
+    use DetachesPivotModels;
+    use DeterminesIfCreateRelationCanBeShown;
+    use EloquentFilterable;
+    use FormatsRelatableDisplayValues;
+    use ManyToManyCreationRules;
+    use Searchable;
+    use SupportsRelatableQuery;
 
     /**
      * The field's component.
@@ -213,38 +213,8 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
                         );
 
         return $query->tap(function ($query) use ($request, $model) {
-            forward_static_call($this->attachableQueryCallable($request, $model), $request, $query, $this);
+            forward_static_call($this->relatableQueryCallable($request, $this->resourceClass, $model), $request, $query, $this);
         });
-    }
-
-    /**
-     * Get the attachable query method name.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return array
-     */
-    protected function attachableQueryCallable(NovaRequest $request, $model)
-    {
-        return ($method = $this->attachableQueryMethod($request, $model))
-                    ? [$request->resource(), $method]
-                    : [$this->resourceClass, 'relatableQuery'];
-    }
-
-    /**
-     * Get the attachable query method name.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return string|null
-     */
-    protected function attachableQueryMethod(NovaRequest $request, $model)
-    {
-        $method = 'relatable'.Str::plural(class_basename($model));
-
-        if (method_exists($request->resource(), $method)) {
-            return $method;
-        }
     }
 
     /**
@@ -260,7 +230,7 @@ class BelongsToMany extends Field implements DeletableContract, FilterableField,
             'avatar' => $resource->resolveAvatarUrl($request),
             'display' => $this->formatDisplayValue($resource),
             'subtitle' => $resource->subtitle(),
-            'value' => $resource->getKey(),
+            'value' => optional(ID::forResource($resource))->value ?? $resource->getKey(),
         ]);
     }
 

@@ -10,7 +10,7 @@
         v-if="value.length > 0"
         class="overflow-hidden overflow-x-auto relative"
       >
-        <table class="w-full table-default">
+        <table class="w-full table-default table-fixed">
           <tbody
             class="border-t border-b border-gray-100 dark:border-gray-700 divide-y divide-gray-100 dark:divide-gray-700"
           >
@@ -76,12 +76,14 @@ export default {
   mounted() {
     if (this.card && this.card.refreshWhenFiltersChange === true) {
       Nova.$on('filter-changed', this.fetch)
+      Nova.$on('filter-reset', this.fetch)
     }
   },
 
   beforeUnmount() {
     if (this.card && this.card.refreshWhenFiltersChange === true) {
       Nova.$off('filter-changed', this.fetch)
+      Nova.$off('filter-reset', this.fetch)
     }
   },
 

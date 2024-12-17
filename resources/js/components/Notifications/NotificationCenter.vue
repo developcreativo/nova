@@ -35,7 +35,7 @@
       <div v-if="notificationsShown" class="fixed flex inset-0 z-20">
         <div
           @click="toggleNotifications"
-          class="absolute inset-0 bg-gray-600 dark:bg-gray-900 opacity-75"
+          class="absolute inset-0 bg-gray-600/75 dark:bg-gray-900/75"
           dusk="notifications-backdrop"
         />
 

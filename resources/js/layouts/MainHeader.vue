@@ -58,7 +58,7 @@
             <div class="fixed inset-0" aria-hidden="true">
               <div
                 @click="toggleMainMenu"
-                class="absolute inset-0 bg-gray-600 dark:bg-gray-900 opacity-75"
+                class="absolute inset-0 bg-gray-600/75 dark:bg-gray-900/75"
               />
             </div>
 

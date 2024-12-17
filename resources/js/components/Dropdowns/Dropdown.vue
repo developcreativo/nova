@@ -13,6 +13,8 @@ import {
   h,
   mergeProps,
   nextTick,
+  onBeforeUnmount,
+  onMounted,
   ref,
   Teleport,
   Transition,
@@ -48,6 +50,20 @@ export default {
       allowOutsideClick: true,
     })
 
+    const usesFocusTrap = ref(true)
+
+    const hasTrapFocus = computed(() => {
+      return menuShown.value === true && usesFocusTrap.value === true
+    })
+
+    const disableModalFocusTrap = () => {
+      usesFocusTrap.value = false
+    }
+
+    const enableModalFocusTrap = () => {
+      usesFocusTrap.value = true
+    }
+
     useCloseOnEsc(() => (menuShown.value = false))
 
     const dropdownButtonLabel = computed(
@@ -81,12 +97,24 @@ export default {
     })
 
     watch(
-      () => menuShown.value,
+      () => hasTrapFocus,
       async v => {
         await nextTick()
         v ? activate() : deactivate()
       }
     )
+
+    onMounted(() => {
+      Nova.$on('disable-focus-trap', disableModalFocusTrap)
+      Nova.$on('enable-focus-trap', enableModalFocusTrap)
+    })
+
+    onBeforeUnmount(() => {
+      Nova.$off('disable-focus-trap', disableModalFocusTrap)
+      Nova.$off('enable-focus-trap', enableModalFocusTrap)
+
+      usesFocusTrap.value = false
+    })
 
     return () => {
       const children = renderSlotFragments(slots.default())
@@ -148,7 +176,7 @@ export default {
                           id: menuLabel.value,
                           'aria-labelledby': dropdownButtonLabel.value,
                           tabindex: '0',
-                          class: 'relative z-[50]',
+                          class: 'relative z-[70]',
                           style: floatingStyles.value,
                           'data-menu-open': menuShown.value,
                           dusk: 'dropdown-menu',
@@ -160,7 +188,7 @@ export default {
                         slots.menu()
                       ),
                       h('div', {
-                        class: 'z-[49] fixed inset-0',
+                        class: 'z-[69] fixed inset-0',
                         dusk: 'dropdown-overlay',
                         onClick: () => (menuShown.value = false),
                       }),

@@ -5,7 +5,7 @@
     role="dialog"
     :size="action.modalSize"
     :modal-style="action.modalStyle"
-    :use-focus-trap="false"
+    :use-focus-trap="usesFocusTrap"
   >
     <form
       ref="theForm"
@@ -118,11 +118,16 @@ export default {
   },
 
   data: () => ({
+    loading: true,
     formUniqueId: uid(),
   }),
 
   created() {
     document.addEventListener('keydown', this.handleKeydown)
+  },
+
+  mounted() {
+    this.loading = false
   },
 
   beforeUnmount() {
@@ -173,6 +178,10 @@ export default {
         '?' +
         searchParams.toString()
       )
+    },
+
+    usesFocusTrap() {
+      return this.loading === false && this.action.fields.length > 0
     },
   },
 }

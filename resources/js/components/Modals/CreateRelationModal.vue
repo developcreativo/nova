@@ -4,7 +4,7 @@
     :show="show"
     @close-via-escape="handlePreventModalAbandonmentOnClose"
     :size="size"
-    :use-focus-trap="false"
+    :use-focus-trap="!loading"
   >
     <div
       class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden p-8"
@@ -12,7 +12,7 @@
       <CreateResource
         :resource-name="resourceName"
         @create-cancelled="handleCreateCancelled"
-        @finished-loading="() => {}"
+        @finished-loading="() => (loading = false)"
         @refresh="handleRefresh"
         mode="modal"
         resource-id=""
@@ -46,6 +46,10 @@ export default {
     viaResourceId: {},
     viaRelationship: {},
   },
+
+  data: () => ({
+    loading: true,
+  }),
 
   methods: {
     handleRefresh(data) {

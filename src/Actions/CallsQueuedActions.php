@@ -10,7 +10,10 @@ use Laravel\Nova\Nova;
 
 trait CallsQueuedActions
 {
-    use Batchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Batchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The action class name.

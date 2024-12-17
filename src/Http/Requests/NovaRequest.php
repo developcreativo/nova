@@ -18,8 +18,8 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
  */
 class NovaRequest extends FormRequest
 {
-    use InteractsWithResources;
     use InteractsWithRelatedResources;
+    use InteractsWithResources;
     use InteractsWithResourcesSelection;
 
     /**

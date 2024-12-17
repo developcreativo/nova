@@ -19,11 +19,11 @@ use Laravel\Nova\WithIcon;
 class MenuSection implements JsonSerializable
 {
     use AuthorizedToSee;
+    use Collapsable;
+    use Macroable;
     use Makeable;
     use WithBadge;
     use WithIcon;
-    use Macroable;
-    use Collapsable;
 
     /**
      * The menu's component.

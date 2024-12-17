@@ -122,7 +122,7 @@
           :restore-all-matching-resources="restoreAllMatchingResources"
           :restore-selected-resources="restoreSelectedResources"
           :select-all-matching-checked="selectAllMatchingResources"
-          @deselect="clearResourceSelections"
+          @deselect="deselectAllResources"
           :selected-resources="selectedResources"
           :selected-resources-for-action-selector="
             selectedResourcesForActionSelector
@@ -214,7 +214,6 @@
 </template>
 
 <script>
-// this.$refs.selectControl.selectedIndex = 0
 import { CancelToken, isCancel } from 'axios'
 import {
   HasCards,
@@ -282,6 +281,7 @@ export default {
     this.getLenses()
 
     Nova.$on('refresh-resources', this.getResources)
+    Nova.$on('resources-detached', this.getAuthorizationToRelate)
 
     if (this.actionCanceller !== null) this.actionCanceller()
   },
@@ -297,6 +297,7 @@ export default {
     }
 
     Nova.$off('refresh-resources', this.getResources)
+    Nova.$off('resources-detached', this.getAuthorizationToRelate)
 
     if (this.actionCanceller !== null) this.actionCanceller()
   },

@@ -10,8 +10,13 @@
 
     <HelpTextTooltip :text="helpText" :width="helpWidth" />
 
-    <div class="min-h-[90px]">
-      <div class="overflow-hidden overflow-y-auto max-h-[90px]">
+    <div class="flex min-h-[90px]">
+      <div
+        class="flex-1 overflow-hidden overflow-y-auto"
+        :class="{
+          'max-h-[90px]': legendsHeight === 'fixed',
+        }"
+      >
         <ul>
           <li
             v-for="item in formattedItems"
@@ -30,7 +35,7 @@
 
       <div
         ref="chart"
-        class="absolute top-[calc(50%+15px)] right-[20px] bottom-[30px] translate-y-1/2 rounded-b-lg ct-chart mr-4 w-[90px] h-[90px]"
+        class="flex-none rounded-b-lg ct-chart mr-4 w-[90px] h-[90px]"
         :class="{ invisible: this.currentTotal <= 0 }"
       />
     </div>
@@ -67,6 +72,7 @@ export default {
     helpText: {},
     helpWidth: {},
     chartData: Array,
+    legendsHeight: { type: String, default: 'fixed' },
   },
 
   data: () => ({

@@ -9,7 +9,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Email extends Text implements FilterableField
 {
-    use FieldFilterable, SupportsDependentFields;
+    use FieldFilterable;
+    use SupportsDependentFields;
 
     /**
      * The field's component.
@@ -26,7 +27,7 @@ class Email extends Text implements FilterableField
      * @param  (callable(mixed, mixed, ?string):(mixed))|null  $resolveCallback
      * @return void
      */
-    public function __construct($name = 'Email', $attribute = 'email', callable $resolveCallback = null)
+    public function __construct($name = 'Email', $attribute = 'email', ?callable $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
     }

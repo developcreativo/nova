@@ -62,13 +62,13 @@ trait InteractsWithRelatedResources
      */
     public function findParentModelOrFail($resourceId = null)
     {
-        $query = Nova::modelInstanceForKey($this->viaResource)->newQueryWithoutScopes();
+        return once(function () use ($resourceId) {
+            $query = Nova::modelInstanceForKey($this->viaResource)->newQueryWithoutScopes();
 
-        if (! is_null($resourceId)) {
-            return $query->whereKey($resourceId)->firstOrFail();
-        }
+            if (! is_null($resourceId)) {
+                return $query->whereKey($resourceId)->firstOrFail();
+            }
 
-        return once(function () use ($query) {
             return $query->findOrFail($this->viaResourceId);
         });
     }
@@ -124,13 +124,13 @@ trait InteractsWithRelatedResources
      */
     public function findRelatedModelOrFail($resourceId = null)
     {
-        $query = Nova::modelInstanceForKey($this->relatedResource)->newQueryWithoutScopes();
+        return once(function () use ($resourceId) {
+            $query = Nova::modelInstanceForKey($this->relatedResource)->newQueryWithoutScopes();
 
-        if (! is_null($resourceId)) {
-            return $query->whereKey($resourceId)->firstOrFail();
-        }
+            if (! is_null($resourceId)) {
+                return $query->whereKey($resourceId)->firstOrFail();
+            }
 
-        return once(function () use ($query) {
             return $query->findOrFail($this->input($this->relatedResource));
         });
     }
@@ -212,7 +212,7 @@ trait InteractsWithRelatedResources
      */
     public function viaRelationship()
     {
-        return $this->viaResource && $this->viaResourceId && $this->viaRelationship;
+        return filled($this->viaResource) && filled($this->viaResourceId) && $this->viaRelationship;
     }
 
     /**

@@ -100,7 +100,7 @@ export default {
       if (!isNil(option) && option !== '') {
         this.value = option.value
       } else {
-        this.value = this.fieldDefaultValue()
+        this.value = ''
       }
     },
 
@@ -122,7 +122,7 @@ export default {
      */
     clearSelection() {
       this.selectedOption = null
-      this.value = this.fieldDefaultValue()
+      this.value = ''
 
       if (this.$refs.searchable) {
         this.$refs.searchable.close()

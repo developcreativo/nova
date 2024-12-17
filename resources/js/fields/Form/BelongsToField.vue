@@ -107,6 +107,7 @@ import {
   TogglesTrashed,
 } from '@/mixins'
 import filled from '@/util/filled'
+import findIndex from 'lodash/findIndex'
 
 export default {
   mixins: [
@@ -174,7 +175,7 @@ export default {
 
           this.getAvailableResources().then(() => this.selectInitialResource())
         }
-      } else if (!this.isSearchable) {
+      } else if (!this.isSearchable && this.currentlyIsVisible) {
         // If we don't need to select an initial resource because the user
         // came to create a resource directly and there's no parent resource,
         // and the field is searchable we'll just load all of the resources.
@@ -238,7 +239,7 @@ export default {
 
             if (
               isNil(selectedResource) &&
-              !this.shouldIgnoresViaRelatedResource
+              !this.shouldIgnoreViaRelatedResource
             ) {
               return Nova.visit('/404')
             }
@@ -287,13 +288,34 @@ export default {
      * Toggle the trashed state of the search
      */
     toggleWithTrashed() {
-      // Reload the data if the component doesn't have selected resource
-      if (!filled(this.selectedResource)) {
-        this.withTrashed = !this.withTrashed
+      let currentlySelectedResource
+      let currentlySelectedResourceId
 
-        if (!this.useSearchInput) {
-          this.getAvailableResources()
-        }
+      if (filled(this.selectedResource)) {
+        currentlySelectedResource = this.selectedResource
+        currentlySelectedResourceId = this.selectedResource.value
+      }
+
+      this.withTrashed = !this.withTrashed
+
+      this.selectedResource = null
+      this.selectedResourceId = null
+
+      if (!this.useSearchInput) {
+        this.getAvailableResources().then(() => {
+          let index = findIndex(this.availableResources, r => {
+            return r.value === currentlySelectedResourceId
+          })
+
+          if (index > -1) {
+            this.selectedResource = this.availableResources[index]
+            this.selectedResourceId = currentlySelectedResourceId
+          } else {
+            // We didn't find the resource anymore, so let's remove the selection...
+            this.selectedResource = null
+            this.selectedResourceId = null
+          }
+        })
       }
     },
 
@@ -328,6 +350,8 @@ export default {
     },
 
     clearResourceSelection() {
+      const id = this.selectedResourceId
+
       this.clearSelection()
 
       if (this.viaRelatedResource && !this.createdViaRelationModal) {
@@ -346,12 +370,24 @@ export default {
         })
       } else {
         if (this.createdViaRelationModal) {
+          this.selectedResourceId = id
           this.createdViaRelationModal = false
+          this.initializingWithExistingResource = true
+        } else if (this.editingExistingResource) {
           this.initializingWithExistingResource = false
         }
 
-        this.getAvailableResources()
+        if (
+          (!this.isSearchable || this.shouldLoadFirstResource) &&
+          this.currentlyIsVisible
+        ) {
+          this.getAvailableResources()
+        }
       }
+    },
+
+    revertSyncedFieldToPreviousValue(field) {
+      this.syncedField.belongsToId = field.belongsToId
     },
 
     onSyncedField() {
@@ -449,7 +485,7 @@ export default {
     shouldLoadFirstResource() {
       return (
         (this.initializingWithExistingResource &&
-          !this.shouldIgnoresViaRelatedResource) ||
+          !this.shouldIgnoreViaRelatedResource) ||
         Boolean(this.currentlyIsReadonly && this.selectedResourceId)
       )
     },
@@ -502,7 +538,7 @@ export default {
       return this.availableResources
     },
 
-    shouldIgnoresViaRelatedResource() {
+    shouldIgnoreViaRelatedResource() {
       return this.viaRelatedResource && filled(this.search)
     },
 

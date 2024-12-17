@@ -12,7 +12,8 @@ use Laravel\Nova\Nova;
 #[\AllowDynamicProperties]
 class CallQueuedAction
 {
-    use Batchable, CallsQueuedActions;
+    use Batchable;
+    use CallsQueuedActions;
 
     /**
      * The Eloquent model/data collection.

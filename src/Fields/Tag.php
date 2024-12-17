@@ -6,11 +6,14 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Util;
 
+/**
+ * @method static static make(mixed $name, string|null $attribute = null, string|null $resource = null)
+ */
 class Tag extends Field
 {
-    use SupportsDependentFields;
     use DeterminesIfCreateRelationCanBeShown;
     use Searchable;
+    use SupportsDependentFields;
 
     const LIST_STYLE = 'list';
 

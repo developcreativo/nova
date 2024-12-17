@@ -12,7 +12,8 @@ use Laravel\Nova\Contracts\RelatableField;
  */
 class LensRequest extends NovaRequest
 {
-    use DecodesFilters, InteractsWithLenses;
+    use DecodesFilters;
+    use InteractsWithLenses;
 
     /**
      * Whether to include the table order prefix.

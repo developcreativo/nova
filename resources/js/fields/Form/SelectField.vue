@@ -63,6 +63,7 @@ import find from 'lodash/find'
 import first from 'lodash/first'
 import isNil from 'lodash/isNil'
 import { DependentFormField, HandlesValidationErrors } from '@/mixins'
+import filled from '@/util/filled'
 
 export default {
   mixins: [HandlesValidationErrors, DependentFormField],
@@ -73,10 +74,10 @@ export default {
   }),
 
   created() {
-    if (this.field.value) {
+    if (filled(this.field.value)) {
       let selectedOption = find(
         this.field.options,
-        v => v.value === this.field.value
+        v => v.value == this.field.value
       )
 
       this.$nextTick(() => {
@@ -146,7 +147,7 @@ export default {
     handleChange(value) {
       let selectedOption = find(
         this.currentField.options,
-        v => v.value === value
+        v => v.value == value
       )
 
       this.selectOption(selectedOption)
@@ -169,7 +170,7 @@ export default {
 
       let selectedOption = find(
         this.currentField.options,
-        v => v.value === this.currentField.value
+        v => v.value == this.currentField.value
       )
 
       if (isNil(currentSelectedOption)) {

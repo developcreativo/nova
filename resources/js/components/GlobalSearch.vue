@@ -130,7 +130,7 @@
           <Backdrop
             @click="closeSearch"
             :show="showOverlay"
-            class="bg-gray-500 dark:bg-gray-900 opacity-75 z-0"
+            class="bg-gray-500/75 dark:bg-gray-900/75 z-0"
           />
         </transition>
       </teleport>
@@ -145,6 +145,7 @@ import map from 'lodash/map'
 import debounce from 'lodash/debounce'
 import filter from 'lodash/filter'
 import find from 'lodash/find'
+import isNil from 'lodash/isNil'
 import uniqBy from 'lodash/uniqBy'
 
 function fetchSearchResults(search, cancelCallback) {
@@ -328,6 +329,10 @@ export default {
       if (this.canceller !== null) this.canceller()
 
       this.closeSearch()
+
+      if (isNil(resource)) {
+        return
+      }
 
       let url = Nova.url(
         `/resources/${resource.resourceName}/${resource.resourceId}`

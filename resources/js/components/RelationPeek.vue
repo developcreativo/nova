@@ -4,7 +4,7 @@
     :popperTriggers="['hover']"
     placement="top-start"
     theme="plain"
-    @show="fetchOnce"
+    @tooltip-show="fetchOnce"
     :show-group="`${resourceName}-${resourceId}-peek`"
     :auto-hide="true"
   >

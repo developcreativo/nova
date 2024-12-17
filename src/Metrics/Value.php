@@ -130,7 +130,7 @@ abstract class Value extends RangedMetric
         if ($request->range === 'ALL') {
             return $this->result(
                 round(
-                    (clone $query)->{$function}($column),
+                    (clone $query)->{$function}($column) ?? 0,
                     $this->roundingPrecision,
                     $this->roundingMode
                 )
@@ -168,7 +168,7 @@ abstract class Value extends RangedMetric
      *
      * @param  string|int  $range
      * @param  string  $timezone
-     * @return array<int, \Carbon\CarbonImmutable>
+     * @return array<int, \Carbon\CarbonInterface>
      */
     protected function previousRange($range, $timezone)
     {
@@ -236,7 +236,7 @@ abstract class Value extends RangedMetric
      *
      * @param  string|int  $range
      * @param  string  $timezone
-     * @return array<int, \Carbon\CarbonImmutable>
+     * @return array<int, \Carbon\CarbonInterface>
      */
     protected function currentRange($range, $timezone)
     {

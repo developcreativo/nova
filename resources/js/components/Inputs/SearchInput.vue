@@ -1,207 +1,24 @@
-<script setup>
-import { mapProps } from '@/mixins'
-import { computed, nextTick, onBeforeMount, reactive, ref, watch } from 'vue'
-import debounce from 'lodash/debounce'
-import { useEventListener } from '@vueuse/core'
-import get from 'lodash/get'
-import findIndex from 'lodash/findIndex'
-import { createPopper } from '@popperjs/core'
-
-const container = ref(null)
-const dropdown = ref(null)
-const input = ref(null)
-const search = ref(null)
-const selectedOption = ref(null)
-
-const emit = defineEmits(['clear', 'input', 'shown', 'closed', 'selected'])
-
-defineExpose({ open, close, clear })
-
-defineOptions({ inheritAttrs: false })
-
-const props = defineProps({
-  dusk: {},
-  disabled: { type: Boolean, default: false },
-  readOnly: { type: Boolean, default: false },
-  value: {},
-  data: {},
-  trackBy: {},
-  error: { type: Boolean, default: false },
-  boundary: {},
-  debounce: { type: Number, default: 500 },
-  clearable: { type: Boolean, default: true },
-  ...mapProps(['mode']),
-})
-
-const data = reactive({
-  debouncer: null,
-  show: false,
-  search: '',
-  selectedOptionIndex: 0,
-  popper: null,
-  inputWidth: null,
-})
-
-onBeforeMount(() => {
-  data.debouncer = debounce(callback => callback(), props.debounce)
-})
-
-useEventListener(document, 'keydown', e => {
-  // 'tab' or 'escape'
-  if (data.show && (e.keyCode === 9 || e.keyCode === 27)) {
-    setTimeout(() => close(), 50)
-  }
-})
-
-watch(
-  () => data.search,
-  search => {
-    data.selectedOptionIndex = 0
-
-    if (container.value) {
-      container.value.scrollTop = 0
-    } else {
-      nextTick(() => (container.value.scrollTop = 0))
-    }
-
-    data.debouncer(() => emit('input', search))
-  }
-)
-
-watch(
-  () => data.show,
-  show => {
-    if (show) {
-      let selected = findIndex(props.data, [
-        props.trackBy,
-        get(props.value, props.trackBy),
-      ])
-      if (selected !== -1) props.selected = selected
-      data.inputWidth = input.value.offsetWidth
-
-      nextTick(() => {
-        data.popper = createPopper(input.value, dropdown.value, {
-          placement: 'bottom-start',
-          onFirstUpdate: state => {
-            container.value.scrollTop = container.value.scrollHeight
-            updateScrollPosition()
-            search.value.focus()
-          },
-        })
-      })
-    } else {
-      if (data.popper) data.popper.destroy()
-    }
-  }
-)
-
-function getTrackedByKey(option) {
-  return get(option, props.trackBy)
-}
-
-function open() {
-  if (!props.disabled && !props.readOnly) {
-    data.show = true
-    data.search = ''
-    emit('shown')
-  }
-}
-
-function close() {
-  data.show = false
-  emit('closed')
-}
-
-function clear() {
-  if (!props.disabled) {
-    data.selectedOptionIndex = null
-    emit('clear')
-  }
-}
-
-function move(offset) {
-  let newIndex = data.selectedOptionIndex + offset
-
-  if (newIndex >= 0 && newIndex < props.data.length) {
-    data.selectedOptionIndex = newIndex
-    updateScrollPosition()
-  }
-}
-
-function updateScrollPosition() {
-  nextTick(() => {
-    if (selectedOption.value) {
-      if (
-        selectedOption.value.offsetTop >
-        container.value.scrollTop +
-          container.value.clientHeight -
-          selectedOption.value.clientHeight
-      ) {
-        container.value.scrollTop =
-          selectedOption.value.offsetTop +
-          selectedOption.value.clientHeight -
-          container.value.clientHeight
-      }
-
-      if (selectedOption.value.offsetTop < container.value.scrollTop) {
-        container.value.scrollTop = selectedOption.value.offsetTop
-      }
-    }
-  })
-}
-
-function chooseSelected(event) {
-  if (event.isComposing || event.keyCode === 229) return
-
-  if (props.data[data.selectedOptionIndex] !== undefined) {
-    emit('selected', props.data[data.selectedOptionIndex])
-    input.value.focus()
-    nextTick(() => close())
-  }
-}
-
-function choose(option) {
-  data.selectedOptionIndex = findIndex(props.data, [
-    props.trackBy,
-    get(option, props.trackBy),
-  ])
-  emit('selected', option)
-  input.value.focus()
-  nextTick(() => close())
-}
-
-function setSelectedRef(index, el) {
-  if (data.selectedOptionIndex === index) {
-    selectedOption.value = el
-  }
-}
-
-const shouldShowDropdownArrow = computed(() => {
-  return props.value === '' || props.value == null || !props.clearable
-})
-</script>
-
 <template>
   <div v-bind="$attrs" class="relative" :dusk="dusk" ref="searchInputContainer">
     <div
       ref="input"
       @click.stop="open"
-      @focus="open"
+      @keydown.space.prevent="open"
       @keydown.down.prevent="open"
       @keydown.up.prevent="open"
       :class="{
-        'ring dark:border-gray-500 dark:ring-gray-700': data.show,
+        'ring dark:border-gray-500 dark:ring-gray-700': show,
         'form-input-border-error': error,
         'bg-gray-50 dark:bg-gray-700': disabled || readOnly,
       }"
-      class="relative flex items-center form-control form-input-bordered form-select pr-6"
-      :tabindex="data.show ? -1 : 0"
-      :aria-expanded="data.show === true ? 'true' : 'false'"
+      class="relative flex items-center form-control form-input form-control-bordered form-select pr-6"
+      :tabindex="show ? -1 : 0"
+      :aria-expanded="show === true ? 'true' : 'false'"
       :dusk="`${dusk}-selected`"
     >
       <IconArrow
         v-if="shouldShowDropdownArrow && !disabled"
-        class="pointer-events-none form-select-arrow"
+        class="pointer-events-none form-select-arrow text-gray-700"
       />
 
       <slot name="default">
@@ -234,16 +51,16 @@ const shouldShowDropdownArrow = computed(() => {
 
   <teleport to="body">
     <div
-      v-if="data.show"
+      v-if="show"
       ref="dropdown"
       class="rounded-lg px-0 bg-white dark:bg-gray-900 shadow border border-gray-200 dark:border-gray-700 absolute top-0 left-0 my-1 overflow-hidden"
-      :style="{ width: data.inputWidth + 'px', zIndex: 2000 }"
+      :style="{ width: inputWidth + 'px', zIndex: 2000 }"
       :dusk="`${dusk}-dropdown`"
     >
       <!-- Search Input -->
       <input
         :disabled="disabled || readOnly"
-        v-model="data.search"
+        v-model="searchValue"
         ref="search"
         @keydown.enter.prevent="chooseSelected"
         @keydown.down.prevent="move(1)"
@@ -264,30 +81,235 @@ const shouldShowDropdownArrow = computed(() => {
         :dusk="`${dusk}-results`"
       >
         <div
-          v-for="(option, index) in props.data"
+          v-for="(option, index) in data"
           :dusk="`${dusk}-result-${index}`"
           :key="getTrackedByKey(option)"
-          :ref="el => setSelectedRef(index, el)"
+          :ref="index === selectedOptionIndex ? 'selected' : 'unselected'"
           @click.stop="choose(option)"
           class="px-3 py-1.5 cursor-pointer z-[50]"
           :class="{
             'border-t border-gray-100 dark:border-gray-700': index !== 0,
             [`search-input-item-${index}`]: true,
             'hover:bg-gray-100 dark:hover:bg-gray-800':
-              index !== data.selectedOptionIndex,
+              index !== selectedOptionIndex,
             'bg-primary-500 text-white dark:text-gray-900':
-              index === data.selectedOptionIndex,
+              index === selectedOptionIndex,
           }"
         >
           <slot
             name="option"
             :option="option"
-            :selected="index === data.selectedOptionIndex"
+            :selected="index === selectedOptionIndex"
           />
         </div>
       </div>
     </div>
 
-    <Backdrop @click="close" :show="data.show" class="z-[30]" />
+    <Backdrop @click="close" :show="show" :style="{ zIndex: 1999 }" />
   </teleport>
 </template>
+
+<script>
+import debounce from 'lodash/debounce'
+import findIndex from 'lodash/findIndex'
+import get from 'lodash/get'
+import { createPopper } from '@popperjs/core'
+import { mapProps } from '@/mixins'
+
+export default {
+  emits: ['clear', 'input', 'shown', 'closed', 'selected'],
+
+  inheritAttrs: false,
+
+  props: {
+    dusk: {
+      type: String,
+      required: true,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    readOnly: {
+      type: Boolean,
+      default: false,
+    },
+    value: {},
+    data: {},
+    trackBy: {},
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    boundary: {},
+    debounce: {
+      type: Number,
+      default: 500,
+    },
+    clearable: {
+      type: Boolean,
+      default: true,
+    },
+    ...mapProps(['mode']),
+  },
+
+  data: () => ({
+    debouncer: null,
+    show: false,
+    searchValue: '',
+    selectedOptionIndex: 0,
+    popper: null,
+    inputWidth: null,
+  }),
+
+  watch: {
+    searchValue(search) {
+      this.selectedOptionIndex = 0
+      if (this.$refs.container) {
+        this.$refs.container.scrollTop = 0
+      } else {
+        this.$nextTick(() => {
+          this.$refs.container.scrollTop = 0
+        })
+      }
+
+      this.debouncer(() => {
+        this.$emit('input', search)
+      })
+    },
+
+    show(show) {
+      if (show) {
+        let selected = findIndex(this.data, [
+          this.trackBy,
+          get(this.value, this.trackBy),
+        ])
+        if (selected !== -1) this.selectedOptionIndex = selected
+        this.inputWidth = this.$refs.input.offsetWidth
+
+        Nova.$emit('disable-focus-trap')
+
+        this.$nextTick(() => {
+          this.popper = createPopper(this.$refs.input, this.$refs.dropdown, {
+            placement: 'bottom-start',
+            onFirstUpdate: state => {
+              this.$refs.container.scrollTop = this.$refs.container.scrollHeight
+              this.updateScrollPosition()
+              this.$refs.search.focus()
+            },
+          })
+        })
+      } else {
+        if (this.popper) this.popper.destroy()
+
+        Nova.$emit('enable-focus-trap')
+        this.$refs.input.focus()
+      }
+    },
+  },
+
+  created() {
+    this.debouncer = debounce(callback => callback(), this.debounce)
+  },
+
+  mounted() {
+    document.addEventListener('keydown', this.handleEscape)
+  },
+
+  beforeUnmount() {
+    document.removeEventListener('keydown', this.handleEscape)
+  },
+
+  methods: {
+    handleEscape(e) {
+      // 'tab' or 'escape'
+      if (this.show && (e.keyCode == 9 || e.keyCode == 27)) {
+        setTimeout(() => this.close(), 50)
+      }
+    },
+
+    getTrackedByKey(option) {
+      return get(option, this.trackBy)
+    },
+
+    open() {
+      if (!this.disabled && !this.readOnly) {
+        this.show = true
+        this.searchValue = ''
+        this.$emit('shown')
+      }
+    },
+
+    close() {
+      this.show = false
+      this.$emit('closed')
+    },
+
+    clear() {
+      if (!this.disabled) {
+        this.selectedOptionIndex = null
+        this.$emit('clear', null)
+      }
+    },
+
+    move(offset) {
+      let newIndex = this.selectedOptionIndex + offset
+
+      if (newIndex >= 0 && newIndex < this.data.length) {
+        this.selectedOptionIndex = newIndex
+        this.updateScrollPosition()
+      }
+    },
+
+    updateScrollPosition() {
+      this.$nextTick(() => {
+        if (this.$refs.selected && this.$refs.selected[0]) {
+          if (
+            this.$refs.selected[0].offsetTop >
+            this.$refs.container.scrollTop +
+              this.$refs.container.clientHeight -
+              this.$refs.selected[0].clientHeight
+          ) {
+            this.$refs.container.scrollTop =
+              this.$refs.selected[0].offsetTop +
+              this.$refs.selected[0].clientHeight -
+              this.$refs.container.clientHeight
+          }
+
+          if (
+            this.$refs.selected[0].offsetTop < this.$refs.container.scrollTop
+          ) {
+            this.$refs.container.scrollTop = this.$refs.selected[0].offsetTop
+          }
+        }
+      })
+    },
+
+    chooseSelected(event) {
+      if (event.isComposing || event.keyCode === 229) return
+
+      if (this.data[this.selectedOptionIndex] !== undefined) {
+        this.$emit('selected', this.data[this.selectedOptionIndex])
+        this.$refs.input.focus()
+        this.$nextTick(() => this.close())
+      }
+    },
+
+    choose(option) {
+      this.selectedOptionIndex = findIndex(this.data, [
+        this.trackBy,
+        get(option, this.trackBy),
+      ])
+      this.$emit('selected', option)
+      this.$refs.input.blur()
+      this.$nextTick(() => this.close())
+    },
+  },
+
+  computed: {
+    shouldShowDropdownArrow() {
+      return this.value == '' || this.value == null || !this.clearable
+    },
+  },
+}
+</script>
