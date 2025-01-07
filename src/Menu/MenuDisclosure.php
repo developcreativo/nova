@@ -3,11 +3,8 @@
 namespace Laravel\Nova\Menu;
 
 use Laravel\Nova\Menu\MenuSection as Section;
-use NormanHuth\NovaBasePackage\HasIcons;
-
 class MenuDisclosure extends Section
 {
-    use HasIcons;
 
     /**
      * The icon height in pixel.
