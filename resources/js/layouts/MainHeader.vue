@@ -18,9 +18,10 @@
           class="text-gray-900 hover:text-gray-500 active:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 dark:active:text-gray-500 h-12 rounded-lg flex items-center ml-2 focus:ring focus:ring-inset focus:outline-none ring-primary-200 dark:ring-gray-600 px-4"
           :aria-label="appName"
         >
-          <AppLogo class="h-8" />
+          <AppLogo class="h-6" />
         </Link>
 
+        <LicenseWarning />
       </div>
 
       <div class="flex flex-1 px-4 sm:px-8 lg:px-12">
@@ -31,18 +32,6 @@
         />
 
         <div class="isolate relative flex items-center pl-6 ml-auto">
-          <div class="w-48 mr-4">
-            <select
-              v-model="selectedSucursal"
-              class="w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
-              @change="handleSucursalChange"
-            >
-              <option value="" disabled>Seleccionar Sucursal</option>
-              <option v-for="sucursal in sucursales" :key="sucursal.value" :value="sucursal.value">
-                {{ sucursal.label }}
-              </option>
-            </select>
-          </div>
           <ThemeDropdown />
           <div class="relative z-50">
             <NotificationCenter v-if="notificationCenterEnabled" />
@@ -137,39 +126,20 @@
 
 <script setup>
 import { useStore } from 'vuex'
-// import LicenseWarning from '@/components/LicenseWarning'
+import LicenseWarning from '@/components/LicenseWarning'
 import { Button } from 'laravel-nova-ui'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
-import { computed, onBeforeUnmount, ref, watch, onMounted } from 'vue'
-import axios from 'axios'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
 
 const store = useStore()
+
 const modalContent = ref(null)
-const sucursales = ref([])
-const selectedSucursal = ref(null)
 
 const { activate, deactivate } = useFocusTrap(modalContent, {
   initialFocus: true,
   allowOutsideClick: false,
   escapeDeactivates: false,
 })
-
-onMounted(async () => {
-  try {
-    const response = await axios.get('/api/sucursales/user/')
-    sucursales.value = response.data.map(sucursal => ({
-      label: sucursal.nombre,
-      value: sucursal.id
-    }))
-  } catch (error) {
-    console.error('Error al cargar sucursales:', error)
-  }
-})
-
-const handleSucursalChange = (value) => {
-  // Manejar el cambio de sucursal aquí
-  console.log('Sucursal seleccionada:', value)
-}
 
 const toggleMainMenu = () => store.commit('toggleMainMenu')
 
@@ -181,7 +151,6 @@ const notificationCenterEnabled = computed(() =>
 
 const mainMenuShown = computed(() => store.getters.mainMenuShown)
 const appName = computed(() => Nova.config('appName'))
-const currentUser = computed(() => store.getters.currentUser)
 
 watch(
   () => mainMenuShown.value,
