@@ -180,7 +180,7 @@ class NovaCoreServiceProvider extends ServiceProvider
                     return Nova::resolveUserTimezone($request);
                 },
                 'pagination' => config('nova.pagination', 'links'),
-                'locale' => config('app.locale', 'en'),
+                'locale' => config('app.locale', 'es'),
                 'algoliaAppId' => config('services.algolia.appId'),
                 'algoliaApiKey' => config('services.algolia.apiKey'),
                 'version' => Nova::version(),
