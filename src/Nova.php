@@ -1425,13 +1425,8 @@ class Nova
      */
     public static function defaultFooter(Request $request)
     {
-        return Blade::render('
-            <p class="text-center">Powered by <a class="link-default" href="https://nulled.ws">Laravel Nova</a> · v{!! $version !!}</p>
-            <p class="text-center">&copy; {!! $year !!} No Money Edition</p>
-        ', [
-            'version' => static::version(),
-            'year' => date('Y'),
-        ]);
+        return Blade::render('Copyright © ' . date('Y') . ' All rights reserved.', [
+        ]); 
     }
 
     /**
